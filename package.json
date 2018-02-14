@@ -1,6 +1,6 @@
 {
   "name": "ge-tracker-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unofficial GE-Tracker.com API client",
   "main": "index.js",
   "repository": "https://github.com/kylestev/ge-tracker-api",
