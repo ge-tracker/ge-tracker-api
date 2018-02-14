@@ -7,6 +7,7 @@
   "author": "Kyle Stevenson <kyle@kylestevenson.me>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.17.1"
+    "axios": "^0.17.1",
+    "deepmerge": "^2.0.1"
   }
 }
