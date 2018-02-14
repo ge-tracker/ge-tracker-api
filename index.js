@@ -1,6 +1,12 @@
-const { createClientFromEnv } = require('./lib/client')
+const { createApi } = require('./lib/api')
+const { createClient } = require('./lib/client')
+const { getApiKeyFromEnv } = require('./lib/config')
 
-createClientFromEnv()
-  .get('items/1050')
-  .then(console.log)
-  .catch(err => console.error(err.message))
+function createInstance(apiKey, opts = null) {
+  return createApi(createClient(apiKey, opts))
+}
+
+module.exports = {
+  createClient: (apiKey, opts = null) => createInstance(apiKey, opts),
+  createClientFromEnv: (opts = null) => createInstance(getApiKeyFromEnv(), opts)
+}
