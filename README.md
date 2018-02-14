@@ -31,7 +31,7 @@ named `GE_TRACKER_API_KEY` and use that as the API key.
 
 ```javascript
 // example.js
-const { createClientFromEnv } = require('ge-tracker-api)
+const { createClientFromEnv } = require('ge-tracker-api')
 
 const client = createClientFromEnv()
 
