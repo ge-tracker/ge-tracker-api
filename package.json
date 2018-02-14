@@ -1,0 +1,12 @@
+{
+  "name": "ge-tracker-api",
+  "version": "0.1.0",
+  "description": "Unofficial GE-Tracker.com API client",
+  "main": "index.js",
+  "repository": "https://github.com/kylestev/ge-tracker-api",
+  "author": "Kyle Stevenson <kyle@kylestevenson.me>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1"
+  }
+}
