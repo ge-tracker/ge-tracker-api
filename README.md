@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/ge-tracker-api.svg)](https://badge.fury.io/js/ge-tracker-api)
+
 # ge-tracker-api
 
 Unofficial API client to access [ge-tracker.com](https://ge-tracker.com)'s API.
