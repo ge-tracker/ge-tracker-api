@@ -1,7 +1,6 @@
-const Axios = require('axios');
-const merge = require('deepmerge');
-
-const errors = require('./errors');
+import Axios from 'axios';
+import merge from 'deepmerge';
+import * as errors from './errors';
 
 const GE_TRACKER_API_URL = 'https://www.ge-tracker.com/api';
 
@@ -54,10 +53,10 @@ function createClient(apiKey, opts = null) {
         return Promise.reject(error)
     });
 
-    return instance
+    return instance;
 }
 
-module.exports = {
+export {
     DefaultOptions,
     createClient,
     GE_TRACKER_API_URL

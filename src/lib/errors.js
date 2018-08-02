@@ -5,6 +5,6 @@ class InvalidApiKey extends Error {
     }
 }
 
-module.exports = {
+export {
     InvalidApiKey
 };
