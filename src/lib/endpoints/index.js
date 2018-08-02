@@ -19,6 +19,7 @@ import NewItemsWrapper from './NewItemsWrapper';
 import NotificationsWrapper from './NotificationsWrapper';
 import ProfitTrackerWrapper from './ProfitTrackerWrapper';
 import PlankMakingWrapper from './PlankMakingWrapper';
+import RSUpdatesWrapper from './RSUpdatesWrapper';
 import StatsWrapper from './StatsWrapper';
 import StoreProfitWrapper from './StoreProfitWrapper';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
@@ -48,6 +49,7 @@ export {
     NotificationsWrapper,
     ProfitTrackerWrapper,
     PlankMakingWrapper,
+    RSUpdatesWrapper,
     StatsWrapper,
     StoreProfitWrapper,
     SuggestedItemsWrapper,

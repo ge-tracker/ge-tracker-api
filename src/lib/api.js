@@ -24,6 +24,7 @@ const createApi = (client) => {
         Notifications: new Endpoint.NotificationsWrapper(client),
         ProfitTracker: new Endpoint.ProfitTrackerWrapper(client),
         PlankMaking: new Endpoint.PlankMakingWrapper(client),
+        RSUpdates: new Endpoint.RSUpdatesWrapper(client),
         Stats: new Endpoint.StatsWrapper(client),
         StoreProfit: new Endpoint.StoreProfitWrapper(client),
         SuggestedItems: new Endpoint.SuggestedItemsWrapper(client),
@@ -36,8 +37,8 @@ const createApi = (client) => {
          * @return {PromiseLike<T>}
          */
         getManifest(url = null) {
-            const apiUrl = (url !== null) ? url : GE_TRACKER_API_URL.replace('/api', '');
-            return client.get(`${apiUrl}/app_manifest.json`).then(({data}) => data.data);
+            const apiUrl = client.defaults.baseURL.replace('/api', '');
+            return client.get(`${apiUrl}app_manifest.json`).then(({data}) => data.data);
         }
     }
 };
