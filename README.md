@@ -2,7 +2,14 @@
 
 # ge-tracker-api
 
-Unofficial API client to access [ge-tracker.com](https://ge-tracker.com)'s API.
+Official JavaScript API client to access [ge-tracker.com](https://www.ge-tracker.com)'s API.
+
+## Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Env Client Example](#env-client-example)
+* [Available Endpoints](#available-endpoints)
 
 ## Installation
 
@@ -59,3 +66,36 @@ sensitive API token to your bash or shell history.
 A better approach is to use something like
 [dotenv](https://www.npmjs.com/package/dotenv). Take care to ensure that your
 environment file used by that library is added to your `.gitignore` file 😉
+
+## Available Endpoints
+
+The endpoints listed below have been mapped into this library. We have published Postman API documentation that will go into more detail about each endpoint listed below: [https://www.ge-tracker.com/docs](https://www.ge-tracker.com/docs) 
+
+* Items
+* Flip Finder
+  * Favourite Items
+  * Suggested Items
+  * Highest Margins
+  * GE Limits
+  * High Volume
+  * New Items
+* Money Making
+  * High Alchemy
+  * Item Sets
+  * Decant Potions
+  * Herblore Profit
+  * Barrows Repair
+  * Plank Making
+  * Magic Tablets
+  * Tan Leather
+  * Store Profit
+* Profit Tracker
+* Leaderboard
+* Market Watch
+* Dashboard
+* Stats
+* Notifications
+* Auth
+* Device
+* Graph
+* Users
