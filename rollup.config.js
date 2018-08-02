@@ -11,7 +11,7 @@ export default {
         name: 'geTrackerApi',
         file: 'dist/index.min.js',
         format: 'cjs',
-        interop: false,
+        // interop: false,
     },
     external: ['axios', 'moment', 'deepmerge'],
     plugins: [

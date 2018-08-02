@@ -1,4 +1,4 @@
-import {handleResponseBody} from "../api";
+import {handleResponseBody} from "../handlers";
 
 export default class MarketWatchWrapper {
     constructor(client) {

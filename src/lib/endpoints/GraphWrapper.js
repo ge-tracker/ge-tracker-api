@@ -1,4 +1,4 @@
-import {handleResponseBody} from "../api";
+import {handleResponseBody} from "../handlers";
 import {GE_TRACKER_API_URL} from "../client";
 import moment from 'moment';
 
