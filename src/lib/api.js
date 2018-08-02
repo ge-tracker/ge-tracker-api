@@ -1,14 +1,6 @@
 import * as Endpoint from './endpoints'
 import {GE_TRACKER_API_URL} from "./client";
 
-export function handleResponseBody(body) {
-    if (!('data' in body)) {
-        return body
-    }
-
-    return body.data
-}
-
 const createApi = (client) => {
     return {
         Auth: new Endpoint.AuthWrapper(client),
@@ -43,9 +35,8 @@ const createApi = (client) => {
          *
          * @return {PromiseLike<T>}
          */
-        getManifest() {
-            const apiUrl = GE_TRACKER_API_URL.replace('/api', '');
-            console.log(`${apiUrl}/app_manifest.json`);
+        getManifest(url = null) {
+            const apiUrl = (url !== null) ? url : GE_TRACKER_API_URL.replace('/api', '');
             return client.get(`${apiUrl}/app_manifest.json`).then(({data}) => data.data);
         }
     }
