@@ -22,6 +22,7 @@ import PlankMakingWrapper from './PlankMakingWrapper';
 import RSUpdatesWrapper from './RSUpdatesWrapper';
 import StatsWrapper from './StatsWrapper';
 import StoreProfitWrapper from './StoreProfitWrapper';
+import SubscriptionsWrapper from './SubscriptionsWrapper';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
 import TanLeatherWrapper from './TanLeatherWrapper';
 import UserWrapper from './UserWrapper';
@@ -52,6 +53,7 @@ export {
     RSUpdatesWrapper,
     StatsWrapper,
     StoreProfitWrapper,
+    SubscriptionsWrapper,
     SuggestedItemsWrapper,
     TanLeatherWrapper,
     UserWrapper,

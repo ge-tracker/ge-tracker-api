@@ -1,5 +1,6 @@
 import * as Endpoint from './endpoints'
 import {GE_TRACKER_API_URL} from "./client";
+import SubscriptionsWrapper from "./endpoints/SubscriptionsWrapper";
 
 const createApi = (client) => {
     return {
@@ -27,6 +28,7 @@ const createApi = (client) => {
         RSUpdates: new Endpoint.RSUpdatesWrapper(client),
         Stats: new Endpoint.StatsWrapper(client),
         StoreProfit: new Endpoint.StoreProfitWrapper(client),
+        Subscriptions: new Endpoint.SubscriptionsWrapper(client),
         SuggestedItems: new Endpoint.SuggestedItemsWrapper(client),
         TanLeather: new Endpoint.TanLeatherWrapper(client),
         Users: new Endpoint.UserWrapper(client),
