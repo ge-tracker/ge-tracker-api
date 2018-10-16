@@ -1,3 +1,4 @@
+import APIUptimeWrapper from './APIUptimeWrapper';
 import AuthWrapper from './AuthWrapper';
 import BarrowsRepairWrapper from './BarrowsRepairWrapper';
 import DashboardWrapper from './DashboardWrapper';
@@ -29,6 +30,7 @@ import UserWrapper from './UserWrapper';
 
 
 export {
+    APIUptimeWrapper,
     AuthWrapper,
     BarrowsRepairWrapper,
     DashboardWrapper,

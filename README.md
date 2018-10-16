@@ -99,3 +99,4 @@ The endpoints listed below have been mapped into this library. We have published
 * Device
 * Graph
 * Users
+* API Status (OSBuddy)

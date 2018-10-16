@@ -4,6 +4,7 @@ import SubscriptionsWrapper from "./endpoints/SubscriptionsWrapper";
 
 const createApi = (client) => {
     return {
+        APIUptime: new Endpoint.APIUptimeWrapper(client),
         Auth: new Endpoint.AuthWrapper(client),
         BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client),
         Dashboard: new Endpoint.DashboardWrapper(client),
