@@ -1,8 +1,6 @@
-export default class UserWrapper {
-    constructor(client) {
-        this.client = client
-    }
+import APIBaseWrapper from './APIBaseWrapper';
 
+export default class UserWrapper extends APIBaseWrapper {
     getById(userId) {
         return this.client.get(`users/${userId}`)
             .then(({data}) => data.data)

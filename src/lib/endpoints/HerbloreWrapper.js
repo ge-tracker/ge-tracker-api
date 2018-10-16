@@ -1,16 +1,7 @@
+import APIBaseWrapper from './APIBaseWrapper';
 import {handleResponseBody} from "../handlers";
 
-export default class HerbloreWrapper {
-    constructor(client) {
-        this.client = client
-    }
-
-    _wrapGet(path) {
-        return this.client.get(path)
-            .then(({data}) => data)
-            .then(handleResponseBody)
-    }
-
+export default class HerbloreWrapper extends APIBaseWrapper {
     getCleanHerbs() {
         return this._wrapGet('herblore/clean-herbs');
     }

@@ -1,16 +1,7 @@
+import APIBaseWrapper from './APIBaseWrapper';
 import {handleResponseBody} from "../handlers";
 
-export default class GELimitsWrapper {
-    constructor(client) {
-        this.client = client
-    }
-
-    _wrapGet(path) {
-        return this.client.get(path)
-            .then(({data}) => data)
-            .then(handleResponseBody)
-    }
-
+export default class GELimitsWrapper extends APIBaseWrapper {
     getItems() {
         return this._wrapGet('ge-limits')
     }

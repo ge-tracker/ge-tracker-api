@@ -1,13 +1,6 @@
-export default class AuthWrapper {
-    constructor(client) {
-        this.client = client
-    }
+import APIBaseWrapper from './APIBaseWrapper';
 
-    _wrapPost(path, params = {}) {
-        return this.client.post(path, params)
-            .then(({data}) => data);
-    }
-
+export default class AuthWrapper extends APIBaseWrapper {
     login(email, password) {
         return this._wrapPost('auth/login', {
             email,

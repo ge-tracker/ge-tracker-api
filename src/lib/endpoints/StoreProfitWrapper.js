@@ -1,16 +1,7 @@
+import APIBaseWrapper from './APIBaseWrapper';
 import {handleResponseBody} from "../handlers";
 
-export default class StoreProfitWrapper {
-    constructor(client) {
-        this.client = client
-    }
-
-    _wrapGet(path) {
-        return this.client.get(path)
-            .then(({data}) => data)
-            .then(handleResponseBody)
-    }
-
+export default class StoreProfitWrapper extends APIBaseWrapper {
     getStores() {
         return this._wrapGet('stores')
     }

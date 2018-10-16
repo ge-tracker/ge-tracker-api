@@ -1,13 +1,6 @@
-export default class DeviceWrapper {
-    constructor(client) {
-        this.client = client
-    }
+import APIBaseWrapper from './APIBaseWrapper';
 
-    _wrapPost(path, params = {}) {
-        return this.client.post(path, params)
-            .then(({data}) => data);
-    }
-
+export default class DeviceWrapper extends APIBaseWrapper {
     /**
      * Register Device to a User
      *

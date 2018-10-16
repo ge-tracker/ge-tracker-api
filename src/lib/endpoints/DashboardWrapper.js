@@ -1,16 +1,7 @@
+import APIBaseWrapper from './APIBaseWrapper';
 import {handleResponseBody} from "../handlers";
 
-export default class DashboardWrapper {
-    constructor(client) {
-        this.client = client
-    }
-
-    _wrapGet(path) {
-        return this.client.get(path)
-            .then(({data}) => data)
-            .then(handleResponseBody)
-    }
-
+export default class DashboardWrapper extends APIBaseWrapper {
     getDashboard() {
         return this._wrapGet('/dashboard');
     }

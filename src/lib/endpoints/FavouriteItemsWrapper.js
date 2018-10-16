@@ -1,27 +1,7 @@
+import APIBaseWrapper from './APIBaseWrapper';
 import {handleResponseBody} from "../handlers";
 
-export default class FavouriteItemsWrapper {
-    constructor(client) {
-        this.client = client
-    }
-
-    _wrapGet(path) {
-        return this.client.get(path)
-            .then(({data}) => data)
-            .then(handleResponseBody)
-    }
-
-    _wrapPost(path, params) {
-        return this.client.post(path, params)
-            .then(({data}) => data)
-            .then(handleResponseBody)
-    }
-
-    _wrapDelete(path) {
-        return this.client.delete(path)
-            .then(({data}) => data);
-    }
-
+export default class FavouriteItemsWrapper extends APIBaseWrapper {
     addItem(itemId) {
         return this._wrapPost(`favourite-items`, {
             item_id: itemId
