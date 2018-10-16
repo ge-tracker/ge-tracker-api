@@ -2,7 +2,8 @@ import APIBaseWrapper from './APIBaseWrapper';
 
 export default class ProfitTrackerWrapper extends APIBaseWrapper {
     getTransactions(opts = {}) {
-        return this.client.get(this.parseOptions('/profit-tracker', opts));
+        return this.client.get(this.parseOptions('/profit-tracker', opts))
+            .then(({data}) => data);
     }
 
     getTransaction(id) {
