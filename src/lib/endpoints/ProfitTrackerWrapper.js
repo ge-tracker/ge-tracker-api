@@ -30,20 +30,24 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
         return this._wrapDelete(`/profit-tracker/${id}`);
     }
 
-    getBuyingTransactions() {
-        return this._wrapGet('/profit-tracker/buying');
+    getBuyingTransactions(opts = {}) {
+        return this.client.get(this.parseOptions('/profit-tracker/buying', opts))
+            .then(({data}) => data);
     }
 
-    getBoughtTransactions() {
-        return this._wrapGet('/profit-tracker/bought');
+    getBoughtTransactions(opts = {}) {
+        return this.client.get(this.parseOptions('/profit-tracker/bought', opts))
+            .then(({data}) => data);
     }
 
-    getSellingTransactions() {
-        return this._wrapGet('/profit-tracker/selling');
+    getSellingTransactions(opts = {}) {
+        return this.client.get(this.parseOptions('/profit-tracker/selling', opts))
+            .then(({data}) => data);
     }
 
-    getSoldTransactions() {
-        return this._wrapGet('/profit-tracker/sold');
+    getSoldTransactions(opts = {}) {
+        return this.client.get(this.parseOptions('/profit-tracker/sold', opts))
+            .then(({data}) => data);
     }
 
     getActiveTransactions() {
