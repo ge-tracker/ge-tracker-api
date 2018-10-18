@@ -3,6 +3,13 @@ import {handleResponseBody} from "../handlers";
 import moment from 'moment';
 
 export default class GraphWrapper extends APIBaseWrapper {
+    _wrapGet(path) {
+        const apiUrl = this.client.defaults.baseURL.replace('/api', '');
+        return this.client.get(`${apiUrl}graph/${path}`)
+            .then(({data}) => data)
+            .then(handleResponseBody)
+    }
+
     getDuration(duration, itemId) {
         return this._wrapGet(`${itemId}/${duration}`);
     }
