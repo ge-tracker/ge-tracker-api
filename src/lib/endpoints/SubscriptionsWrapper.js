@@ -1,5 +1,4 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import {handleResponseBody} from "../handlers";
 
 export default class SubscriptionsWrapper extends APIBaseWrapper {
     getSubscription(subscriptionId) {
@@ -12,5 +11,12 @@ export default class SubscriptionsWrapper extends APIBaseWrapper {
 
     terminateSubscription(subscriptionId) {
         return this._wrapDelete(`/subscriptions/${subscriptionId}`);
+    }
+
+    createSubscription(transactionReceipt, platform) {
+        return this._wrapPost('/subscriptions', {
+            transactionReceipt,
+            platform,
+        })
     }
 }
