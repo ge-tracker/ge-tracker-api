@@ -1,10 +1,17 @@
 {
   "name": "ge-tracker-api",
-  "version": "3.6.1",
-  "description": "Unofficial GE-Tracker.com API client",
+  "version": "3.7.0",
+  "description": "Official GE-Tracker.com API client",
   "main": "dist/index.min.js",
-  "repository": "https://github.com/kylestev/ge-tracker-api",
+  "repository": "https://github.com/gtjamesa/ge-tracker-api",
   "author": "Kyle Stevenson <kyle@kylestevenson.me>",
+  "contributors": [
+    {
+      "name": "James Austen",
+      "email": "james@ge-tracker.com",
+      "url": "https://www.ge-tracker.com"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
