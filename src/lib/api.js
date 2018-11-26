@@ -24,6 +24,7 @@ const createApi = (client) => {
         MarketWatch: new Endpoint.MarketWatchWrapper(client),
         NewItems: new Endpoint.NewItemsWrapper(client),
         Notifications: new Endpoint.NotificationsWrapper(client),
+        PriceAlert: new Endpoint.PriceAlertWrapper(client),
         ProfitTracker: new Endpoint.ProfitTrackerWrapper(client),
         PlankMaking: new Endpoint.PlankMakingWrapper(client),
         RSUpdates: new Endpoint.RSUpdatesWrapper(client),

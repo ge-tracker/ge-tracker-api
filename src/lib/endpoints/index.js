@@ -18,6 +18,7 @@ import MagicTabletsWrapper from './MagicTabletsWrapper';
 import MarketWatchWrapper from './MarketWatchWrapper';
 import NewItemsWrapper from './NewItemsWrapper';
 import NotificationsWrapper from './NotificationsWrapper';
+import PriceAlertWrapper from './PriceAlertWrapper';
 import ProfitTrackerWrapper from './ProfitTrackerWrapper';
 import PlankMakingWrapper from './PlankMakingWrapper';
 import RSUpdatesWrapper from './RSUpdatesWrapper';
@@ -50,6 +51,7 @@ export {
     MarketWatchWrapper,
     NewItemsWrapper,
     NotificationsWrapper,
+    PriceAlertWrapper,
     ProfitTrackerWrapper,
     PlankMakingWrapper,
     RSUpdatesWrapper,
