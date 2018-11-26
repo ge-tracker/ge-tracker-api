@@ -29,7 +29,7 @@ export default class PriceAlertWrapper extends APIBaseWrapper {
      * @return {*}
      */
     createAlert(itemId, field, type, price, methods = {}) {
-        return this._wrapPost('/profit-tracker', {
+        return this._wrapPost('/price-alerts', {
             itemId,
             field,
             type,
