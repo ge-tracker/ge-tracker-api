@@ -2,7 +2,7 @@ import APIBaseWrapper from './APIBaseWrapper';
 
 export default class ProfitTrackerWrapper extends APIBaseWrapper {
     getTransactions(opts = {}) {
-        return this._wrapGet(this.parseOptions('/profit-tracker', opts));
+        return this.client.get(this.parseOptions('/profit-tracker', opts));
     }
 
     getTransaction(id) {
@@ -30,19 +30,19 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
     }
 
     getBuyingTransactions(opts = {}) {
-        return this._wrapGet(this.parseOptions('/profit-tracker/buying', opts));
+        return this.client.get(this.parseOptions('/profit-tracker/buying', opts));
     }
 
     getBoughtTransactions(opts = {}) {
-        return this._wrapGet(this.parseOptions('/profit-tracker/bought', opts));
+        return this.client.get(this.parseOptions('/profit-tracker/bought', opts));
     }
 
     getSellingTransactions(opts = {}) {
-        return this._wrapGet(this.parseOptions('/profit-tracker/selling', opts));
+        return this.client.get(this.parseOptions('/profit-tracker/selling', opts));
     }
 
     getSoldTransactions(opts = {}) {
-        return this._wrapGet(this.parseOptions('/profit-tracker/sold', opts));
+        return this.client.get(this.parseOptions('/profit-tracker/sold', opts));
     }
 
     getActiveTransactions() {
