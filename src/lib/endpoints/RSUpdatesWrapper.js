@@ -1,8 +1,12 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import {handleResponseBody} from "../handlers";
 
 export default class RSUpdatesWrapper extends APIBaseWrapper {
-    get() {
-        return this._wrapGet('rs-updates')
+    get(opts = {}) {
+        return this.client.get(this.parseOptions('rs-updates', opts))
+            .then(({data}) => data);
+    }
+
+    getUpdate(id) {
+        return this._wrapGet(`rs-updates/${id}`);
     }
 }
