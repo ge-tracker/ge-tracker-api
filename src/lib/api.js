@@ -36,11 +36,22 @@ const createApi = (client, bugsnag = null) => {
         /**
          * Get GT App Manifest JSON
          *
-         * @return {PromiseLike<T>}
+         * @param url
+         * @return {Promise<any>}
          */
         getManifest(url = null) {
             const apiUrl = client.defaults.baseURL.replace('/api', '');
-            return client.get(`${apiUrl}app_manifest.json`).then(({data}) => data.data);
+            return new Promise((resolve, reject) => {
+                client.get(`${apiUrl}app_manifest.json`).then(data => {
+
+                    if (data.hasOwnProperty('data')) {
+                        resolve(data.data);
+                    } else {
+                        reject(null);
+                    }
+
+                }).catch(err => reject(err));
+            });
         }
     }
 };
