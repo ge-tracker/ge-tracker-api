@@ -12,8 +12,9 @@ export default class APIBaseWrapper {
             const urlPath = (path.substr(0, 1) === '/') ? path : `/${path}`;
             const reqName = `${method} ${urlPath}`;
 
-            this.bugsnag.leaveBreadcrumb(reqName.substr(0, 30), {
+            this.bugsnag.leaveBreadcrumb('API Request', {
                 type: 'manual',
+                url: reqName.substr(0, 140),
                 params: crumb.substr(0, 140)
             })
         }
