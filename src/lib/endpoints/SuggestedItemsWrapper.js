@@ -6,7 +6,7 @@ export default class SuggestedItemsWrapper extends APIBaseWrapper {
         return this._wrapGet('suggested-items/refresh');
     }
 
-    getItems() {
-        return this._wrapGet('suggested-items');
+    getItems(opts = {filters: false}) {
+        return this._wrapGet(this.parseOptions('suggested-items', opts));
     }
 }

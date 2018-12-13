@@ -2,7 +2,7 @@ import APIBaseWrapper from './APIBaseWrapper';
 import {handleResponseBody} from "../handlers";
 
 export default class HighAlchemyWrapper extends APIBaseWrapper {
-    getItems() {
-        return this._wrapGet('high-alchemy')
+    getItems(opts = {filters: false}) {
+        return this._wrapGet(this.parseOptions('high-alchemy', opts))
     }
 }

@@ -12,7 +12,7 @@ export default class FavouriteItemsWrapper extends APIBaseWrapper {
         return this._wrapDelete(`favourite-items/${favouriteItemsId}`);
     }
 
-    getItems() {
-        return this._wrapGet('favourite-items');
+    getItems(opts = {filters: false}) {
+        return this._wrapGet(this.parseOptions('favourite-items', opts));
     }
 }

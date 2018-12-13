@@ -2,7 +2,7 @@ import APIBaseWrapper from './APIBaseWrapper';
 import {handleResponseBody} from "../handlers";
 
 export default class NewItemsWrapper extends APIBaseWrapper {
-    getItems() {
-        return this._wrapGet('new-items')
+    getItems(opts = {filters: false}) {
+        return this._wrapGet(this.parseOptions('new-items', opts))
     }
 }
