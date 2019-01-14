@@ -11,6 +11,7 @@ const createApi = (client, bugsnag = null) => {
         FavouriteItems: new Endpoint.FavouriteItemsWrapper(client, bugsnag),
         GELimits: new Endpoint.GELimitsWrapper(client, bugsnag),
         Graphs: new Endpoint.GraphWrapper(client, bugsnag),
+        Heartbeat: new Endpoint.HeartbeatWrapper(client, bugsnag),
         Herblore: new Endpoint.HerbloreWrapper(client, bugsnag),
         HighAlchemy: new Endpoint.HighAlchemyWrapper(client, bugsnag),
         HighVolume: new Endpoint.HighVolumeWrapper(client, bugsnag),

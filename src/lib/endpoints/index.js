@@ -7,6 +7,7 @@ import DeviceWrapper from './DeviceWrapper';
 import FavouriteItemsWrapper from './FavouriteItemsWrapper';
 import GELimitsWrapper from './GELimitsWrapper';
 import GraphWrapper from './GraphWrapper';
+import HeartbeatWrapper from './HeartbeatWrapper';
 import HerbloreWrapper from './HerbloreWrapper';
 import HighAlchemyWrapper from './HighAlchemyWrapper';
 import HighVolumeWrapper from './HighVolumeWrapper';
@@ -40,6 +41,7 @@ export {
     FavouriteItemsWrapper,
     GELimitsWrapper,
     GraphWrapper,
+    HeartbeatWrapper,
     HerbloreWrapper,
     HighAlchemyWrapper,
     HighVolumeWrapper,
