@@ -1,6 +1,7 @@
 import APIUptimeWrapper from './APIUptimeWrapper';
 import AuthWrapper from './AuthWrapper';
 import BarrowsRepairWrapper from './BarrowsRepairWrapper';
+import BlastFurnaceWrapper from './BlastFurnaceWrapper';
 import DashboardWrapper from './DashboardWrapper';
 import DecantPotionsWrapper from './DecantPotionsWrapper';
 import DeviceWrapper from './DeviceWrapper';
@@ -28,6 +29,7 @@ import StoreProfitWrapper from './StoreProfitWrapper';
 import SubscriptionsWrapper from './SubscriptionsWrapper';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
 import TanLeatherWrapper from './TanLeatherWrapper';
+import TreeSaplingWrapper from './TreeSaplingWrapper';
 import UserWrapper from './UserWrapper';
 
 
@@ -35,6 +37,7 @@ export {
     APIUptimeWrapper,
     AuthWrapper,
     BarrowsRepairWrapper,
+    BlastFurnaceWrapper,
     DashboardWrapper,
     DecantPotionsWrapper,
     DeviceWrapper,
@@ -62,5 +65,6 @@ export {
     SubscriptionsWrapper,
     SuggestedItemsWrapper,
     TanLeatherWrapper,
+    TreeSaplingWrapper,
     UserWrapper,
 }
