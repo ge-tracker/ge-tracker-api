@@ -1,17 +1,15 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import {handleResponseBody} from "../handlers";
 import moment from 'moment';
+import { handleResponseBody } from "../handlers";
 
 export default class GraphWrapper extends APIBaseWrapper {
     _wrapGet(path) {
-        const apiUrl = this.client.defaults.baseURL.replace('/api', '');
-        return this.client.get(`${apiUrl}graph/${path}`)
-            .then(({data}) => data)
+        return this.client.get(path)
             .then(handleResponseBody)
     }
 
     getDuration(duration, itemId) {
-        return this._wrapGet(`${itemId}/${duration}`);
+        return this._wrapGet(`graph/${itemId}/${duration}`);
     }
 
     getDay(itemId, tenMinute = false, params = {}) {
@@ -22,7 +20,7 @@ export default class GraphWrapper extends APIBaseWrapper {
             const startDate = (params.hasOwnProperty('start')) ? moment(params.start).format(dateFormat) : date;
             const endDate = (params.hasOwnProperty('end')) ? moment(params.end).format(dateFormat) : date;
 
-            return this._wrapGet(`${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`);
+            return this._wrapGet(`graph/${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`);
         } else {
             return this.getDuration('day', itemId);
         }
@@ -42,5 +40,9 @@ export default class GraphWrapper extends APIBaseWrapper {
 
     getYear(itemId) {
         return this.getDuration('year', itemId);
+    }
+
+    getCandlestick(duration, itemId) {
+        return this._wrapGet(`graph/candlestick/${itemId}/${duration}`);
     }
 }
