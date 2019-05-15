@@ -1,13 +1,13 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import {handleResponseBody} from "../handlers";
 
 export default class ItemsWrapper extends APIBaseWrapper {
     getAllItems() {
         return this._wrapGet('items')
     }
 
-    getItem(itemId) {
-        return this._wrapGet(`items/${itemId}`)
+    getItem(itemId, detail = false) {
+        const url = (!detail) ? `items/${itemId}` : `items/${itemId}?detail=true`;
+        return this._wrapGet(url)
     }
 
     getItems(...itemIds) {
