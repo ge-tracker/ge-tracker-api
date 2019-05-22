@@ -65,4 +65,8 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
     getMostProfitable() {
         return this._wrapGet('/profit-tracker/most-profitable');
     }
+
+    clear() {
+        return this._wrapPost('/profit-tracker/clear');
+    }
 }
