@@ -8,38 +8,55 @@ export default class GraphWrapper extends APIBaseWrapper {
             .then(handleResponseBody)
     }
 
-    getDuration(duration, itemId) {
-        return this._wrapGet(`graph/${itemId}/${duration}`);
+    getDuration(duration, itemId, source = null) {
+        let url = `graph/${itemId}/${duration}`;
+
+        if (source !== null) {
+            url = url + '?source=' + source;
+        }
+
+        return this._wrapGet(url);
     }
 
     getDay(itemId, tenMinute = false, params = {}) {
         if (tenMinute) {
+
             const dateFormat = 'Y-MM-DD';
             const date = moment().format(dateFormat);
 
             const startDate = (params.hasOwnProperty('start')) ? moment(params.start).format(dateFormat) : date;
             const endDate = (params.hasOwnProperty('end')) ? moment(params.end).format(dateFormat) : date;
 
-            return this._wrapGet(`graph/${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`);
+            let url = `graph/${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`;
+
+            if (params.hasOwnProperty('source') && params.source !== null) {
+                url = url + '&source=' + source;
+            }
+
+            return this._wrapGet(url);
+
         } else {
-            return this.getDuration('day', itemId);
+
+            const source = (params.hasOwnProperty('source') && params.source !== null) ? params.source : null;
+            return this.getDuration('day', itemId, source);
+
         }
     }
 
-    getWeek(itemId) {
-        return this.getDuration('week', itemId);
+    getWeek(itemId, source = null) {
+        return this.getDuration('week', itemId, source);
     }
 
-    getMonth(itemId) {
-        return this.getDuration('month', itemId);
+    getMonth(itemId, source = null) {
+        return this.getDuration('month', itemId, source);
     }
 
-    getQuarter(itemId) {
-        return this.getDuration('quarter', itemId);
+    getQuarter(itemId, source = null) {
+        return this.getDuration('quarter', itemId, source);
     }
 
-    getYear(itemId) {
-        return this.getDuration('year', itemId);
+    getYear(itemId, source = null) {
+        return this.getDuration('year', itemId, source);
     }
 
     getCandlestick(duration, itemId) {
