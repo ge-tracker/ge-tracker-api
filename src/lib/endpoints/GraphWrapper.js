@@ -30,7 +30,7 @@ export default class GraphWrapper extends APIBaseWrapper {
             let url = `graph/${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`;
 
             if (params.hasOwnProperty('source') && params.source !== null) {
-                url = url + '&source=' + source;
+                url = url + '&source=' + params.source;
             }
 
             return this._wrapGet(url);
