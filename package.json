@@ -1,5 +1,5 @@
 {
-  "name": "ge-tracker-api",
+  "name": "@getracker/api",
   "version": "3.16.0",
   "description": "Official GE-Tracker.com API client",
   "main": "dist/index.min.js",

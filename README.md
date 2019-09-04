@@ -15,11 +15,11 @@ Official JavaScript API client to access [ge-tracker.com](https://www.ge-tracker
 
 Using NPM:
 
-`$ npm i ge-tracker-api`
+`$ npm i @getracker/api`
 
 Using Yarn:
 
-`$ yarn add ge-tracker-api`
+`$ yarn add @getracker/api`
 
 ## Usage
 
@@ -40,7 +40,7 @@ named `GE_TRACKER_API_KEY` and use that as the API key.
 
 ```javascript
 // example.js
-const { createClientFromEnv } = require('ge-tracker-api')
+const { createClientFromEnv } = require('@getracker/api')
 
 const client = createClientFromEnv()
 
