@@ -19,4 +19,10 @@ export default class SubscriptionsWrapper extends APIBaseWrapper {
             platform,
         })
     }
+
+    createSession(plan) {
+        return this._wrapPost('/subscriptions/sessions', {
+            plan
+        });
+    }
 }
