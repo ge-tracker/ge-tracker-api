@@ -72,6 +72,7 @@ environment file used by that library is added to your `.gitignore` file 😉
 The endpoints listed below have been mapped into this library. We have published Postman API documentation that will go into more detail about each endpoint listed below: [https://www.ge-tracker.com/docs](https://www.ge-tracker.com/docs) 
 
 * Items
+* Graphs
 * Flip Finder
   * Favourite Items
   * Suggested Items
@@ -89,6 +90,8 @@ The endpoints listed below have been mapped into this library. We have published
   * Magic Tablets
   * Tan Leather
   * Store Profit
+  * Blast Furnace
+  * Tree Sapling
 * Profit Tracker
 * Leaderboard
 * Market Watch
@@ -100,3 +103,8 @@ The endpoints listed below have been mapped into this library. We have published
 * Graph
 * Users
 * API Status (OSBuddy)
+* RS Updates
+
+## Contributors
+
+Special thanks to [@kylestev](https://github.com/kylestev/) for creating the [original package](https://www.npmjs.com/package/ge-tracker-api). The package has been maintained since v2.3.0 by [@gtjamesa](https://github.com/gtjamesa/).
