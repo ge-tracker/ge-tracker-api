@@ -1,4 +1,5 @@
-import {handleResponseBody} from "../handlers";
+import { handleResponseBody } from "../handlers";
+import { parseOptions } from "../query-string";
 
 export default class APIBaseWrapper {
     constructor(client, bugsnag) {
@@ -50,39 +51,6 @@ export default class APIBaseWrapper {
      * @return {*}
      */
     parseOptions(url, opts) {
-        if (APIBaseWrapper.isEmptyObject(opts)) {
-            return url;
-        }
-
-        const params = APIBaseWrapper.toQueryString(opts);
-        const sep = (url.indexOf('?') === -1) ? '?' : '&';
-
-        return `${url}${sep}${params}`;
-    }
-
-    /**
-     * Convert an object to query string format
-     *
-     * @param obj
-     * @return {string|*}
-     */
-    static toQueryString(obj) {
-        let parts = [];
-        for (let i in obj) {
-            if (obj.hasOwnProperty(i)) {
-                parts.push(encodeURIComponent(i) + "=" + encodeURIComponent(obj[i]));
-            }
-        }
-        return parts.join("&");
-    };
-
-    /**
-     * Returns `true` if an object is empty
-     *
-     * @param obj
-     * @return {boolean}
-     */
-    static isEmptyObject(obj) {
-        return Object.keys(obj).length === 0 && obj.constructor === Object;
+        return parseOptions(url, opts);
     }
 }

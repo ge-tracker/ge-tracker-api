@@ -1,9 +1,8 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import {handleResponseBody} from "../handlers";
 
 export default class LeaderboardWrapper extends APIBaseWrapper {
-    getLeaderboard(slug) {
-        return this._wrapGet(`leaderboard/${slug}`);
+    getLeaderboard(slug, opts = {}) {
+        return this._wrapGet(this.parseOptions(`leaderboard/${slug}`, opts));
     }
 
     getSummary() {
