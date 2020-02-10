@@ -6,7 +6,9 @@ export default class UserWrapper extends APIBaseWrapper {
     }
 
     search(query) {
-        return this._wrapGet(`users/search/${query}`);
+        return this._wrapPost(`users/search`, {
+            query
+        });
     }
 
     getAuthenticateUser() {
