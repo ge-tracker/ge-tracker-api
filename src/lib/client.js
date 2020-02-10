@@ -3,6 +3,7 @@ import merge from 'deepmerge';
 import * as errors from './errors';
 
 const GE_TRACKER_API_URL = 'https://www.ge-tracker.com/api';
+const GE_TRACKER_API_VERSION = 'v2';
 
 const DefaultOptions = {
     // set the base URL for all API calls made on this Axios instance
@@ -20,7 +21,8 @@ const DefaultOptions = {
     // specify a custom user-agent header to identify the client used
     // and for a point of contact
     headers: {
-        'User-Agent': 'ge-tracker-api client <https://github.com/gtjamesa/ge-tracker-api>'
+        'User-Agent': 'ge-tracker-api client <https://github.com/gtjamesa/ge-tracker-api>',
+        'Accept': `application/x.getracker.${GE_TRACKER_API_VERSION}+json`,
     }
 };
 
