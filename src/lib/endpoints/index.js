@@ -1,6 +1,7 @@
 import APIUptimeWrapper from './APIUptimeWrapper';
 import AuthWrapper from './AuthWrapper';
 import BarrowsRepairWrapper from './BarrowsRepairWrapper';
+import BillingWrapper from './BillingWrapper';
 import BlastFurnaceWrapper from './BlastFurnaceWrapper';
 import DashboardWrapper from './DashboardWrapper';
 import DecantPotionsWrapper from './DecantPotionsWrapper';
@@ -37,6 +38,7 @@ export {
     APIUptimeWrapper,
     AuthWrapper,
     BarrowsRepairWrapper,
+    BillingWrapper,
     BlastFurnaceWrapper,
     DashboardWrapper,
     DecantPotionsWrapper,

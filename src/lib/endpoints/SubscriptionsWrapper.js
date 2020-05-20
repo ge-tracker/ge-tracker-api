@@ -13,16 +13,11 @@ export default class SubscriptionsWrapper extends APIBaseWrapper {
         return this._wrapDelete(`/subscriptions/${subscriptionId}`);
     }
 
-    createSubscription(transactionReceipt, platform) {
+    createSubscription(transactionReceipt, platform, sessionId = null) {
         return this._wrapPost('/subscriptions', {
             transactionReceipt,
             platform,
+            sessionId
         })
-    }
-
-    createSession(plan) {
-        return this._wrapPost('/subscriptions/sessions', {
-            plan
-        });
     }
 }

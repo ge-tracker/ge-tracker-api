@@ -5,6 +5,7 @@ const createApi = (client, bugsnag = null) => {
         APIUptime: new Endpoint.APIUptimeWrapper(client, bugsnag),
         Auth: new Endpoint.AuthWrapper(client, bugsnag),
         BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client, bugsnag),
+        Billing: new Endpoint.BillingWrapper(client, bugsnag),
         BlastFurnace: new Endpoint.BlastFurnaceWrapper(client, bugsnag),
         Dashboard: new Endpoint.DashboardWrapper(client, bugsnag),
         DecantPotions: new Endpoint.DecantPotionsWrapper(client, bugsnag),
