@@ -36,6 +36,13 @@ export default class APIBaseWrapper {
             .then(({data}) => data);
     }
 
+    _wrapPatch(path, params = {}) {
+        this._leaveBreadcrumb('PATCH', path, params);
+
+        return this.client.patch(path, params)
+            .then(({data}) => data);
+    }
+
     _wrapDelete(path) {
         this._leaveBreadcrumb('DELETE', path);
 

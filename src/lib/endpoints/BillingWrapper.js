@@ -8,6 +8,12 @@ export default class BillingWrapper extends APIBaseWrapper {
         });
     }
 
+    updateSession(sessionId, state) {
+        return this._wrapPatch(`/billing/sessions/${sessionId}`, {
+            state,
+        });
+    }
+
     getSession(sessionId) {
         return this._wrapGet(`/billing/sessions/${sessionId}`);
     }
