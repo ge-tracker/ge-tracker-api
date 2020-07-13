@@ -1,7 +1,10 @@
 {
   "name": "@getracker/api",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "description": "Official GE-Tracker.com API client",
+  "scripts": {
+    "build": "./node_modules/rollup/bin/rollup -c"
+  },
   "main": "dist/index.min.js",
   "repository": "https://github.com/ge-tracker/ge-tracker-api",
   "author": "Kyle Stevenson <kyle@kylestevenson.me>",

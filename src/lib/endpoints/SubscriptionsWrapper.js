@@ -13,6 +13,12 @@ export default class SubscriptionsWrapper extends APIBaseWrapper {
         return this._wrapDelete(`/subscriptions/${subscriptionId}`);
     }
 
+    refundSubscription(subscriptionId, amount) {
+        return this._wrapPost(`/subscriptions/${subscriptionId}/refund`, {
+            amount,
+        });
+    }
+
     createSubscription(transactionReceipt, platform, sessionId = null) {
         return this._wrapPost('/subscriptions', {
             transactionReceipt,
