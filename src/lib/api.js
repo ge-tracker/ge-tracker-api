@@ -1,4 +1,5 @@
 import * as Endpoint from './endpoints'
+import { AxiosStatic } from "axios";
 
 const createApi = (client, bugsnag = null) => {
     return {
@@ -56,7 +57,16 @@ const createApi = (client, bugsnag = null) => {
 
                 }).catch(err => reject(err));
             });
-        }
+        },
+
+        /**
+         * Get underlying Axios client instance
+         *
+         * @returns {AxiosStatic}
+         */
+        getClient() {
+            return client;
+        },
     }
 };
 
