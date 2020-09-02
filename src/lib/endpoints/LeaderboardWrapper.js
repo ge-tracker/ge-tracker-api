@@ -6,6 +6,10 @@ export default class LeaderboardWrapper extends APIBaseWrapper {
             .then(({data}) => data);
     }
 
+    getRank(slug) {
+        return this._wrapGet(`leaderboard/rank/${slug}`);
+    }
+
     getSummary() {
         return this._wrapGet('leaderboard');
     }
