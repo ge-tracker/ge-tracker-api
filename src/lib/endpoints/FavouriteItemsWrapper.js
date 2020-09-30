@@ -1,5 +1,4 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import {handleResponseBody} from "../handlers";
 
 export default class FavouriteItemsWrapper extends APIBaseWrapper {
     addItem(itemId) {
@@ -10,6 +9,10 @@ export default class FavouriteItemsWrapper extends APIBaseWrapper {
 
     deleteItem(favouriteItemsId) {
         return this._wrapDelete(`favourite-items/${favouriteItemsId}`);
+    }
+
+    deleteItemByItemId(itemId) {
+        return this._wrapDelete(`favourite-items/itemId/${itemId}`);
     }
 
     getItems(opts = {filters: false}) {
