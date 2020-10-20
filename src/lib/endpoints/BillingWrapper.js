@@ -9,9 +9,11 @@ export default class BillingWrapper extends APIBaseWrapper {
     }
 
     updateSession(sessionId, state) {
-        return this._wrapPatch(`/billing/sessions/${sessionId}`, {
-            state,
-        });
+        const data = typeof state === 'object'
+                     ? state
+                     : {state};
+
+        return this._wrapPatch(`/billing/sessions/${sessionId}`, state);
     }
 
     getSession(sessionId) {
