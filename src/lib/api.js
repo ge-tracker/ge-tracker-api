@@ -4,13 +4,10 @@ import { AxiosStatic } from "axios";
 const createApi = (client, bugsnag = null) => {
     return {
         APIUptime: new Endpoint.APIUptimeWrapper(client, bugsnag),
-        Auth: new Endpoint.AuthWrapper(client, bugsnag),
         BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client, bugsnag),
-        Billing: new Endpoint.BillingWrapper(client, bugsnag),
         BlastFurnace: new Endpoint.BlastFurnaceWrapper(client, bugsnag),
         Dashboard: new Endpoint.DashboardWrapper(client, bugsnag),
         DecantPotions: new Endpoint.DecantPotionsWrapper(client, bugsnag),
-        Device: new Endpoint.DeviceWrapper(client, bugsnag),
         FavouriteItems: new Endpoint.FavouriteItemsWrapper(client, bugsnag),
         GELimits: new Endpoint.GELimitsWrapper(client, bugsnag),
         Graphs: new Endpoint.GraphWrapper(client, bugsnag),
@@ -32,7 +29,6 @@ const createApi = (client, bugsnag = null) => {
         RSUpdates: new Endpoint.RSUpdatesWrapper(client, bugsnag),
         Stats: new Endpoint.StatsWrapper(client, bugsnag),
         StoreProfit: new Endpoint.StoreProfitWrapper(client, bugsnag),
-        Subscriptions: new Endpoint.SubscriptionsWrapper(client, bugsnag),
         SuggestedItems: new Endpoint.SuggestedItemsWrapper(client, bugsnag),
         TanLeather: new Endpoint.TanLeatherWrapper(client, bugsnag),
         TreeSapling: new Endpoint.TreeSaplingWrapper(client, bugsnag),
