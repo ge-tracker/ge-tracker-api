@@ -1,6 +1,6 @@
 {
   "name": "@getracker/api",
-  "version": "4.8.1",
+  "version": "4.9.0",
   "description": "Official GE-Tracker.com API client",
   "scripts": {
     "build": "./node_modules/rollup/bin/rollup -c"

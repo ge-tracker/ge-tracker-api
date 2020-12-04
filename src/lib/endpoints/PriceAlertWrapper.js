@@ -6,7 +6,7 @@ export default class PriceAlertWrapper extends APIBaseWrapper {
      *
      * `itemId` can be specified to load price alerts for a single item
      *
-     * @param itemId
+     * @param {Number} itemId
      * @return {*}
      */
     getAlerts(itemId = null) {
@@ -21,20 +21,22 @@ export default class PriceAlertWrapper extends APIBaseWrapper {
      * `type` should be one of: [above, below]
      * (optional) `methods` should be an object in the format: `{sms: true, email: true}`
      *
-     * @param itemId
-     * @param field
-     * @param type
-     * @param price
-     * @param methods
+     * @param {Number} itemId
+     * @param {String} field
+     * @param {String} type
+     * @param {Number} price
+     * @param {Object} methods
+     * @param {Number} maxTriggers
      * @return {*}
      */
-    createAlert(itemId, field, type, price, methods = {}) {
+    createAlert(itemId, field, type, price, methods = {}, maxTriggers = 10) {
         return this._wrapPost('/price-alerts', {
             itemId,
             field,
             type,
             price,
-            methods
+            methods,
+            maxTriggers
         });
     }
 
