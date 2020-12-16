@@ -18,4 +18,16 @@ export default class FavouriteItemsWrapper extends APIBaseWrapper {
     getItems(opts = {filters: false}) {
         return this._wrapGet(this.parseOptions('favourite-items', opts));
     }
+
+    /**
+     * Update favourite items sort order
+     *
+     * @param update
+     * @returns {*}
+     */
+    reorder(update) {
+        return this._wrapPost('favourite-items/reorder', {
+            update
+        });
+    }
 }
