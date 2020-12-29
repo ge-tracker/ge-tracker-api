@@ -8,6 +8,7 @@ const createApi = (client, bugsnag = null) => {
         BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client, bugsnag),
         Billing: new Endpoint.BillingWrapper(client, bugsnag),
         BlastFurnace: new Endpoint.BlastFurnaceWrapper(client, bugsnag),
+        CombinationItems: new Endpoint.CombinationItemsWrapper(client, bugsnag),
         Dashboard: new Endpoint.DashboardWrapper(client, bugsnag),
         DecantPotions: new Endpoint.DecantPotionsWrapper(client, bugsnag),
         Device: new Endpoint.DeviceWrapper(client, bugsnag),

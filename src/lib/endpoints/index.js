@@ -3,6 +3,7 @@ import AuthWrapper from './AuthWrapper';
 import BarrowsRepairWrapper from './BarrowsRepairWrapper';
 import BillingWrapper from './BillingWrapper';
 import BlastFurnaceWrapper from './BlastFurnaceWrapper';
+import CombinationItemsWrapper from './CombinationItemsWrapper';
 import DashboardWrapper from './DashboardWrapper';
 import DecantPotionsWrapper from './DecantPotionsWrapper';
 import DeviceWrapper from './DeviceWrapper';
@@ -40,6 +41,7 @@ export {
     BarrowsRepairWrapper,
     BillingWrapper,
     BlastFurnaceWrapper,
+    CombinationItemsWrapper,
     DashboardWrapper,
     DecantPotionsWrapper,
     DeviceWrapper,
