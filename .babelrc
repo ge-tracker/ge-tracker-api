@@ -1,13 +1,14 @@
 {
   "presets": [
     [
-      "es2015",
+      "@babel/preset-env",
       {
-        "modules": false
+        "targets": "defaults"
       }
     ]
   ],
   "plugins": [
-    "transform-object-rest-spread"
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties"
   ]
 }

@@ -1,9 +1,7 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import replace from 'rollup-plugin-replace';
-
-// const dependencies = Object.keys(require('./package.json').dependencies);
+import { babel } from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
 
 export default {
     input: 'src/index.js',
@@ -11,11 +9,10 @@ export default {
         name: 'geTrackerApi',
         file: 'dist/index.min.js',
         format: 'cjs',
-        // interop: false,
     },
     external: ['axios', 'moment', 'deepmerge'],
     plugins: [
-        resolve({
+        nodeResolve({
             jsnext: true,
             main: true,
             browser: true,
@@ -23,7 +20,8 @@ export default {
         commonjs(),
         babel({
             exclude: 'node_modules/**',
-            plugins: ['external-helpers']
+            plugins: ['@babel/plugin-external-helpers'],
+            babelHelpers: 'external',
         }),
         replace({
             exclude: 'node_modules/**',
