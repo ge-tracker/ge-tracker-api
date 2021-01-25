@@ -2,27 +2,32 @@ import { handleResponseBody } from "../handlers";
 import { parseOptions } from "../query-string";
 
 export default class APIBaseWrapper {
-    constructor(client, bugsnag) {
+    /**
+     * @type {Function|null}
+     */
+    static onRequestCb = null;
+
+    constructor(client) {
         this.client = client;
-        this.bugsnag = bugsnag;
     }
 
-    _leaveBreadcrumb(method, path, params = {}) {
-        if (this.bugsnag && typeof this.bugsnag.leaveBreadcrumb === 'function') {
-            const crumb = JSON.stringify(params);
-            const urlPath = (path.substr(0, 1) === '/') ? path : `/${path}`;
-            const reqName = `${method} ${urlPath}`;
-
-            this.bugsnag.leaveBreadcrumb('API Request', {
-                type: 'manual',
-                url: reqName.substr(0, 140),
-                params: crumb.substr(0, 140)
-            })
+    /**
+     * Callback fired before a request is made (breadcrumb logging)
+     *
+     * @param {String} method
+     * @param {String} path
+     * @param {Object} params
+     */
+    onRequest(method, path, params = {}) {
+        if (typeof APIBaseWrapper.onRequestCb !== 'function') {
+            return;
         }
+
+        APIBaseWrapper.onRequestCb(method, path, params);
     }
 
     _wrapGet(path) {
-        this._leaveBreadcrumb('GET', path);
+        this.onRequest('GET', path);
 
         return this.client.get(path)
             .then(({data}) => data)
@@ -30,21 +35,21 @@ export default class APIBaseWrapper {
     }
 
     _wrapPost(path, params = {}) {
-        this._leaveBreadcrumb('POST', path, params);
+        this.onRequest('POST', path, params);
 
         return this.client.post(path, params)
             .then(({data}) => data);
     }
 
     _wrapPatch(path, params = {}) {
-        this._leaveBreadcrumb('PATCH', path, params);
+        this.onRequest('PATCH', path, params);
 
         return this.client.patch(path, params)
             .then(({data}) => data);
     }
 
     _wrapDelete(path) {
-        this._leaveBreadcrumb('DELETE', path);
+        this.onRequest('DELETE', path);
 
         return this.client.delete(path)
             .then(({data}) => data);
