@@ -20,8 +20,8 @@ export default {
         commonjs(),
         babel({
             exclude: 'node_modules/**',
-            plugins: ['@babel/plugin-external-helpers'],
-            babelHelpers: 'external',
+            plugins: [],
+            babelHelpers: 'bundled',
         }),
         replace({
             exclude: 'node_modules/**',
