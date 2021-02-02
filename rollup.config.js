@@ -1,7 +1,6 @@
 import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import replace from '@rollup/plugin-replace';
 import pkg from './package.json';
 
 const extensions = [
@@ -29,7 +28,11 @@ export default {
         name,
 
         // https://rollupjs.org/guide/en/#outputglobals
-        globals: {},
+        globals: {
+            moment: 'moment',
+            axios: 'Axios',
+            deepmerge: 'merge',
+        },
     }],
 
     // Do not include these modules in the bundle
