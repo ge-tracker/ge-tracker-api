@@ -1,9 +1,6 @@
-import APIBaseWrapper, { ApiBase } from './APIBaseWrapper';
-import { ItemArray, ItemListFilterToggle } from "../../types";
-export interface HighestMargins extends ApiBase {
-    getItems(opts: ItemListFilterToggle): Promise<ItemArray>;
-}
-export default class HighestMarginsWrapper extends APIBaseWrapper implements HighestMargins {
-    getItems(opts?: ItemListFilterToggle): Promise<ItemArray>;
+import APIBaseWrapper from './APIBaseWrapper';
+import { ItemListFilterToggle, ItemListPromise } from "../../types";
+export default class HighestMarginsWrapper extends APIBaseWrapper {
+    getItems(opts?: ItemListFilterToggle): ItemListPromise;
 }
 //# sourceMappingURL=HighestMarginsWrapper.d.ts.map

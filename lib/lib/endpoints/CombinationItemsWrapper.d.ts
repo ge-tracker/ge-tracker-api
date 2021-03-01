@@ -1,7 +1,8 @@
 import APIBaseWrapper from './APIBaseWrapper';
+import { ItemListPromise } from "../../types";
 export default class CombinationItemsWrapper extends APIBaseWrapper {
     getItems(opts?: {
         filters: boolean;
-    }): Promise<any>;
+    }): ItemListPromise;
 }
 //# sourceMappingURL=CombinationItemsWrapper.d.ts.map

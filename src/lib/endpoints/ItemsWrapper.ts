@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import {ItemPromise} from "../../types";
+import {ItemListPromise, ItemPromise} from "../../types";
 
 export default class ItemsWrapper extends APIBaseWrapper {
     getAllItems() {
@@ -11,11 +11,11 @@ export default class ItemsWrapper extends APIBaseWrapper {
         return this._wrapGet(url)
     }
 
-    getItems(...itemIds: Array<number>) {
+    getItems(...itemIds: Array<number>): ItemListPromise {
         return this._wrapGet(`items/multi/${itemIds.join(',')}`)
     }
 
-    search(query: string) {
+    search(query: string): ItemListPromise {
         return this._wrapGet(`items/search/${query}`)
     }
 }
