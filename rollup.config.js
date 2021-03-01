@@ -16,24 +16,29 @@ export default {
     //     file: 'dist/index.min.js',
     //     format: 'cjs',
     // },
-    output: [{
-        file: pkg.main,
-        format: 'cjs',
-    }, {
-        file: pkg.module,
-        format: 'es',
-    }, {
-        file: pkg.browser,
-        format: 'iife',
+    output: {
         name,
-
-        // https://rollupjs.org/guide/en/#outputglobals
-        globals: {
-            moment: 'moment',
-            axios: 'Axios',
-            deepmerge: 'merge',
-        },
-    }],
+        file: 'dist/index.min.js',
+        format: 'cjs',
+    },
+    // output: [{
+    //     file: pkg.main,
+    //     format: 'cjs',
+    // }, {
+    //     file: pkg.module,
+    //     format: 'es',
+    // }, {
+    //     file: pkg.browser,
+    //     format: 'iife',
+    //     name,
+    //
+    //     // https://rollupjs.org/guide/en/#outputglobals
+    //     globals: {
+    //         moment: 'moment',
+    //         axios: 'Axios',
+    //         deepmerge: 'merge',
+    //     },
+    // }],
 
     // Do not include these modules in the bundle
     external: ['axios', 'moment', 'deepmerge'],

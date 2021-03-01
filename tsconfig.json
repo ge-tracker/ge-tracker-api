@@ -9,7 +9,9 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "declarationDir": "dist/types",
+    "declarationMap": true,
     "declaration": true,
+    "outDir": "dist/lib",
     "target": "esnext",
     "module": "esnext",
     "strict": true

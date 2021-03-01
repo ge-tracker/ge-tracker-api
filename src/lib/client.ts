@@ -5,6 +5,8 @@ import * as errors from './errors';
 const GE_TRACKER_API_URL = 'https://www.ge-tracker.com/api';
 const GE_TRACKER_API_VERSION = 'v2';
 
+export type ApiKey = string | null | undefined;
+
 const DefaultOptions: AxiosRequestConfig = {
     // set the base URL for all API calls made on this Axios instance
     baseURL: GE_TRACKER_API_URL,
@@ -30,14 +32,14 @@ function isUnauthorizedResponse(error: AxiosError) {
     return error.response && error.response.status === 401
 }
 
-function createAuthHeader(apiKey: string): object {
+function createAuthHeader(apiKey: ApiKey): object {
     return {
         // Authorization header is required with a valid API key for all API calls
         Authorization: `Bearer ${apiKey}`
     }
 }
 
-function createClient(apiKey: string, opts: AxiosRequestConfig | null = null): AxiosInstance {
+function createClient(apiKey: ApiKey, opts: AxiosRequestConfig | null = null): AxiosInstance {
     const options = merge(DefaultOptions, opts || {});
     const instance = Axios.create(
         merge(options, {headers: createAuthHeader(apiKey)})

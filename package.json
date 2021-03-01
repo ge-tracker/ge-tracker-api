@@ -9,10 +9,14 @@
     "build:js": "rollup -c",
     "build": "npm run build:types && npm run build:js"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.iife.js",
+  "main": "dist/index.min.js",
+  "react-native": "src/index.ts",
+  "source": "src/index.ts",
   "types": "dist/types/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
   "repository": "https://github.com/ge-tracker/ge-tracker-api",
   "author": "Kyle Stevenson <kyle@kylestevenson.me>",
   "contributors": [

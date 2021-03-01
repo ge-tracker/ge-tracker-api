@@ -1,5 +1,6 @@
-function getApiKeyFromEnv(): string {
-    // @ts-ignore
+import {ApiKey} from "./client";
+
+function getApiKeyFromEnv(): ApiKey {
     return process.env.GE_TRACKER_API_KEY
 }
 

@@ -1,15 +1,22 @@
 import {createApi, GeTrackerApi} from "./lib/api";
-import {createClient as createAxios} from "./lib/client";
+import {ApiKey, createClient as createAxios} from "./lib/client";
 import {getApiKeyFromEnv} from "./lib/config";
+import {AxiosRequestConfig} from "axios";
+//import {Item, ItemArray, ItemListFilterToggle, ItemListPromise, ItemPromise} from "./types";
 
-const createInstance = (apiKey: string, opts = null): GeTrackerApi => {
+const createInstance = (apiKey: ApiKey, opts: AxiosRequestConfig | null = null): GeTrackerApi => {
     return createApi(createAxios(apiKey, opts));
 };
 
-const createClient = (apiKey: string, opts = null) => createInstance(apiKey, opts);
-const createClientFromEnv = (opts = null) => createInstance(getApiKeyFromEnv(), opts);
+const createClient = (apiKey: ApiKey, opts: AxiosRequestConfig | null = null) => createInstance(apiKey, opts);
+const createClientFromEnv = (opts: AxiosRequestConfig | null = null) => createInstance(getApiKeyFromEnv(), opts);
 
 export {
     createClient,
     createClientFromEnv,
+    //Item,
+    //ItemArray,
+    //ItemListPromise,
+    //ItemPromise,
+    //ItemListFilterToggle,
 };
