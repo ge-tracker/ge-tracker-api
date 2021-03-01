@@ -1,0 +1,1 @@
+{"version":3,"file":"UserWrapper.d.ts","sourceRoot":"","sources":["../../../src/lib/endpoints/UserWrapper.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAE9C,MAAM,CAAC,OAAO,OAAO,WAAY,SAAQ,cAAc;IACnD,OAAO,CAAC,MAAM,EAAE,MAAM;IAItB,MAAM,CAAC,KAAK,EAAE,MAAM;IAMpB,mBAAmB;CAGtB"}

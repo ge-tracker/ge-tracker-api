@@ -23,11 +23,10 @@ export interface Item {
     updatedAt: string;
     url: string;
 }
-
-export type ItemArray = Array<Item>;
-export type ItemListPromise = Promise<ItemArray>;
-export type ItemPromise = Promise<Item>;
-
+export declare type ItemArray = Array<Item>;
+export declare type ItemListPromise = Promise<ItemArray>;
+export declare type ItemPromise = Promise<Item>;
 export interface ItemListFilterToggle {
     filters: boolean;
 }
+//# sourceMappingURL=types.d.ts.map

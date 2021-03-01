@@ -3,24 +3,19 @@
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "noImplicitReturns": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "noUnusedLocals": true,
     "noImplicitAny": true,
-    "declarationDir": "dist/types",
     "declarationMap": true,
     "declaration": true,
-    "outDir": "dist/lib",
+    "outDir": "lib",
     "target": "esnext",
     "module": "esnext",
-    "strict": true
+    "strict": true,
+    "pretty": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-  ],
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules/**"]
 }

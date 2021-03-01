@@ -1,0 +1,1 @@
+{"version":3,"file":"MarketWatchWrapper.d.ts","sourceRoot":"","sources":["../../../src/lib/endpoints/MarketWatchWrapper.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAE9C,MAAM,CAAC,OAAO,OAAO,kBAAmB,SAAQ,cAAc;IAC1D,QAAQ,CAAC,OAAO,EAAE,MAAM,GAAG,MAAM;IAIjC,UAAU;CAGb"}
