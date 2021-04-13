@@ -1,7 +1,8 @@
-import {createApi, GeTrackerApi} from "./lib/api";
+import {createApi} from "./lib/api";
 import {ApiKey, createClient as createAxios} from "./lib/client";
 import {getApiKeyFromEnv} from "./lib/config";
 import {AxiosRequestConfig} from "axios";
+import {GeTrackerApi} from "./types";
 
 const createInstance = (apiKey: ApiKey, opts: AxiosRequestConfig | null = null): GeTrackerApi => {
     return createApi(createAxios(apiKey, opts));
@@ -16,8 +17,3 @@ export {
 };
 
 export * from "./types";
-export * from "./lib/endpoints/GraphWrapper";
-
-export type {
-    GeTrackerApi
-};

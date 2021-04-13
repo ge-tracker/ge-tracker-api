@@ -1,3 +1,4 @@
+import * as Endpoint from "./lib/endpoints";
 export interface Item {
     approxProfit: number;
     buyLimit: number;
@@ -28,5 +29,54 @@ export declare type ItemListPromise = Promise<ItemArray>;
 export declare type ItemPromise = Promise<Item>;
 export interface ItemListFilterToggle {
     filters: boolean;
+}
+export declare type GraphDuration = 'day' | 'week' | 'month' | 'quarter' | 'year';
+export declare type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
+export declare type GraphDayDuration = '10' | '30';
+export declare type GraphRequestParams = {
+    source?: GraphSource;
+    day?: GraphDayDuration;
+    start?: string;
+    end?: string;
+};
+export interface GeTrackerApi {
+    APIUptime: Endpoint.APIUptimeWrapper;
+    Auth: Endpoint.AuthWrapper;
+    BarrowsRepair: Endpoint.BarrowsRepairWrapper;
+    Billing: Endpoint.BillingWrapper;
+    BlastFurnace: Endpoint.BlastFurnaceWrapper;
+    CombinationItems: Endpoint.CombinationItemsWrapper;
+    Dashboard: Endpoint.DashboardWrapper;
+    DecantPotions: Endpoint.DecantPotionsWrapper;
+    Device: Endpoint.DeviceWrapper;
+    FavouriteItems: Endpoint.FavouriteItemsWrapper;
+    GELimits: Endpoint.GELimitsWrapper;
+    Graphs: Endpoint.GraphWrapper;
+    Heartbeat: Endpoint.HeartbeatWrapper;
+    Herblore: Endpoint.HerbloreWrapper;
+    HighAlchemy: Endpoint.HighAlchemyWrapper;
+    HighVolume: Endpoint.HighVolumeWrapper;
+    HighestMargins: Endpoint.HighestMarginsWrapper;
+    ItemSets: Endpoint.ItemSetsWrapper;
+    Items: Endpoint.ItemsWrapper;
+    Leaderboard: Endpoint.LeaderboardWrapper;
+    MagicTablets: Endpoint.MagicTabletsWrapper;
+    MarketWatch: Endpoint.MarketWatchWrapper;
+    NewItems: Endpoint.NewItemsWrapper;
+    Notifications: Endpoint.NotificationsWrapper;
+    PriceAlert: Endpoint.PriceAlertWrapper;
+    ProfitTracker: Endpoint.ProfitTrackerWrapper;
+    PlankMaking: Endpoint.PlankMakingWrapper;
+    RSUpdates: Endpoint.RSUpdatesWrapper;
+    Stats: Endpoint.StatsWrapper;
+    StoreProfit: Endpoint.StoreProfitWrapper;
+    Subscriptions: Endpoint.SubscriptionsWrapper;
+    SuggestedItems: Endpoint.SuggestedItemsWrapper;
+    TanLeather: Endpoint.TanLeatherWrapper;
+    TreeSapling: Endpoint.TreeSaplingWrapper;
+    Users: Endpoint.UserWrapper;
+    getManifest: Function;
+    attachOnRequest: Function;
+    getClient: Function;
 }
 //# sourceMappingURL=types.d.ts.map

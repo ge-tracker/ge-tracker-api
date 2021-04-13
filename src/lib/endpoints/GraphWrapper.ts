@@ -1,17 +1,7 @@
 import APIBaseWrapper from './APIBaseWrapper';
 import moment from 'moment';
 import {handleResponseBody} from "../handlers";
-
-export type GraphDuration = 'day' | 'week' | 'month' | 'quarter' | 'year';
-export type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
-export type GraphDayDuration = '10' | '30';
-
-export type GraphRequestParams = {
-    source?: GraphSource;
-    day?: GraphDayDuration;
-    start?: string;
-    end?: string;
-};
+import {GraphDuration, GraphRequestParams, GraphSource} from "../../types";
 
 export default class GraphWrapper extends APIBaseWrapper {
     _wrapGet(path: string) {
