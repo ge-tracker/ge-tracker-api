@@ -1,6 +1,6 @@
 import APIBaseWrapper from './APIBaseWrapper';
 export declare type GraphDuration = 'day' | 'week' | 'month' | 'quarter' | 'year';
-export declare type GraphSource = 'getracker' | 'osbuddy' | null;
+export declare type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
 export declare type GraphDayDuration = '10' | '30';
 export declare type GraphRequestParams = {
     source?: GraphSource;

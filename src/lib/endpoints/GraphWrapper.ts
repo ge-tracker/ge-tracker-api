@@ -3,7 +3,7 @@ import moment from 'moment';
 import {handleResponseBody} from "../handlers";
 
 export type GraphDuration = 'day' | 'week' | 'month' | 'quarter' | 'year';
-export type GraphSource = 'getracker' | 'osbuddy' | null;
+export type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
 export type GraphDayDuration = '10' | '30';
 
 export type GraphRequestParams = {
