@@ -1,7 +1,47 @@
 import * as Endpoint from './endpoints'
 import {AxiosInstance} from 'axios';
 import APIBaseWrapper from "./endpoints/APIBaseWrapper";
-import {GeTrackerApi} from "../types";
+
+export interface GeTrackerApi {
+    APIUptime: Endpoint.APIUptimeWrapper,
+    Auth: Endpoint.AuthWrapper,
+    BarrowsRepair: Endpoint.BarrowsRepairWrapper,
+    Billing: Endpoint.BillingWrapper,
+    BlastFurnace: Endpoint.BlastFurnaceWrapper,
+    CombinationItems: Endpoint.CombinationItemsWrapper,
+    Dashboard: Endpoint.DashboardWrapper,
+    DecantPotions: Endpoint.DecantPotionsWrapper,
+    Device: Endpoint.DeviceWrapper,
+    FavouriteItems: Endpoint.FavouriteItemsWrapper,
+    GELimits: Endpoint.GELimitsWrapper,
+    Graphs: Endpoint.GraphWrapper,
+    Heartbeat: Endpoint.HeartbeatWrapper,
+    Herblore: Endpoint.HerbloreWrapper,
+    HighAlchemy: Endpoint.HighAlchemyWrapper,
+    HighVolume: Endpoint.HighVolumeWrapper,
+    HighestMargins: Endpoint.HighestMarginsWrapper,
+    ItemSets: Endpoint.ItemSetsWrapper,
+    Items: Endpoint.ItemsWrapper,
+    Leaderboard: Endpoint.LeaderboardWrapper,
+    MagicTablets: Endpoint.MagicTabletsWrapper,
+    MarketWatch: Endpoint.MarketWatchWrapper,
+    NewItems: Endpoint.NewItemsWrapper,
+    Notifications: Endpoint.NotificationsWrapper,
+    PriceAlert: Endpoint.PriceAlertWrapper,
+    ProfitTracker: Endpoint.ProfitTrackerWrapper,
+    PlankMaking: Endpoint.PlankMakingWrapper,
+    RSUpdates: Endpoint.RSUpdatesWrapper,
+    Stats: Endpoint.StatsWrapper,
+    StoreProfit: Endpoint.StoreProfitWrapper,
+    Subscriptions: Endpoint.SubscriptionsWrapper,
+    SuggestedItems: Endpoint.SuggestedItemsWrapper,
+    TanLeather: Endpoint.TanLeatherWrapper,
+    TreeSapling: Endpoint.TreeSaplingWrapper,
+    Users: Endpoint.UserWrapper,
+    getManifest: Function,
+    attachOnRequest: Function,
+    getClient: Function,
+}
 
 const createApi = (client: AxiosInstance): GeTrackerApi => {
     return {

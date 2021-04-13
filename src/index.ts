@@ -1,8 +1,9 @@
-import {createApi} from "./lib/api";
+import {createApi, GeTrackerApi} from "./lib/api";
 import {ApiKey, createClient as createAxios} from "./lib/client";
 import {getApiKeyFromEnv} from "./lib/config";
 import {AxiosRequestConfig} from "axios";
-import {GeTrackerApi} from "./types";
+
+export * from "./types";
 
 const createInstance = (apiKey: ApiKey, opts: AxiosRequestConfig | null = null): GeTrackerApi => {
     return createApi(createAxios(apiKey, opts));
@@ -16,4 +17,6 @@ export {
     createClientFromEnv,
 };
 
-export * from "./types";
+export type {
+    GeTrackerApi
+};
