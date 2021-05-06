@@ -10,7 +10,7 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
     getBoughtTransactions(opts?: {}): Promise<any>;
     getSellingTransactions(opts?: {}): Promise<any>;
     getSoldTransactions(opts?: {}): Promise<any>;
-    getActiveTransactions(): Promise<any>;
+    getActiveTransactions(opts?: {}): Promise<any>;
     getPreviousTransactions(itemId: number): Promise<any>;
     getSummary(): Promise<any>;
     getMostProfitable(): Promise<any>;

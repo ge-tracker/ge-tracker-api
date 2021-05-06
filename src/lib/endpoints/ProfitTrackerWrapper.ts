@@ -52,8 +52,9 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
             .then(({data}) => data);
     }
 
-    getActiveTransactions() {
-        return this._wrapGet('/profit-tracker/active-transactions');
+    getActiveTransactions(opts = {}) {
+        return this.client.get(this.parseOptions('/profit-tracker/active-transactions', opts))
+            .then(({data}) => data);
     }
 
     getPreviousTransactions(itemId: number) {
