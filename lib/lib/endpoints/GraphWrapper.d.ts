@@ -8,6 +8,7 @@ export default class GraphWrapper extends APIBaseWrapper {
     getMonth(itemId: number, source?: null): Promise<any>;
     getQuarter(itemId: number, source?: null): Promise<any>;
     getYear(itemId: number, source?: null): Promise<any>;
+    getAll(itemId: number, source?: null): Promise<any>;
     getCandlestick(duration: GraphDuration, itemId: number): Promise<any>;
     forceReload(duration: GraphDuration, itemId: number): Promise<any>;
 }

@@ -29,7 +29,7 @@ export declare type ItemPromise = Promise<Item>;
 export interface ItemListFilterToggle {
     filters: boolean;
 }
-export declare type GraphDuration = 'day' | 'week' | 'month' | 'quarter' | 'year';
+export declare type GraphDuration = 'day' | 'week' | 'month' | 'quarter' | 'year' | 'all';
 export declare type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
 export declare type GraphDayDuration = '10' | '30';
 export declare type GraphRequestParams = {

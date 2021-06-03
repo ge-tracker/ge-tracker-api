@@ -60,6 +60,10 @@ export default class GraphWrapper extends APIBaseWrapper {
         return this.getDuration('year', itemId, source);
     }
 
+    getAll(itemId: number, source = null) {
+        return this.getDuration('all', itemId, source);
+    }
+
     getCandlestick(duration: GraphDuration, itemId: number) {
         return this._wrapGet(`graph/candlestick/${itemId}/${duration}`);
     }
