@@ -68,6 +68,10 @@ export default class GraphWrapper extends APIBaseWrapper {
         return this._wrapGet(`graph/candlestick/${itemId}/${duration}`);
     }
 
+    getIndicators(duration: GraphDuration, itemId: number) {
+        return this._wrapGet(`graph/indicators/${itemId}/${duration}`);
+    }
+
     forceReload(duration: GraphDuration, itemId: number) {
         return this._wrapPost(`graph/force-reload`, {
             itemId,
