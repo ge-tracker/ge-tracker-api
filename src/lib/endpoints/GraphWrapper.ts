@@ -96,6 +96,11 @@ export default class GraphWrapper extends APIBaseWrapper {
             return path;
         }
 
+        // Do not add the string a second time
+        if (path.includes('dmm=1')) {
+            return path;
+        }
+
         return path.includes('?')
             ? path + '&dmm=1'
             : path + '?dmm=1';
