@@ -13,7 +13,7 @@ export default class GraphWrapper extends APIBaseWrapper {
     getCandlestick(duration: GraphDuration, itemId: number): Promise<any>;
     getIndicators(duration: GraphDuration, itemId: number): Promise<any>;
     forceReload(duration: GraphDuration, itemId: number): Promise<any>;
-    dmm(enabled?: boolean): void;
+    dmm(enabled?: boolean): this;
     /**
      * Wrap URLs to support DMM endpoints
      *

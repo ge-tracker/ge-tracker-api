@@ -83,6 +83,7 @@ export default class GraphWrapper extends APIBaseWrapper {
 
     dmm(enabled: boolean = true) {
         this._dmm = enabled;
+        return this;
     }
 
     /**
