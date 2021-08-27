@@ -1,6 +1,7 @@
 import APIBaseWrapper from './APIBaseWrapper';
 import { GraphDuration, GraphRequestParams, GraphSource } from "../../types";
 export default class GraphWrapper extends APIBaseWrapper {
+    private _dmm;
     _wrapGet(path: string): Promise<any>;
     getDuration(duration: GraphDuration, itemId: number, source?: GraphSource): Promise<any>;
     getDay(itemId: number, tenMinute?: boolean, params?: GraphRequestParams): Promise<any>;
@@ -12,5 +13,12 @@ export default class GraphWrapper extends APIBaseWrapper {
     getCandlestick(duration: GraphDuration, itemId: number): Promise<any>;
     getIndicators(duration: GraphDuration, itemId: number): Promise<any>;
     forceReload(duration: GraphDuration, itemId: number): Promise<any>;
+    dmm(enabled?: boolean): void;
+    /**
+     * Wrap URLs to support DMM endpoints
+     *
+     * @param path
+     */
+    _wrapUrl(path: string): string;
 }
 //# sourceMappingURL=GraphWrapper.d.ts.map

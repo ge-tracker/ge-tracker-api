@@ -4,8 +4,10 @@ import {handleResponseBody} from "../handlers";
 import {GraphDuration, GraphRequestParams, GraphSource} from "../../types";
 
 export default class GraphWrapper extends APIBaseWrapper {
+    private _dmm = false;
+
     _wrapGet(path: string) {
-        return this.client.get(path)
+        return this.client.get(this._wrapUrl(path))
             .then(handleResponseBody)
     }
 
@@ -16,7 +18,7 @@ export default class GraphWrapper extends APIBaseWrapper {
             url = url + '?source=' + source;
         }
 
-        return this._wrapGet(url);
+        return this._wrapGet(this._wrapUrl(url));
     }
 
     getDay(itemId: number, tenMinute: boolean = false, params: GraphRequestParams = {}) {
@@ -77,5 +79,24 @@ export default class GraphWrapper extends APIBaseWrapper {
             itemId,
             duration
         });
+    }
+
+    dmm(enabled: boolean = true) {
+        this._dmm = enabled;
+    }
+
+    /**
+     * Wrap URLs to support DMM endpoints
+     *
+     * @param path
+     */
+    _wrapUrl(path: string) {
+        if (!this._dmm) {
+            return path;
+        }
+
+        return path.includes('?')
+            ? path + '&dmm=1'
+            : path + '?dmm=1';
     }
 }
