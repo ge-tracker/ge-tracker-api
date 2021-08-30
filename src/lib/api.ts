@@ -1,6 +1,6 @@
 import * as Endpoint from './endpoints'
-import {AxiosInstance} from 'axios';
 import APIBaseWrapper from "./endpoints/APIBaseWrapper";
+import {CustomAxiosInstance} from "./client";
 
 export interface GeTrackerApi {
     APIUptime: Endpoint.APIUptimeWrapper,
@@ -41,9 +41,10 @@ export interface GeTrackerApi {
     getManifest: Function,
     attachOnRequest: Function,
     getClient: Function,
+    dmm: Function,
 }
 
-const createApi = (client: AxiosInstance): GeTrackerApi => {
+const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
     return {
         APIUptime: new Endpoint.APIUptimeWrapper(client),
         Auth: new Endpoint.AuthWrapper(client),
@@ -118,9 +119,13 @@ const createApi = (client: AxiosInstance): GeTrackerApi => {
         /**
          * Get underlying Axios client instance
          */
-        getClient(): AxiosInstance {
+        getClient(): CustomAxiosInstance {
             return client;
         },
+
+        dmm(enabled: boolean = true): void {
+            client.dmm(enabled);
+        }
     }
 };
 

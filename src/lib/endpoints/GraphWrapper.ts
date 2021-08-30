@@ -92,12 +92,7 @@ export default class GraphWrapper extends APIBaseWrapper {
      * @param path
      */
     _wrapUrl(path: string) {
-        if (!this._dmm) {
-            return path;
-        }
-
-        // Do not add the string a second time
-        if (path.includes('dmm=1')) {
+        if (!this._dmm || path.includes('dmm=1')) {
             return path;
         }
 

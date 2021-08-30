@@ -39,24 +39,60 @@ function createAuthHeader(apiKey: ApiKey): object {
     }
 }
 
-function createClient(apiKey: ApiKey, opts: AxiosRequestConfig | null = null): AxiosInstance {
+/**
+ * Wrap URLs to support DMM endpoints
+ *
+ * @param dmmMode
+ * @param request
+ */
+function applyDmmParameter(dmmMode: boolean, request: AxiosRequestConfig): string | undefined {
+    const path = request.url;
+
+    if (!dmmMode || path === undefined || path.includes('dmm=1')) {
+        return path;
+    }
+
+    return path.includes('?')
+        ? path + '&dmm=1'
+        : path + '?dmm=1';
+}
+
+export interface CustomAxiosInstance extends AxiosInstance {
+    dmm(enabled: boolean): void;
+}
+
+function createClient(apiKey: ApiKey, opts: AxiosRequestConfig | null = null): CustomAxiosInstance {
     const options = merge(DefaultOptions, opts || {});
     const instance = Axios.create(
         merge(options, {headers: createAuthHeader(apiKey)})
     );
 
+    let dmmMode: boolean = false;
+
     // add custom response interceptors
-    instance.interceptors.response.use(function (response) {
+    instance.interceptors.response.use((response) => {
         return response
-    }, function (error: AxiosError) {
+    }, (error: AxiosError) => {
         // intercept 401 Unauthorized responses and reject the promise chain with
         // an appropriate typed error
         if (isUnauthorizedResponse(error)) {
             return Promise.reject(new errors.InvalidApiKey())
         }
+
         return Promise.reject(error)
     });
 
+    instance.interceptors.request.use((request) => {
+        request.url = applyDmmParameter(dmmMode, request);
+        return request;
+    });
+
+    // @ts-ignore
+    function dmm(enabled: boolean = true): void {
+        dmmMode = enabled;
+    }
+
+    // @ts-ignore
     return instance;
 }
 
