@@ -31,7 +31,8 @@ import StoreProfitWrapper from './StoreProfitWrapper';
 import SubscriptionsWrapper from './SubscriptionsWrapper';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
 import TanLeatherWrapper from './TanLeatherWrapper';
+import TradingPostWrapper from './TradingPostWrapper';
 import TreeSaplingWrapper from './TreeSaplingWrapper';
 import UserWrapper from './UserWrapper';
-export { APIUptimeWrapper, AuthWrapper, BarrowsRepairWrapper, BillingWrapper, BlastFurnaceWrapper, CombinationItemsWrapper, DashboardWrapper, DecantPotionsWrapper, DeviceWrapper, FavouriteItemsWrapper, GELimitsWrapper, GraphWrapper, HeartbeatWrapper, HerbloreWrapper, HighAlchemyWrapper, HighVolumeWrapper, HighestMarginsWrapper, ItemSetsWrapper, ItemsWrapper, LeaderboardWrapper, MagicTabletsWrapper, MarketWatchWrapper, NewItemsWrapper, NotificationsWrapper, PriceAlertWrapper, ProfitTrackerWrapper, PlankMakingWrapper, RSUpdatesWrapper, StatsWrapper, StoreProfitWrapper, SubscriptionsWrapper, SuggestedItemsWrapper, TanLeatherWrapper, TreeSaplingWrapper, UserWrapper, };
+export { APIUptimeWrapper, AuthWrapper, BarrowsRepairWrapper, BillingWrapper, BlastFurnaceWrapper, CombinationItemsWrapper, DashboardWrapper, DecantPotionsWrapper, DeviceWrapper, FavouriteItemsWrapper, GELimitsWrapper, GraphWrapper, HeartbeatWrapper, HerbloreWrapper, HighAlchemyWrapper, HighVolumeWrapper, HighestMarginsWrapper, ItemSetsWrapper, ItemsWrapper, LeaderboardWrapper, MagicTabletsWrapper, MarketWatchWrapper, NewItemsWrapper, NotificationsWrapper, PriceAlertWrapper, ProfitTrackerWrapper, PlankMakingWrapper, RSUpdatesWrapper, StatsWrapper, StoreProfitWrapper, SubscriptionsWrapper, SuggestedItemsWrapper, TanLeatherWrapper, TradingPostWrapper, TreeSaplingWrapper, UserWrapper, };
 //# sourceMappingURL=index.d.ts.map

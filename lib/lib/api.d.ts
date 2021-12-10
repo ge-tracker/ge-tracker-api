@@ -33,6 +33,7 @@ export interface GeTrackerApi {
     StoreProfit: Endpoint.StoreProfitWrapper;
     Subscriptions: Endpoint.SubscriptionsWrapper;
     SuggestedItems: Endpoint.SuggestedItemsWrapper;
+    TradingPost: Endpoint.TradingPostWrapper;
     TanLeather: Endpoint.TanLeatherWrapper;
     TreeSapling: Endpoint.TreeSaplingWrapper;
     Users: Endpoint.UserWrapper;

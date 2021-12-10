@@ -35,6 +35,7 @@ export interface GeTrackerApi {
     StoreProfit: Endpoint.StoreProfitWrapper,
     Subscriptions: Endpoint.SubscriptionsWrapper,
     SuggestedItems: Endpoint.SuggestedItemsWrapper,
+    TradingPost: Endpoint.TradingPostWrapper,
     TanLeather: Endpoint.TanLeatherWrapper,
     TreeSapling: Endpoint.TreeSaplingWrapper,
     Users: Endpoint.UserWrapper,
@@ -79,6 +80,7 @@ const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
         Subscriptions: new Endpoint.SubscriptionsWrapper(client),
         SuggestedItems: new Endpoint.SuggestedItemsWrapper(client),
         TanLeather: new Endpoint.TanLeatherWrapper(client),
+        TradingPost: new Endpoint.TradingPostWrapper(client),
         TreeSapling: new Endpoint.TreeSaplingWrapper(client),
         Users: new Endpoint.UserWrapper(client),
 

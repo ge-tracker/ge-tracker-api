@@ -31,6 +31,7 @@ import StoreProfitWrapper from './StoreProfitWrapper';
 import SubscriptionsWrapper from './SubscriptionsWrapper';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
 import TanLeatherWrapper from './TanLeatherWrapper';
+import TradingPostWrapper from './TradingPostWrapper';
 import TreeSaplingWrapper from './TreeSaplingWrapper';
 import UserWrapper from './UserWrapper';
 
@@ -69,6 +70,7 @@ export {
     SubscriptionsWrapper,
     SuggestedItemsWrapper,
     TanLeatherWrapper,
+    TradingPostWrapper,
     TreeSaplingWrapper,
     UserWrapper,
 }
