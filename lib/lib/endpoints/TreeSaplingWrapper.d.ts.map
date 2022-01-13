@@ -1,1 +1,0 @@
-{"version":3,"file":"TreeSaplingWrapper.d.ts","sourceRoot":"","sources":["../../../src/lib/endpoints/TreeSaplingWrapper.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAC9C,OAAO,EAAC,eAAe,EAAC,MAAM,aAAa,CAAC;AAE5C,MAAM,CAAC,OAAO,OAAO,kBAAmB,SAAQ,cAAc;IAC1D,QAAQ,IAAI,eAAe;CAG9B"}

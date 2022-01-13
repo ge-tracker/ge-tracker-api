@@ -1,1 +1,0 @@
-{"version":3,"file":"SuggestedItemsWrapper.d.ts","sourceRoot":"","sources":["../../../src/lib/endpoints/SuggestedItemsWrapper.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAC9C,OAAO,EAAC,WAAW,EAAC,MAAM,iBAAiB,CAAC;AAC5C,OAAO,EAAC,eAAe,EAAC,MAAM,aAAa,CAAC;AAE5C,MAAM,CAAC,OAAO,OAAO,qBAAsB,SAAQ,cAAc;IAC7D,OAAO;IAIP,QAAQ,CAAC,IAAI,GAAE,WAA8B,GAAG,eAAe;CAGlE"}

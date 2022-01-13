@@ -1,1 +1,0 @@
-{"version":3,"file":"NotificationsWrapper.d.ts","sourceRoot":"","sources":["../../../src/lib/endpoints/NotificationsWrapper.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAE9C,MAAM,CAAC,OAAO,OAAO,oBAAqB,SAAQ,cAAc;IAC5D,gBAAgB;IAIhB,eAAe,CAAC,cAAc,EAAE,MAAM;IAItC,aAAa;CAGhB"}

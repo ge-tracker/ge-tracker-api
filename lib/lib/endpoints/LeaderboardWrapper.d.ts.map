@@ -1,1 +1,0 @@
-{"version":3,"file":"LeaderboardWrapper.d.ts","sourceRoot":"","sources":["../../../src/lib/endpoints/LeaderboardWrapper.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAE9C,oBAAY,eAAe,GAAG,QAAQ,GAAG,SAAS,GAAG,QAAQ,GAAG,OAAO,CAAC;AAExE,MAAM,CAAC,OAAO,OAAO,kBAAmB,SAAQ,cAAc;IAC1D,cAAc,CAAC,IAAI,EAAE,eAAe,EAAE,IAAI,KAAK;IAK/C,OAAO,CAAC,IAAI,EAAE,eAAe;IAI7B,UAAU;CAGb"}

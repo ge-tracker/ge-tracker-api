@@ -1,1 +1,0 @@
-{"version":3,"file":"GELimitsWrapper.d.ts","sourceRoot":"","sources":["../../../src/lib/endpoints/GELimitsWrapper.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAC9C,OAAO,EAAC,eAAe,EAAC,MAAM,aAAa,CAAC;AAE5C,MAAM,CAAC,OAAO,OAAO,eAAgB,SAAQ,cAAc;IACvD,QAAQ,CAAC,IAAI;;KAAmB,GAAG,eAAe;CAGrD"}

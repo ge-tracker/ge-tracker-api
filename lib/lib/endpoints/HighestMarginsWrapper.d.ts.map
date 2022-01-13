@@ -1,1 +1,0 @@
-{"version":3,"file":"HighestMarginsWrapper.d.ts","sourceRoot":"","sources":["../../../src/lib/endpoints/HighestMarginsWrapper.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAC9C,OAAO,EAAC,oBAAoB,EAAE,eAAe,EAAC,MAAM,aAAa,CAAC;AAElE,MAAM,CAAC,OAAO,OAAO,qBAAsB,SAAQ,cAAc;IAC7D,QAAQ,CAAC,IAAI,GAAE,oBAAuC,GAAG,eAAe;CAG3E"}

@@ -1,26 +1,31 @@
 {
   "name": "@getracker/api",
-  "version": "5.0.0-beta.17",
+  "version": "5.0.0-beta.18",
   "description": "Official GE-Tracker.com API client",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "watch": "tsc -p tsconfig.json -w"
+    "build": "yarn run clean && yarn run build:cjs && yarn run build:umd",
+    "build:cjs": "microbundle --format cjs",
+    "build:umd": "microbundle --format umd --name GeTracker --external none",
+    "clean": "rm -rf types && rm -rf dist",
+    "prepublishOnly": "yarn run build",
+    "watch": "microbundle watch --format cjs"
   },
-  "main": "src/index.ts",
-  "react-native": "src/index.ts",
+  "files": ["dist", "types"],
   "source": "src/index.ts",
-  "types": "lib/index.d.ts",
-  "files": [
-    "src",
-    "lib"
-  ],
+  "main": "dist/index.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "types/index.d.ts",
   "repository": "https://github.com/ge-tracker/ge-tracker-api",
-  "author": "Kyle Stevenson <kyle@kylestevenson.me>",
   "contributors": [
     {
       "name": "James Austen",
       "email": "james@ge-tracker.com",
       "url": "https://www.ge-tracker.com"
+    },
+    {
+      "name": "Kyle Stevenson",
+      "email": "kyle@kylestevenson.me",
+      "url": "kylestevenson.me"
     }
   ],
   "license": "MIT",
@@ -31,12 +36,8 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-typescript": "^7.12.7",
     "@types/jest": "^26.0.20",
+    "microbundle": "^0.14.2",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
   }
