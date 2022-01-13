@@ -1,4 +1,4 @@
-import Axios, {AxiosError, AxiosInstance, AxiosRequestConfig} from 'axios';
+import Axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
 import merge from 'deepmerge';
 import * as errors from './errors';
 

@@ -1,6 +1,6 @@
-import {handleResponseBody} from "../handlers";
-import {ParamObject, parseOptions} from "../query-string";
-import {AxiosInstance} from "axios";
+import { handleResponseBody } from "../handlers";
+import { ParamObject, parseOptions } from "../query-string";
+import { AxiosInstance } from "axios";
 
 export interface ApiBase {
     onRequest(method: string, path: string, params: object): void;

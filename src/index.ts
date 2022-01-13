@@ -1,7 +1,7 @@
-import {createApi, GeTrackerApi} from "./lib/api";
-import {ApiKey, createClient as createAxios} from "./lib/client";
-import {getApiKeyFromEnv} from "./lib/config";
-import {AxiosRequestConfig} from "axios";
+import { createApi, GeTrackerApi } from "./lib/api";
+import { ApiKey, createClient as createAxios } from "./lib/client";
+import { getApiKeyFromEnv } from "./lib/config";
+import { AxiosRequestConfig } from "axios";
 
 export * from "./types";
 

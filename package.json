@@ -1,6 +1,6 @@
 {
   "name": "@getracker/api",
-  "version": "5.0.0-beta.18",
+  "version": "5.0.0-beta.19",
   "description": "Official GE-Tracker.com API client",
   "scripts": {
     "build": "yarn run clean && yarn run build:cjs && yarn run build:umd",
@@ -10,7 +10,10 @@
     "prepublishOnly": "yarn run build",
     "watch": "microbundle watch --format cjs"
   },
-  "files": ["dist", "types"],
+  "files": [
+    "dist",
+    "types"
+  ],
   "source": "src/index.ts",
   "main": "dist/index.js",
   "unpkg": "dist/index.umd.js",
@@ -32,11 +35,12 @@
   "dependencies": {
     "axios": "^0.21.1",
     "deepmerge": "^4.2.2",
-    "moment": "^2.29.1"
+    "luxon": "^2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@types/jest": "^26.0.20",
+    "@types/luxon": "^2.0.9",
     "microbundle": "^0.14.2",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"

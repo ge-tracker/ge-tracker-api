@@ -1,7 +1,7 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import moment from 'moment';
-import {handleResponseBody} from "../handlers";
-import {GraphDuration, GraphRequestParams, GraphSource} from "../../types";
+import { DateTime } from "luxon";
+import { handleResponseBody } from "../handlers";
+import { GraphDuration, GraphRequestParams, GraphSource } from "../../types";
 
 export default class GraphWrapper extends APIBaseWrapper {
     private _dmm = false;
@@ -22,28 +22,23 @@ export default class GraphWrapper extends APIBaseWrapper {
     }
 
     getDay(itemId: number, tenMinute: boolean = false, params: GraphRequestParams = {}) {
-        if (tenMinute) {
-
-            const dateFormat = 'Y-MM-DD';
-            const date = moment().format(dateFormat);
-
-            const startDate = (params.hasOwnProperty('start')) ? moment(params.start).format(dateFormat) : date;
-            const endDate = (params.hasOwnProperty('end')) ? moment(params.end).format(dateFormat) : date;
-
-            let url = `graph/${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`;
-
-            if (params.hasOwnProperty('source') && params.source !== null) {
-                url = url + '&source=' + params.source;
-            }
-
-            return this._wrapGet(url);
-
-        } else {
-
+        if (!tenMinute) {
             const source = (params.hasOwnProperty('source') && params.source !== null) ? params.source : null;
             return this.getDuration('day', itemId, source);
-
         }
+
+        const currentDate = DateTime.now().toSQLDate();
+
+        const startDate = (params.start) ? DateTime.fromISO(params.start).toSQLDate() : currentDate;
+        const endDate = (params.end) ? DateTime.fromISO(params.end).toSQLDate() : currentDate;
+
+        let url = `graph/${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`;
+
+        if (params.hasOwnProperty('source') && params.source !== null) {
+            url = url + '&source=' + params.source;
+        }
+
+        return this._wrapGet(url);
     }
 
     getWeek(itemId: number, source = null) {

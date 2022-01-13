@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import {ItemListPromise, ItemPromise} from "../../types";
+import { ItemListPromise, ItemPromise } from "../../types";
 
 export default class ItemsWrapper extends APIBaseWrapper {
     getAllItems() {
