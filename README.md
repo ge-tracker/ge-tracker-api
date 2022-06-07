@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/%40getracker%2Fapi.svg)](https://badge.fury.io/js/%40getracker%2Fapi)
+[![npm version](https://badge.fury.io/js/%40getracker%2Fapi.svg)](https://badge.fury.io/js/%40getracker%2Fapi) [![Known Vulnerabilities](https://snyk.io/test/npm/@getracker/api/badge.svg)](https://snyk.io/test/npm/@getracker/api)
 
 # ge-tracker-api
 
