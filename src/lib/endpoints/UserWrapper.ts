@@ -11,7 +11,7 @@ export type UserPermissions = {
     staff: string;
     admin: string;
     disabled: string;
-}
+};
 
 export type User = {
     userId: string;
@@ -37,7 +37,7 @@ export default class UserWrapper extends APIBaseWrapper {
 
     search(query: string): Promise<Array<User>> {
         return this._wrapPost(`users/search`, {
-            query
+            query,
         });
     }
 

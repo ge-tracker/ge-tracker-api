@@ -35,7 +35,6 @@ import TradingPostWrapper from './TradingPostWrapper';
 import TreeSaplingWrapper from './TreeSaplingWrapper';
 import UserWrapper from './UserWrapper';
 
-
 export {
     APIUptimeWrapper,
     AuthWrapper,
@@ -73,4 +72,4 @@ export {
     TradingPostWrapper,
     TreeSaplingWrapper,
     UserWrapper,
-}
+};

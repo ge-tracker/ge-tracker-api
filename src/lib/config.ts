@@ -1,9 +1,7 @@
-import { ApiKey } from "./client";
+import { ApiKey } from './client';
 
 function getApiKeyFromEnv(): ApiKey {
-    return process.env.GE_TRACKER_API_KEY
+    return process.env.GE_TRACKER_API_KEY;
 }
 
-export {
-    getApiKeyFromEnv
-};
+export { getApiKeyFromEnv };

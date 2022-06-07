@@ -32,7 +32,13 @@ export interface ItemListFilterToggle {
     filters: boolean;
 }
 
-export type GraphDuration = 'day' | 'week' | 'month' | 'quarter' | 'year' | 'all';
+export type GraphDuration =
+    | 'day'
+    | 'week'
+    | 'month'
+    | 'quarter'
+    | 'year'
+    | 'all';
 export type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
 export type GraphDayDuration = '10' | '30';
 

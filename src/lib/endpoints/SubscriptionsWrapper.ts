@@ -19,11 +19,15 @@ export default class SubscriptionsWrapper extends APIBaseWrapper {
         });
     }
 
-    createSubscription(transactionReceipt: object, platform: string, sessionId: string | null = null) {
+    createSubscription(
+        transactionReceipt: object,
+        platform: string,
+        sessionId: string | null = null
+    ) {
         return this._wrapPost('/subscriptions', {
             transactionReceipt,
             platform,
-            sessionId
-        })
+            sessionId,
+        });
     }
 }

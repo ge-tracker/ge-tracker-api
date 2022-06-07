@@ -1,17 +1,20 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { DateTime } from "luxon";
-import { handleResponseBody } from "../handlers";
-import { GraphDuration, GraphRequestParams, GraphSource } from "../../types";
+import { DateTime } from 'luxon';
+import { handleResponseBody } from '../handlers';
+import { GraphDuration, GraphRequestParams, GraphSource } from '../../types';
 
 export default class GraphWrapper extends APIBaseWrapper {
     private _dmm = false;
 
     _wrapGet(path: string) {
-        return this.client.get(this._wrapUrl(path))
-            .then(handleResponseBody)
+        return this.client.get(this._wrapUrl(path)).then(handleResponseBody);
     }
 
-    getDuration(duration: GraphDuration, itemId: number, source: GraphSource = null) {
+    getDuration(
+        duration: GraphDuration,
+        itemId: number,
+        source: GraphSource = null
+    ) {
         let url = `graph/${itemId}/${duration}`;
 
         if (source !== null) {
@@ -21,16 +24,27 @@ export default class GraphWrapper extends APIBaseWrapper {
         return this._wrapGet(this._wrapUrl(url));
     }
 
-    getDay(itemId: number, tenMinute: boolean = false, params: GraphRequestParams = {}) {
+    getDay(
+        itemId: number,
+        tenMinute: boolean = false,
+        params: GraphRequestParams = {}
+    ) {
         if (!tenMinute) {
-            const source = (params.hasOwnProperty('source') && params.source !== null) ? params.source : null;
+            const source =
+                params.hasOwnProperty('source') && params.source !== null
+                    ? params.source
+                    : null;
             return this.getDuration('day', itemId, source);
         }
 
         const currentDate = DateTime.now().toSQLDate();
 
-        const startDate = (params.start) ? DateTime.fromISO(params.start).toSQLDate() : currentDate;
-        const endDate = (params.end) ? DateTime.fromISO(params.end).toSQLDate() : currentDate;
+        const startDate = params.start
+            ? DateTime.fromISO(params.start).toSQLDate()
+            : currentDate;
+        const endDate = params.end
+            ? DateTime.fromISO(params.end).toSQLDate()
+            : currentDate;
 
         let url = `graph/${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`;
 
@@ -72,7 +86,7 @@ export default class GraphWrapper extends APIBaseWrapper {
     forceReload(duration: GraphDuration, itemId: number) {
         return this._wrapPost(`graph/force-reload`, {
             itemId,
-            duration
+            duration,
         });
     }
 
@@ -91,8 +105,6 @@ export default class GraphWrapper extends APIBaseWrapper {
             return path;
         }
 
-        return path.includes('?')
-            ? path + '&dmm=1'
-            : path + '?dmm=1';
+        return path.includes('?') ? path + '&dmm=1' : path + '?dmm=1';
     }
 }

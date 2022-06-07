@@ -4,7 +4,7 @@ export type ParamObject = {
 
 type FlattenedObject = {
     path: string | Array<string>;
-    val?: string,
+    val?: string;
 };
 
 type FlattenedObjectArray = Array<FlattenedObject>;
@@ -32,7 +32,7 @@ function parseOptions(url: string, opts: ParamObject): string {
     }
 
     const params = toQueryString(opts);
-    const sep = (url.indexOf('?') === -1) ? '?' : '&';
+    const sep = url.indexOf('?') === -1 ? '?' : '&';
 
     return `${url}${sep}${params}`;
 }
@@ -57,7 +57,10 @@ function toQueryString(obj: ParamObject, urlEncode: boolean = false) {
     //     { path: [ 'prop2', 'z' ], val: '2' }
     // ]
     //
-    function flattenObj(x: ParamObject, path: Array<string | number> = []): FlattenedObjectArray {
+    function flattenObj(
+        x: ParamObject,
+        path: Array<string | number> = []
+    ): FlattenedObjectArray {
         let result: Array<object> = [];
 
         path = path || [];
@@ -72,7 +75,7 @@ function toQueryString(obj: ParamObject, urlEncode: boolean = false) {
                 // @ts-ignore
                 vals = flattenObj(x[key], newPath);
             } else {
-                vals.push({path: newPath, val: x[key]});
+                vals.push({ path: newPath, val: x[key] });
             }
             // @ts-ignore
             vals.forEach(function (obj) {
@@ -101,14 +104,13 @@ function toQueryString(obj: ParamObject, urlEncode: boolean = false) {
     }); // parts.map
 
     // join the parts to a query-string url-component
-    let queryString = parts.map(function (varInfo) {
-        return varInfo.path + '=' + varInfo.val;
-    }).join('&');
+    let queryString = parts
+        .map(function (varInfo) {
+            return varInfo.path + '=' + varInfo.val;
+        })
+        .join('&');
 
     return urlEncode ? encodeURIComponent(queryString) : queryString;
 }
 
-export {
-    isEmptyObject,
-    parseOptions,
-}
+export { isEmptyObject, parseOptions };

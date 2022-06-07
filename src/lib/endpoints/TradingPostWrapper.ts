@@ -5,7 +5,7 @@ export type TradingPostUpdateFields = {
     price?: number;
     private?: boolean;
     completed?: boolean;
-}
+};
 
 export default class TradingPostWrapper extends APIBaseWrapper {
     /**
@@ -17,7 +17,7 @@ export default class TradingPostWrapper extends APIBaseWrapper {
      * @return {*}
      */
     getPosts(itemId = null) {
-        const url = (itemId) ? `/trading-posts/${itemId}` : '/trading-posts';
+        const url = itemId ? `/trading-posts/${itemId}` : '/trading-posts';
         return this._wrapGet(url);
     }
 
@@ -26,7 +26,14 @@ export default class TradingPostWrapper extends APIBaseWrapper {
      *
      * @return {*}
      */
-    createPost(itemId: number, qty: number | string, price: number | string, buying: boolean, privateTrade: boolean, rsn: string | undefined = undefined) {
+    createPost(
+        itemId: number,
+        qty: number | string,
+        price: number | string,
+        buying: boolean,
+        privateTrade: boolean,
+        rsn: string | undefined = undefined
+    ) {
         return this._wrapPost('/trading-posts', {
             itemId,
             qty,

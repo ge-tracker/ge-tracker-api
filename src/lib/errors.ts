@@ -1,4 +1,7 @@
-function captureStackTrace(targetObject: object, constructorOpt: Function | undefined = undefined) {
+function captureStackTrace(
+    targetObject: object,
+    constructorOpt: Function | undefined = undefined
+) {
     if (Error.captureStackTrace) {
         Error.captureStackTrace(targetObject, constructorOpt);
     }
@@ -11,6 +14,4 @@ class InvalidApiKey extends Error {
     }
 }
 
-export {
-    InvalidApiKey
-};
+export { InvalidApiKey };

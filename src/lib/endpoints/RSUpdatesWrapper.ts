@@ -1,15 +1,16 @@
 import APIBaseWrapper from './APIBaseWrapper';
 
-type DaysOption = number | 'all'
+type DaysOption = number | 'all';
 
 type RsUpdateOptions = {
-    days?: DaysOption,
+    days?: DaysOption;
 };
 
 export default class RSUpdatesWrapper extends APIBaseWrapper {
     get(opts: RsUpdateOptions = {}) {
-        return this.client.get(this.parseOptions('rs-updates', opts))
-            .then(({data}) => data);
+        return this.client
+            .get(this.parseOptions('rs-updates', opts))
+            .then(({ data }) => data);
     }
 
     getUpdate(id: number) {

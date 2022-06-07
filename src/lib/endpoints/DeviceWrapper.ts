@@ -27,14 +27,22 @@ export default class DeviceWrapper extends APIBaseWrapper {
      * @return {*}
      */
     register({
-                 platform,
-                 platformVersion,
-                 width,
-                 height,
-                 uniqueId,
-                 appVersion,
-                 pushInfo
-             }: { platform: string, platformVersion: string, width: number, height: number, uniqueId: string, appVersion: string, pushInfo: object | undefined }) {
+        platform,
+        platformVersion,
+        width,
+        height,
+        uniqueId,
+        appVersion,
+        pushInfo,
+    }: {
+        platform: string;
+        platformVersion: string;
+        width: number;
+        height: number;
+        uniqueId: string;
+        appVersion: string;
+        pushInfo: object | undefined;
+    }) {
         return this._wrapPost('devices/register', {
             platform,
             platformVersion,
@@ -42,7 +50,7 @@ export default class DeviceWrapper extends APIBaseWrapper {
             height,
             uniqueId,
             appVersion,
-            pushInfo
+            pushInfo,
         });
     }
 }

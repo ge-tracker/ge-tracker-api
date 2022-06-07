@@ -4,8 +4,8 @@ export function handleResponseBody(body: any) {
     }
 
     if (!('data' in body)) {
-        return body
+        return body;
     }
 
-    return body.data
+    return body.data;
 }

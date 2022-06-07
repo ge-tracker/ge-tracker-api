@@ -4,7 +4,7 @@ export default class AuthWrapper extends APIBaseWrapper {
     login(email: string, password: string) {
         return this._wrapPost('auth/login', {
             email,
-            password
+            password,
         });
     }
 
@@ -12,7 +12,7 @@ export default class AuthWrapper extends APIBaseWrapper {
         return this._wrapPost('auth/2fa', {
             email,
             password,
-            code
+            code,
         });
     }
 
@@ -22,18 +22,25 @@ export default class AuthWrapper extends APIBaseWrapper {
 
     forgot(email: string) {
         return this._wrapPost('auth/forgot', {
-            email
+            email,
         });
     }
 
-    register(username: string, email: string, password: string, passwordConfirm: string, terms: boolean, receiveEmail: boolean = false) {
+    register(
+        username: string,
+        email: string,
+        password: string,
+        passwordConfirm: string,
+        terms: boolean,
+        receiveEmail: boolean = false
+    ) {
         return this._wrapPost('auth/register', {
             name: username,
             email,
             password,
             password_confirmation: passwordConfirm,
             terms,
-            receiveEmail
+            receiveEmail,
         });
     }
 }

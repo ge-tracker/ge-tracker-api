@@ -10,7 +10,7 @@ export type FavouriteItemReorderRequest = Array<FavouriteItemReorder>;
 export default class FavouriteItemsWrapper extends APIBaseWrapper {
     addItem(itemId: number) {
         return this._wrapPost(`favourite-items`, {
-            item_id: itemId
+            item_id: itemId,
         });
     }
 
@@ -22,7 +22,7 @@ export default class FavouriteItemsWrapper extends APIBaseWrapper {
         return this._wrapDelete(`favourite-items/itemId/${itemId}`);
     }
 
-    getItems(opts = {filters: false}) {
+    getItems(opts = { filters: false }) {
         return this._wrapGet(this.parseOptions('favourite-items', opts));
     }
 
@@ -34,7 +34,7 @@ export default class FavouriteItemsWrapper extends APIBaseWrapper {
      */
     reorder(update: FavouriteItemReorderRequest) {
         return this._wrapPost('favourite-items/reorder', {
-            update
+            update,
         });
     }
 }

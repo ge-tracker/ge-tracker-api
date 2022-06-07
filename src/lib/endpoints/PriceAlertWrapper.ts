@@ -18,7 +18,7 @@ export default class PriceAlertWrapper extends APIBaseWrapper {
      * @return {*}
      */
     getAlerts(itemId = null) {
-        const url = (itemId) ? `/price-alerts/${itemId}` : '/price-alerts';
+        const url = itemId ? `/price-alerts/${itemId}` : '/price-alerts';
         return this._wrapGet(url);
     }
 
@@ -27,21 +27,28 @@ export default class PriceAlertWrapper extends APIBaseWrapper {
      *
      * @return {*}
      */
-    createAlert(itemId: number, field: PriceAlertField, type: PriceAlertType, price: number, methods: PriceAlertMethod = {}, maxTriggers: number = 10) {
+    createAlert(
+        itemId: number,
+        field: PriceAlertField,
+        type: PriceAlertType,
+        price: number,
+        methods: PriceAlertMethod = {},
+        maxTriggers: number = 10
+    ) {
         return this._wrapPost('/price-alerts', {
             itemId,
             field,
             type,
             price,
             methods,
-            maxTriggers
+            maxTriggers,
         });
     }
 
     updateAlert(id: number, params = {}) {
         return this._wrapPost(`/price-alerts/${id}`, {
             status,
-            ...params
+            ...params,
         });
     }
 

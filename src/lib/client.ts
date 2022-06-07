@@ -24,19 +24,19 @@ const DefaultOptions: AxiosRequestConfig = {
     // and for a point of contact
     headers: {
         'User-Agent': 'ge-tracker-api client v5.0.0-beta.21',
-        'Accept': `application/x.getracker.${GE_TRACKER_API_VERSION}+json`,
-    }
+        Accept: `application/x.getracker.${GE_TRACKER_API_VERSION}+json`,
+    },
 };
 
 function isUnauthorizedResponse(error: AxiosError) {
-    return error.response && error.response.status === 401
+    return error.response && error.response.status === 401;
 }
 
 function createAuthHeader(apiKey: ApiKey): object {
     return {
         // Authorization header is required with a valid API key for all API calls
-        Authorization: `Bearer ${apiKey}`
-    }
+        Authorization: `Bearer ${apiKey}`,
+    };
 }
 
 /**
@@ -45,42 +45,49 @@ function createAuthHeader(apiKey: ApiKey): object {
  * @param dmmMode
  * @param request
  */
-function applyDmmParameter(dmmMode: boolean, request: AxiosRequestConfig): string | undefined {
+function applyDmmParameter(
+    dmmMode: boolean,
+    request: AxiosRequestConfig
+): string | undefined {
     const path = request.url;
 
     if (!dmmMode || path === undefined || path.includes('dmm=1')) {
         return path;
     }
 
-    return path.includes('?')
-        ? path + '&dmm=1'
-        : path + '?dmm=1';
+    return path.includes('?') ? path + '&dmm=1' : path + '?dmm=1';
 }
 
 export interface CustomAxiosInstance extends AxiosInstance {
     dmm(enabled: boolean): void;
 }
 
-function createClient(apiKey: ApiKey, opts: AxiosRequestConfig | null = null): CustomAxiosInstance {
+function createClient(
+    apiKey: ApiKey,
+    opts: AxiosRequestConfig | null = null
+): CustomAxiosInstance {
     const options = merge(DefaultOptions, opts || {});
     const instance = Axios.create(
-        merge(options, {headers: createAuthHeader(apiKey)})
+        merge(options, { headers: createAuthHeader(apiKey) })
     );
 
     let dmmMode: boolean = false;
 
     // add custom response interceptors
-    instance.interceptors.response.use((response) => {
-        return response
-    }, (error: AxiosError) => {
-        // intercept 401 Unauthorized responses and reject the promise chain with
-        // an appropriate typed error
-        if (isUnauthorizedResponse(error)) {
-            return Promise.reject(new errors.InvalidApiKey())
-        }
+    instance.interceptors.response.use(
+        (response) => {
+            return response;
+        },
+        (error: AxiosError) => {
+            // intercept 401 Unauthorized responses and reject the promise chain with
+            // an appropriate typed error
+            if (isUnauthorizedResponse(error)) {
+                return Promise.reject(new errors.InvalidApiKey());
+            }
 
-        return Promise.reject(error)
-    });
+            return Promise.reject(error);
+        }
+    );
 
     instance.interceptors.request.use((request) => {
         request.url = applyDmmParameter(dmmMode, request);
@@ -96,8 +103,4 @@ function createClient(apiKey: ApiKey, opts: AxiosRequestConfig | null = null): C
     return instance;
 }
 
-export {
-    DefaultOptions,
-    createClient,
-    GE_TRACKER_API_URL
-};
+export { DefaultOptions, createClient, GE_TRACKER_API_URL };

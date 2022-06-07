@@ -1,48 +1,48 @@
-import * as Endpoint from './endpoints'
-import APIBaseWrapper from "./endpoints/APIBaseWrapper";
-import { CustomAxiosInstance } from "./client";
+import * as Endpoint from './endpoints';
+import APIBaseWrapper from './endpoints/APIBaseWrapper';
+import { CustomAxiosInstance } from './client';
 
 export interface GeTrackerApi {
-    APIUptime: Endpoint.APIUptimeWrapper,
-    Auth: Endpoint.AuthWrapper,
-    BarrowsRepair: Endpoint.BarrowsRepairWrapper,
-    Billing: Endpoint.BillingWrapper,
-    BlastFurnace: Endpoint.BlastFurnaceWrapper,
-    CombinationItems: Endpoint.CombinationItemsWrapper,
-    Dashboard: Endpoint.DashboardWrapper,
-    DecantPotions: Endpoint.DecantPotionsWrapper,
-    Device: Endpoint.DeviceWrapper,
-    FavouriteItems: Endpoint.FavouriteItemsWrapper,
-    GELimits: Endpoint.GELimitsWrapper,
-    Graphs: Endpoint.GraphWrapper,
-    Heartbeat: Endpoint.HeartbeatWrapper,
-    Herblore: Endpoint.HerbloreWrapper,
-    HighAlchemy: Endpoint.HighAlchemyWrapper,
-    HighVolume: Endpoint.HighVolumeWrapper,
-    HighestMargins: Endpoint.HighestMarginsWrapper,
-    ItemSets: Endpoint.ItemSetsWrapper,
-    Items: Endpoint.ItemsWrapper,
-    Leaderboard: Endpoint.LeaderboardWrapper,
-    MagicTablets: Endpoint.MagicTabletsWrapper,
-    MarketWatch: Endpoint.MarketWatchWrapper,
-    NewItems: Endpoint.NewItemsWrapper,
-    Notifications: Endpoint.NotificationsWrapper,
-    PriceAlert: Endpoint.PriceAlertWrapper,
-    ProfitTracker: Endpoint.ProfitTrackerWrapper,
-    PlankMaking: Endpoint.PlankMakingWrapper,
-    RSUpdates: Endpoint.RSUpdatesWrapper,
-    Stats: Endpoint.StatsWrapper,
-    StoreProfit: Endpoint.StoreProfitWrapper,
-    Subscriptions: Endpoint.SubscriptionsWrapper,
-    SuggestedItems: Endpoint.SuggestedItemsWrapper,
-    TradingPost: Endpoint.TradingPostWrapper,
-    TanLeather: Endpoint.TanLeatherWrapper,
-    TreeSapling: Endpoint.TreeSaplingWrapper,
-    Users: Endpoint.UserWrapper,
-    getManifest: Function,
-    attachOnRequest: Function,
-    getClient: Function,
-    dmm: Function,
+    APIUptime: Endpoint.APIUptimeWrapper;
+    Auth: Endpoint.AuthWrapper;
+    BarrowsRepair: Endpoint.BarrowsRepairWrapper;
+    Billing: Endpoint.BillingWrapper;
+    BlastFurnace: Endpoint.BlastFurnaceWrapper;
+    CombinationItems: Endpoint.CombinationItemsWrapper;
+    Dashboard: Endpoint.DashboardWrapper;
+    DecantPotions: Endpoint.DecantPotionsWrapper;
+    Device: Endpoint.DeviceWrapper;
+    FavouriteItems: Endpoint.FavouriteItemsWrapper;
+    GELimits: Endpoint.GELimitsWrapper;
+    Graphs: Endpoint.GraphWrapper;
+    Heartbeat: Endpoint.HeartbeatWrapper;
+    Herblore: Endpoint.HerbloreWrapper;
+    HighAlchemy: Endpoint.HighAlchemyWrapper;
+    HighVolume: Endpoint.HighVolumeWrapper;
+    HighestMargins: Endpoint.HighestMarginsWrapper;
+    ItemSets: Endpoint.ItemSetsWrapper;
+    Items: Endpoint.ItemsWrapper;
+    Leaderboard: Endpoint.LeaderboardWrapper;
+    MagicTablets: Endpoint.MagicTabletsWrapper;
+    MarketWatch: Endpoint.MarketWatchWrapper;
+    NewItems: Endpoint.NewItemsWrapper;
+    Notifications: Endpoint.NotificationsWrapper;
+    PriceAlert: Endpoint.PriceAlertWrapper;
+    ProfitTracker: Endpoint.ProfitTrackerWrapper;
+    PlankMaking: Endpoint.PlankMakingWrapper;
+    RSUpdates: Endpoint.RSUpdatesWrapper;
+    Stats: Endpoint.StatsWrapper;
+    StoreProfit: Endpoint.StoreProfitWrapper;
+    Subscriptions: Endpoint.SubscriptionsWrapper;
+    SuggestedItems: Endpoint.SuggestedItemsWrapper;
+    TradingPost: Endpoint.TradingPostWrapper;
+    TanLeather: Endpoint.TanLeatherWrapper;
+    TreeSapling: Endpoint.TreeSaplingWrapper;
+    Users: Endpoint.UserWrapper;
+    getManifest: Function;
+    attachOnRequest: Function;
+    getClient: Function;
+    dmm: Function;
 }
 
 const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
@@ -93,15 +93,16 @@ const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
             // @ts-ignore
             const apiUrl = client.defaults.baseURL.replace('/api', '');
             return new Promise((resolve, reject) => {
-                client.get(`${apiUrl}app_manifest.json`).then(data => {
-
-                    if (data.hasOwnProperty('data')) {
-                        resolve(data.data);
-                    } else {
-                        reject(null);
-                    }
-
-                }).catch(err => reject(err));
+                client
+                    .get(`${apiUrl}app_manifest.json`)
+                    .then((data) => {
+                        if (data.hasOwnProperty('data')) {
+                            resolve(data.data);
+                        } else {
+                            reject(null);
+                        }
+                    })
+                    .catch((err) => reject(err));
             });
         },
 
@@ -127,10 +128,8 @@ const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
 
         dmm(enabled: boolean = true): void {
             client.dmm(enabled);
-        }
-    }
+        },
+    };
 };
 
-export {
-    createApi
-}
+export { createApi };
