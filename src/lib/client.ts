@@ -23,7 +23,7 @@ const DefaultOptions: AxiosRequestConfig = {
     // specify a custom user-agent header to identify the client used
     // and for a point of contact
     headers: {
-        'User-Agent': 'ge-tracker-api client <https://github.com/gtjamesa/ge-tracker-api>',
+        'User-Agent': 'ge-tracker-api client v5.0.0-beta.21',
         'Accept': `application/x.getracker.${GE_TRACKER_API_VERSION}+json`,
     }
 };

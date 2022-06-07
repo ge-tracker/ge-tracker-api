@@ -1,5 +1,5 @@
 import { createApi, GeTrackerApi } from "./lib/api";
-import { ApiKey, createClient as createAxios } from "./lib/client";
+import { ApiKey, createClient as createAxios, DefaultOptions } from "./lib/client";
 import { getApiKeyFromEnv } from "./lib/config";
 import { AxiosRequestConfig } from "axios";
 
@@ -15,6 +15,7 @@ const createClientFromEnv = (opts: AxiosRequestConfig | null = null) => createIn
 export {
     createClient,
     createClientFromEnv,
+    DefaultOptions,
 };
 
 export type {
