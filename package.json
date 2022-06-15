@@ -1,6 +1,6 @@
 {
   "name": "@getracker/api",
-  "version": "5.0.0-beta.22",
+  "version": "5.0.0",
   "description": "Official GE-Tracker.com API client",
   "scripts": {
     "build": "yarn run clean && yarn run build:cjs && yarn run build:umd",
