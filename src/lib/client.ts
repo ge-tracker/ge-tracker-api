@@ -23,8 +23,8 @@ const DefaultOptions: AxiosRequestConfig = {
     // specify a custom user-agent header to identify the client used
     // and for a point of contact
     headers: {
-        'User-Agent': 'ge-tracker-api client v5.0.1',
-        'X-Api-Client': 'ge-tracker-api client v5.0.1',
+        'User-Agent': 'ge-tracker-api client v5.1.0',
+        'X-Api-Client': 'ge-tracker-api client v5.1.0',
         Accept: `application/x.getracker.${GE_TRACKER_API_VERSION}+json`,
     },
 };
@@ -34,6 +34,10 @@ function isUnauthorizedResponse(error: AxiosError) {
 }
 
 function createAuthHeader(apiKey: ApiKey): object {
+    // if (apiKey === null) {
+    //     return {};
+    // }
+
     return {
         // Authorization header is required with a valid API key for all API calls
         Authorization: `Bearer ${apiKey}`,

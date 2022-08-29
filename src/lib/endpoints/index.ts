@@ -30,6 +30,7 @@ import StatsWrapper from './StatsWrapper';
 import StoreProfitWrapper from './StoreProfitWrapper';
 import SubscriptionsWrapper from './SubscriptionsWrapper';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
+import TagWrapper from './TagWrapper';
 import TanLeatherWrapper from './TanLeatherWrapper';
 import TradingPostWrapper from './TradingPostWrapper';
 import TreeSaplingWrapper from './TreeSaplingWrapper';
@@ -68,6 +69,7 @@ export {
     StoreProfitWrapper,
     SubscriptionsWrapper,
     SuggestedItemsWrapper,
+    TagWrapper,
     TanLeatherWrapper,
     TradingPostWrapper,
     TreeSaplingWrapper,

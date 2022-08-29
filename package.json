@@ -1,7 +1,14 @@
 {
   "name": "@getracker/api",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "description": "Official GE-Tracker.com API client",
+  "repository": "https://github.com/ge-tracker/ge-tracker-api",
+  "license": "MIT",
+  "author": {
+    "name": "James Austen",
+    "email": "james@ge-tracker.com",
+    "url": "https://www.ge-tracker.com"
+  },
   "scripts": {
     "build": "yarn run clean && yarn run build:cjs && yarn run build:umd",
     "build:cjs": "microbundle --format cjs",
@@ -19,20 +26,6 @@
   "main": "dist/index.js",
   "unpkg": "dist/index.umd.js",
   "types": "types/index.d.ts",
-  "repository": "https://github.com/ge-tracker/ge-tracker-api",
-  "contributors": [
-    {
-      "name": "James Austen",
-      "email": "james@ge-tracker.com",
-      "url": "https://www.ge-tracker.com"
-    },
-    {
-      "name": "Kyle Stevenson",
-      "email": "kyle@kylestevenson.me",
-      "url": "kylestevenson.me"
-    }
-  ],
-  "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
     "deepmerge": "^4.2.2",
@@ -51,5 +44,17 @@
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"
-  }
+  },
+  "contributors": [
+    {
+      "name": "James Austen",
+      "email": "james@ge-tracker.com",
+      "url": "https://www.ge-tracker.com"
+    },
+    {
+      "name": "Kyle Stevenson",
+      "email": "kyle@kylestevenson.me",
+      "url": "kylestevenson.me"
+    }
+  ]
 }
