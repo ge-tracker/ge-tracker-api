@@ -24,9 +24,14 @@ export interface Item {
     url: string;
 }
 
+export type MetaCount = { count: number };
+
 export type ItemArray = Array<Item>;
 export type ItemListPromise = Promise<ItemArray>;
 export type ItemPromise = Promise<Item>;
+export type ItemDataWrapped = { data: Item };
+export type ItemArrayDataWrapped = { data: ItemArray };
+export type ItemArrayDataWrappedWithMeta = { data: ItemArray; meta: MetaCount };
 
 export interface ItemListFilterToggle {
     filters: boolean;

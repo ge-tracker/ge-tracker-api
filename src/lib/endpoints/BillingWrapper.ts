@@ -1,6 +1,11 @@
 import APIBaseWrapper from './APIBaseWrapper';
 
-export type BillingProvider = 'stripe' | 'paypal' | 'molle';
+export type BillingProvider =
+    | 'stripe'
+    | 'paypal'
+    | 'molle'
+    | 'google_pay'
+    | 'apple_pay';
 export type BillingState =
     | 'pending'
     | 'paid'
