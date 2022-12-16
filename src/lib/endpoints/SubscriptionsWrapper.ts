@@ -20,7 +20,7 @@ export default class SubscriptionsWrapper extends APIBaseWrapper {
     }
 
     createSubscription(
-        transactionReceipt: object,
+        transactionReceipt: object | string,
         platform: string,
         sessionId: string | null = null
     ) {
