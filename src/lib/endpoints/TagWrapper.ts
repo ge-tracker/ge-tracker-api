@@ -5,7 +5,7 @@ export type Tag = {
     id: number;
     slug: string;
     name: string;
-}
+};
 
 export default class TagWrapper extends APIBaseWrapper {
     getTags(): Promise<Array<Tag>> {
@@ -23,7 +23,7 @@ export default class TagWrapper extends APIBaseWrapper {
         return this._wrapDelete(`tags/item/${itemId}/${tag}`);
     }
 
-    getTaggedItems(tag: string|Array<string>): ItemListPromise {
+    getTaggedItems(tag: string | Array<string>): ItemListPromise {
         // Join an array to a CSV list
         if (Array.isArray(tag)) {
             tag = tag.join(',');
