@@ -23,10 +23,11 @@
     "dist",
     "types"
   ],
-  "source": "src/index.ts",
-  "main": "dist/index.js",
-  "unpkg": "dist/index.umd.js",
-  "types": "types/index.d.ts",
+  "source": "./src/index.ts",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.mjs",
+  "unpkg": "./dist/index.umd.js",
+  "types": "./types/index.d.ts",
   "dependencies": {
     "axios": "^0.21.1",
     "deepmerge": "^4.2.2",
