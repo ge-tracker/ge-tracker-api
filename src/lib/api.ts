@@ -1,5 +1,5 @@
-import * as Endpoint from './endpoints';
-import APIBaseWrapper from './endpoints/APIBaseWrapper';
+import * as Endpoint from '../endpoints';
+import APIBaseWrapper from '../endpoints/APIBaseWrapper';
 import { CustomAxiosInstance } from './client';
 
 export interface GeTrackerApi {

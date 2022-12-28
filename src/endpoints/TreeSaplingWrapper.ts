@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { ItemListPromise } from '../../types';
+import { ItemListPromise } from '@/types';
 
 export default class TreeSaplingWrapper extends APIBaseWrapper {
     getItems(): ItemListPromise {

@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { ItemArrayDataWrappedWithMeta, ItemDataWrapped } from '../../types';
+import { ItemArrayDataWrappedWithMeta, ItemDataWrapped } from '@/types';
 
 export type DashboardTotal = {
     invested: number;
