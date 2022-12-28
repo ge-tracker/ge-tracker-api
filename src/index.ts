@@ -7,8 +7,6 @@ import {
 import { getApiKeyFromEnv } from './lib/config';
 import { AxiosRequestConfig } from 'axios';
 
-export * from './types';
-
 const createInstance = (
     apiKey: ApiKey,
     opts: AxiosRequestConfig | null = null
@@ -21,6 +19,7 @@ const createClient = (apiKey: ApiKey, opts: AxiosRequestConfig | null = null) =>
 const createClientFromEnv = (opts: AxiosRequestConfig | null = null) =>
     createInstance(getApiKeyFromEnv(), opts);
 
+export * from './types';
+export * from './endpoints/types';
 export { createClient, createClientFromEnv, DefaultOptions };
-
 export type { GeTrackerApi };
