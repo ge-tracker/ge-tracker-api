@@ -2,25 +2,35 @@
   "compilerOptions": {
     "rootDir": "src",
     "noEmitOnError": true,
-
-    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2020"
+    ],
     "target": "ESNext",
-    "types": ["node"],
-
+    "types": [
+      "node"
+    ],
     "declaration": true,
     "declarationDir": "types",
-
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-
     "noImplicitThis": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "preserveConstEnums": true,
     "removeComments": true,
-    "typeRoots": ["./node_modules/@types"],
-    "strict": true
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   }
 }
