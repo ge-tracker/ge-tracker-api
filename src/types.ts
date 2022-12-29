@@ -1,3 +1,28 @@
+export type ItemField =
+    | 'approxProfit'
+    | 'buyLimit'
+    | 'buyPriceCurrent'
+    | 'buySellRatio'
+    | 'buying'
+    | 'buyingQuantity'
+    | 'cachedUntil'
+    | 'highAlch'
+    | 'icon'
+    | 'id'
+    | 'itemId'
+    | 'lastKnownBuyTime'
+    | 'lastKnownSellTime'
+    | 'lowAlch'
+    | 'members'
+    | 'name'
+    | 'overall'
+    | 'sellPriceCurrent'
+    | 'selling'
+    | 'sellingQuantity'
+    | 'slug'
+    | 'updatedAt'
+    | 'url';
+
 export interface Item {
     approxProfit: number;
     buyLimit: number;
@@ -46,6 +71,14 @@ export type GraphDuration =
     | 'all';
 export type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
 export type GraphDayDuration = '10' | '30';
+export type GraphField =
+    | 'buyingCompleted'
+    | 'buyingPrice'
+    | 'overallCompleted'
+    | 'overallPrice'
+    | 'sellingCompleted'
+    | 'sellingPrice'
+    | 'ts';
 
 export type GraphRequestParams = {
     source?: GraphSource;

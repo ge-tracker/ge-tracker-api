@@ -10,13 +10,13 @@
     "url": "https://www.ge-tracker.com"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "build": "yarn clean && npx microbundle",
     "build:cjs": "microbundle --format cjs",
     "build:umd": "microbundle --format umd --name GeTracker --external none",
     "clean": "rm -rf types && rm -rf dist",
     "watch": "microbundle watch --format cjs",
-    "np": "np --yolo --no-release-draft --message 'Bump version to v%s'",
+    "np": "np --branch v6 --no-publish --no-tests --no-cleanup --no-release-draft --message 'Bump version to v%s'",
     "prepublishOnly": "yarn run build",
     "prepare": "husky install"
   },
