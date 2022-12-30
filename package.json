@@ -12,9 +12,7 @@
   "scripts": {
     "test": "jest --passWithNoTests",
     "build": "yarn clean && npx microbundle",
-    "build:cjs": "microbundle --format cjs",
-    "build:umd": "microbundle --format umd --name GeTracker --external none",
-    "clean": "rm -rf types && rm -rf dist",
+    "clean": "rm -rf dist types",
     "watch": "microbundle watch --format cjs",
     "np": "np --branch v6 --no-publish --no-tests --no-cleanup --no-release-draft --message 'Bump version to v%s'",
     "prepublishOnly": "yarn run build",
@@ -26,9 +24,12 @@
     "types"
   ],
   "source": "./src/index.ts",
-  "main": "./dist/index.js",
-  "exports": "./dist/index.mjs",
-  "unpkg": "./dist/index.umd.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.mjs"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
   "types": "./types/index.d.ts",
   "dependencies": {
     "axios": "^1.2.1",
