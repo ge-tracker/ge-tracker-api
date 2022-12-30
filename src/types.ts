@@ -51,12 +51,11 @@ export interface Item {
 
 export type MetaCount = { count: number };
 
-export type ItemArray = Array<Item>;
-export type ItemListPromise = Promise<ItemArray>;
+export type ItemListPromise = Promise<Item[]>;
 export type ItemPromise = Promise<Item>;
 export type ItemDataWrapped = { data: Item };
-export type ItemArrayDataWrapped = { data: ItemArray };
-export type ItemArrayDataWrappedWithMeta = { data: ItemArray; meta: MetaCount };
+export type ItemArrayDataWrapped = { data: Item[] };
+export type ItemArrayDataWrappedWithMeta = { data: Item[]; meta: MetaCount };
 
 export interface ItemListFilterToggle {
     filters: boolean;
@@ -79,6 +78,22 @@ export type GraphField =
     | 'sellingCompleted'
     | 'sellingPrice'
     | 'ts';
+
+export type GraphResponseItem = {
+    // [index in GraphField]: number;
+    buyingCompleted: number;
+    buyingPrice: number;
+    overallCompleted: number;
+    overallPrice: number;
+    sellingCompleted: number;
+    sellingPrice: number;
+    ts: number;
+};
+
+export type GraphResponse = {
+    source: GraphSource;
+    data: GraphResponseItem[];
+};
 
 export type GraphRequestParams = {
     source?: GraphSource;

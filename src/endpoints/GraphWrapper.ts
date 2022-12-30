@@ -1,7 +1,12 @@
 import APIBaseWrapper from './APIBaseWrapper';
 import { DateTime } from 'luxon';
 import { handleResponseBody } from '@/lib/handlers';
-import { GraphDuration, GraphRequestParams, GraphSource } from '@/types';
+import {
+    GraphDuration,
+    GraphRequestParams,
+    GraphResponse,
+    GraphSource,
+} from '@/types';
 
 export default class GraphWrapper extends APIBaseWrapper {
     private _dmm = false;
@@ -14,7 +19,7 @@ export default class GraphWrapper extends APIBaseWrapper {
         duration: GraphDuration,
         itemId: number,
         source: GraphSource = null
-    ) {
+    ): Promise<GraphResponse> {
         let url = `graph/${itemId}/${duration}`;
 
         if (source !== null) {
@@ -28,7 +33,7 @@ export default class GraphWrapper extends APIBaseWrapper {
         itemId: number,
         tenMinute: boolean = false,
         params: GraphRequestParams = {}
-    ) {
+    ): Promise<GraphResponse> {
         if (!tenMinute) {
             const source =
                 params.hasOwnProperty('source') && params.source !== null
@@ -55,27 +60,30 @@ export default class GraphWrapper extends APIBaseWrapper {
         return this._wrapGet(url);
     }
 
-    getWeek(itemId: number, source = null) {
+    getWeek(itemId: number, source = null): Promise<GraphResponse> {
         return this.getDuration('week', itemId, source);
     }
 
-    getMonth(itemId: number, source = null) {
+    getMonth(itemId: number, source = null): Promise<GraphResponse> {
         return this.getDuration('month', itemId, source);
     }
 
-    getQuarter(itemId: number, source = null) {
+    getQuarter(itemId: number, source = null): Promise<GraphResponse> {
         return this.getDuration('quarter', itemId, source);
     }
 
-    getYear(itemId: number, source = null) {
+    getYear(itemId: number, source = null): Promise<GraphResponse> {
         return this.getDuration('year', itemId, source);
     }
 
-    getAll(itemId: number, source = null) {
+    getAll(itemId: number, source = null): Promise<GraphResponse> {
         return this.getDuration('all', itemId, source);
     }
 
-    getCandlestick(duration: GraphDuration, itemId: number) {
+    getCandlestick(
+        duration: GraphDuration,
+        itemId: number
+    ): Promise<GraphResponse> {
         return this._wrapGet(`graph/candlestick/${itemId}/${duration}`);
     }
 
