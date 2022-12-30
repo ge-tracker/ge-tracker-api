@@ -1,0 +1,10 @@
+#!/bin/bash
+
+VERSION=$(grep '"version": ' package.json | head | cut -d'"' -f 4)
+
+# Replace the hardcoded version string
+sed -i "s/ge-tracker-api client v[^']*/ge-tracker-api client v$VERSION/g" src/lib/client.ts
+
+# Add the version change into the previous version commit
+git add src/lib/client.ts
+git commit --amend --no-edit
