@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { ItemListPromise } from '@/types';
+import { ItemListPromise } from '../types';
 
 export default class BarrowsRepairWrapper extends APIBaseWrapper {
     getItems(): ItemListPromise {

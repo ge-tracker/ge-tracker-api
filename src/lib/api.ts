@@ -1,4 +1,4 @@
-import * as Endpoint from '@/endpoints';
+import * as Endpoint from '../endpoints';
 import APIBaseWrapper from '../endpoints/APIBaseWrapper';
 import { CustomAxiosInstance } from './client';
 

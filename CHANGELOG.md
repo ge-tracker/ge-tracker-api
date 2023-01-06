@@ -5,7 +5,6 @@ All notable changes to this project will be documented in this file.
 ## [6.0.0] - 2022-12-30
 
 -   Added typing to various endpoints
--   Moved all type exports to the root of the package instead of their absolute path
 -   Removed `ItemArray` type
 
 ## [v5.1.2] - 2022-12-16

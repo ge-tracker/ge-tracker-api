@@ -1,12 +1,12 @@
 import APIBaseWrapper from './APIBaseWrapper';
 import { DateTime } from 'luxon';
-import { handleResponseBody } from '@/lib/handlers';
+import { handleResponseBody } from '../lib/handlers';
 import {
     GraphDuration,
     GraphRequestParams,
     GraphResponse,
     GraphSource,
-} from '@/types';
+} from '../types';
 
 export default class GraphWrapper extends APIBaseWrapper {
     private _dmm = false;

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { AxiosRequestConfig } from 'axios';
-import { ApiKey } from '@/lib/client';
+import { ApiKey } from '@getracker/api/types/lib/client';
 
 const api = {
     createClient: jest.fn(
