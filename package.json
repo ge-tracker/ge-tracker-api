@@ -25,7 +25,21 @@
     "jest"
   ],
   "source": "./src/index.ts",
-  "exports": "./dist/index.modern.mjs",
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./dist/index.modern.mjs",
+        "require": "./dist/index.js"
+      },
+      "browser": {
+        "import": "./dist/index.modern.mjs",
+        "require": "./dist/index.js"
+      }
+    },
+    "./types": "./types/index.d.ts",
+    "./jest/jest-mock": "./jest/jest-mock.ts",
+    "./package.json": "./package.json"
+  },
   "main": "./dist/index.umd.js",
   "module": "./dist/index.module.js",
   "types": "./types/index.d.ts",
