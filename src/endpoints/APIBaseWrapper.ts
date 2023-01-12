@@ -34,7 +34,7 @@ export default class APIBaseWrapper {
         APIBaseWrapper.onRequestCb(method, path, params);
     }
 
-    _wrapGet(path: string) {
+    _wrapGet<T>(path: string): Promise<T> {
         this.onRequest('GET', path);
 
         return this.client
@@ -43,19 +43,19 @@ export default class APIBaseWrapper {
             .then(handleResponseBody);
     }
 
-    _wrapPost(path: string, params = {}) {
+    _wrapPost<T>(path: string, params = {}): Promise<T> {
         this.onRequest('POST', path, params);
 
         return this.client.post(path, params).then(({ data }) => data);
     }
 
-    _wrapPatch(path: string, params = {}) {
+    _wrapPatch<T>(path: string, params = {}): Promise<T> {
         this.onRequest('PATCH', path, params);
 
         return this.client.patch(path, params).then(({ data }) => data);
     }
 
-    _wrapDelete(path: string) {
+    _wrapDelete<T>(path: string): Promise<T> {
         this.onRequest('DELETE', path);
 
         return this.client.delete(path).then(({ data }) => data);

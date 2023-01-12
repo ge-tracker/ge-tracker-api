@@ -13,6 +13,20 @@ export type UserPermissions = {
     disabled: string;
 };
 
+export type UserClass =
+    | 'admin'
+    | 'staff'
+    | 'moderator'
+    | 'high-roller'
+    | 'youtube'
+    | 'twitch'
+    | 'affiliate'
+    | 'discord'
+    | 'premium'
+    | 'standard'
+    | 'trial'
+    | string;
+
 export type User = {
     userId: string;
     name: string;
@@ -24,7 +38,7 @@ export type User = {
     slug: string;
     apiKey: string;
     url: string;
-    class: string;
+    class: UserClass;
     premium: UserPremium;
     permissions: UserPermissions;
     avatars: Array<string>;
