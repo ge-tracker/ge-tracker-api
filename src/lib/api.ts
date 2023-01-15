@@ -3,6 +3,7 @@ import APIBaseWrapper from '../endpoints/APIBaseWrapper';
 import { CustomAxiosInstance } from './client';
 
 export interface GeTrackerApi {
+    ActiveItems: Endpoint.ActiveItemsWrapper;
     APIUptime: Endpoint.APIUptimeWrapper;
     Auth: Endpoint.AuthWrapper;
     BarrowsRepair: Endpoint.BarrowsRepairWrapper;
@@ -48,6 +49,7 @@ export interface GeTrackerApi {
 
 const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
     return {
+        ActiveItems: new Endpoint.ActiveItemsWrapper(client),
         APIUptime: new Endpoint.APIUptimeWrapper(client),
         Auth: new Endpoint.AuthWrapper(client),
         BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client),

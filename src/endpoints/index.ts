@@ -1,3 +1,4 @@
+import ActiveItemsWrapper from './ActiveItemsWrapper';
 import APIUptimeWrapper from './APIUptimeWrapper';
 import AuthWrapper from './AuthWrapper';
 import BarrowsRepairWrapper from './BarrowsRepairWrapper';
@@ -37,6 +38,7 @@ import TreeSaplingWrapper from './TreeSaplingWrapper';
 import UserWrapper from './UserWrapper';
 
 export {
+    ActiveItemsWrapper,
     APIUptimeWrapper,
     AuthWrapper,
     BarrowsRepairWrapper,

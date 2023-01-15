@@ -1,8 +1,8 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { ItemListFilterToggle, ItemListPromise } from '../types';
+import { ItemListParams, ItemListPromise } from '../types';
 
 export default class HighestMarginsWrapper extends APIBaseWrapper {
-    getItems(opts: ItemListFilterToggle = { filters: false }): ItemListPromise {
+    getItems(opts: ItemListParams = { filters: false }): ItemListPromise {
         return this._wrapGet(this.parseOptions('highest-margins', opts));
     }
 }

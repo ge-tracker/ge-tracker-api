@@ -57,8 +57,9 @@ export type ItemDataWrapped = { data: Item };
 export type ItemArrayDataWrapped = { data: Item[] };
 export type ItemArrayDataWrappedWithMeta = { data: Item[]; meta: MetaCount };
 
-export interface ItemListFilterToggle {
-    filters: boolean;
+export interface ItemListParams {
+    filters?: boolean;
+    perPage?: number;
 }
 
 export type GraphDuration =
