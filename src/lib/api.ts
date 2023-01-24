@@ -8,38 +8,35 @@ export interface GeTrackerApi {
     Auth: Endpoint.AuthWrapper;
     BarrowsRepair: Endpoint.BarrowsRepairWrapper;
     Billing: Endpoint.BillingWrapper;
-    BlastFurnace: Endpoint.BlastFurnaceWrapper;
     CombinationItems: Endpoint.CombinationItemsWrapper;
+    CraftingSmithing: Endpoint.CraftingSmithingWrapper;
     Dashboard: Endpoint.DashboardWrapper;
     DecantPotions: Endpoint.DecantPotionsWrapper;
     Device: Endpoint.DeviceWrapper;
     FavouriteItems: Endpoint.FavouriteItemsWrapper;
+    Fletching: Endpoint.FletchingWrapper;
     GELimits: Endpoint.GELimitsWrapper;
     Graphs: Endpoint.GraphWrapper;
     Heartbeat: Endpoint.HeartbeatWrapper;
     Herblore: Endpoint.HerbloreWrapper;
-    HighAlchemy: Endpoint.HighAlchemyWrapper;
     HighVolume: Endpoint.HighVolumeWrapper;
     HighestMargins: Endpoint.HighestMarginsWrapper;
     ItemSets: Endpoint.ItemSetsWrapper;
     Items: Endpoint.ItemsWrapper;
     Leaderboard: Endpoint.LeaderboardWrapper;
-    MagicTablets: Endpoint.MagicTabletsWrapper;
+    Magic: Endpoint.MagicWrapper;
     MarketWatch: Endpoint.MarketWatchWrapper;
     NewItems: Endpoint.NewItemsWrapper;
     Notifications: Endpoint.NotificationsWrapper;
     PriceAlert: Endpoint.PriceAlertWrapper;
     ProfitTracker: Endpoint.ProfitTrackerWrapper;
-    PlankMaking: Endpoint.PlankMakingWrapper;
     RSUpdates: Endpoint.RSUpdatesWrapper;
     Stats: Endpoint.StatsWrapper;
     StoreProfit: Endpoint.StoreProfitWrapper;
     Subscriptions: Endpoint.SubscriptionsWrapper;
     SuggestedItems: Endpoint.SuggestedItemsWrapper;
     Tags: Endpoint.TagWrapper;
-    TanLeather: Endpoint.TanLeatherWrapper;
     TradingPost: Endpoint.TradingPostWrapper;
-    TreeSapling: Endpoint.TreeSaplingWrapper;
     Users: Endpoint.UserWrapper;
     getManifest: Function;
     attachOnRequest: Function;
@@ -54,38 +51,35 @@ const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
         Auth: new Endpoint.AuthWrapper(client),
         BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client),
         Billing: new Endpoint.BillingWrapper(client),
-        BlastFurnace: new Endpoint.BlastFurnaceWrapper(client),
         CombinationItems: new Endpoint.CombinationItemsWrapper(client),
+        CraftingSmithing: new Endpoint.CraftingSmithingWrapper(client),
         Dashboard: new Endpoint.DashboardWrapper(client),
         DecantPotions: new Endpoint.DecantPotionsWrapper(client),
         Device: new Endpoint.DeviceWrapper(client),
         FavouriteItems: new Endpoint.FavouriteItemsWrapper(client),
+        Fletching: new Endpoint.FletchingWrapper(client),
         GELimits: new Endpoint.GELimitsWrapper(client),
         Graphs: new Endpoint.GraphWrapper(client),
         Heartbeat: new Endpoint.HeartbeatWrapper(client),
         Herblore: new Endpoint.HerbloreWrapper(client),
-        HighAlchemy: new Endpoint.HighAlchemyWrapper(client),
         HighVolume: new Endpoint.HighVolumeWrapper(client),
         HighestMargins: new Endpoint.HighestMarginsWrapper(client),
         ItemSets: new Endpoint.ItemSetsWrapper(client),
         Items: new Endpoint.ItemsWrapper(client),
         Leaderboard: new Endpoint.LeaderboardWrapper(client),
-        MagicTablets: new Endpoint.MagicTabletsWrapper(client),
+        Magic: new Endpoint.MagicWrapper(client),
         MarketWatch: new Endpoint.MarketWatchWrapper(client),
         NewItems: new Endpoint.NewItemsWrapper(client),
         Notifications: new Endpoint.NotificationsWrapper(client),
         PriceAlert: new Endpoint.PriceAlertWrapper(client),
         ProfitTracker: new Endpoint.ProfitTrackerWrapper(client),
-        PlankMaking: new Endpoint.PlankMakingWrapper(client),
         RSUpdates: new Endpoint.RSUpdatesWrapper(client),
         Stats: new Endpoint.StatsWrapper(client),
         StoreProfit: new Endpoint.StoreProfitWrapper(client),
         Subscriptions: new Endpoint.SubscriptionsWrapper(client),
         SuggestedItems: new Endpoint.SuggestedItemsWrapper(client),
         Tags: new Endpoint.TagWrapper(client),
-        TanLeather: new Endpoint.TanLeatherWrapper(client),
         TradingPost: new Endpoint.TradingPostWrapper(client),
-        TreeSapling: new Endpoint.TreeSaplingWrapper(client),
         Users: new Endpoint.UserWrapper(client),
 
         /**

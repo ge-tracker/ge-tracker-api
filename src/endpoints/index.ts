@@ -3,38 +3,35 @@ import APIUptimeWrapper from './APIUptimeWrapper';
 import AuthWrapper from './AuthWrapper';
 import BarrowsRepairWrapper from './BarrowsRepairWrapper';
 import BillingWrapper from './BillingWrapper';
-import BlastFurnaceWrapper from './BlastFurnaceWrapper';
 import CombinationItemsWrapper from './CombinationItemsWrapper';
+import CraftingSmithingWrapper from './CraftingSmithingWrapper';
 import DashboardWrapper from './DashboardWrapper';
 import DecantPotionsWrapper from './DecantPotionsWrapper';
 import DeviceWrapper from './DeviceWrapper';
 import FavouriteItemsWrapper from './FavouriteItemsWrapper';
+import FletchingWrapper from './FletchingWrapper';
 import GELimitsWrapper from './GELimitsWrapper';
 import GraphWrapper from './GraphWrapper';
 import HeartbeatWrapper from './HeartbeatWrapper';
 import HerbloreWrapper from './HerbloreWrapper';
-import HighAlchemyWrapper from './HighAlchemyWrapper';
 import HighVolumeWrapper from './HighVolumeWrapper';
 import HighestMarginsWrapper from './HighestMarginsWrapper';
 import ItemSetsWrapper from './ItemSetsWrapper';
 import ItemsWrapper from './ItemsWrapper';
 import LeaderboardWrapper from './LeaderboardWrapper';
-import MagicTabletsWrapper from './MagicTabletsWrapper';
+import MagicWrapper from './MagicWrapper';
 import MarketWatchWrapper from './MarketWatchWrapper';
 import NewItemsWrapper from './NewItemsWrapper';
 import NotificationsWrapper from './NotificationsWrapper';
 import PriceAlertWrapper from './PriceAlertWrapper';
 import ProfitTrackerWrapper from './ProfitTrackerWrapper';
-import PlankMakingWrapper from './PlankMakingWrapper';
 import RSUpdatesWrapper from './RSUpdatesWrapper';
 import StatsWrapper from './StatsWrapper';
 import StoreProfitWrapper from './StoreProfitWrapper';
 import SubscriptionsWrapper from './SubscriptionsWrapper';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
 import TagWrapper from './TagWrapper';
-import TanLeatherWrapper from './TanLeatherWrapper';
 import TradingPostWrapper from './TradingPostWrapper';
-import TreeSaplingWrapper from './TreeSaplingWrapper';
 import UserWrapper from './UserWrapper';
 
 export {
@@ -43,37 +40,34 @@ export {
     AuthWrapper,
     BarrowsRepairWrapper,
     BillingWrapper,
-    BlastFurnaceWrapper,
     CombinationItemsWrapper,
+    CraftingSmithingWrapper,
     DashboardWrapper,
     DecantPotionsWrapper,
     DeviceWrapper,
     FavouriteItemsWrapper,
+    FletchingWrapper,
     GELimitsWrapper,
     GraphWrapper,
     HeartbeatWrapper,
     HerbloreWrapper,
-    HighAlchemyWrapper,
     HighVolumeWrapper,
     HighestMarginsWrapper,
     ItemSetsWrapper,
     ItemsWrapper,
     LeaderboardWrapper,
-    MagicTabletsWrapper,
+    MagicWrapper,
     MarketWatchWrapper,
     NewItemsWrapper,
     NotificationsWrapper,
     PriceAlertWrapper,
     ProfitTrackerWrapper,
-    PlankMakingWrapper,
     RSUpdatesWrapper,
     StatsWrapper,
     StoreProfitWrapper,
     SubscriptionsWrapper,
     SuggestedItemsWrapper,
     TagWrapper,
-    TanLeatherWrapper,
     TradingPostWrapper,
-    TreeSaplingWrapper,
     UserWrapper,
 };
