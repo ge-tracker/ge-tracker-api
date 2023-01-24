@@ -1,4 +1,9 @@
-import Axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
+import Axios, {
+    AxiosError,
+    AxiosInstance,
+    AxiosRequestConfig,
+    CreateAxiosDefaults,
+} from 'axios';
 import merge from 'deepmerge';
 import * as errors from './errors';
 
@@ -7,7 +12,7 @@ const GE_TRACKER_API_VERSION = 'v2';
 
 export type ApiKey = string | null | undefined;
 
-const DefaultOptions: AxiosRequestConfig = {
+const DefaultOptions: CreateAxiosDefaults = {
     // set the base URL for all API calls made on this Axios instance
     baseURL: GE_TRACKER_API_URL,
 
