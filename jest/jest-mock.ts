@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// @ts-nocheck
 import { AxiosRequestConfig } from 'axios';
 import { ApiKey } from '@getracker/api/types/lib/client';
 
