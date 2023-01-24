@@ -1,18 +1,14 @@
 import * as Endpoint from '../endpoints';
 import APIBaseWrapper from '../endpoints/APIBaseWrapper';
-import { CustomAxiosInstance } from './client';
+import { GeTrackerAxios } from './client';
 
 export interface GeTrackerApi {
-    ActiveItems: Endpoint.ActiveItemsWrapper;
     APIUptime: Endpoint.APIUptimeWrapper;
-    Auth: Endpoint.AuthWrapper;
     BarrowsRepair: Endpoint.BarrowsRepairWrapper;
-    Billing: Endpoint.BillingWrapper;
     CombinationItems: Endpoint.CombinationItemsWrapper;
     CraftingSmithing: Endpoint.CraftingSmithingWrapper;
     Dashboard: Endpoint.DashboardWrapper;
     DecantPotions: Endpoint.DecantPotionsWrapper;
-    Device: Endpoint.DeviceWrapper;
     FavouriteItems: Endpoint.FavouriteItemsWrapper;
     Fletching: Endpoint.FletchingWrapper;
     GELimits: Endpoint.GELimitsWrapper;
@@ -33,29 +29,23 @@ export interface GeTrackerApi {
     RSUpdates: Endpoint.RSUpdatesWrapper;
     Stats: Endpoint.StatsWrapper;
     StoreProfit: Endpoint.StoreProfitWrapper;
-    Subscriptions: Endpoint.SubscriptionsWrapper;
     SuggestedItems: Endpoint.SuggestedItemsWrapper;
     Tags: Endpoint.TagWrapper;
-    TradingPost: Endpoint.TradingPostWrapper;
     Users: Endpoint.UserWrapper;
-    getManifest: Function;
-    attachOnRequest: Function;
-    getClient: Function;
-    dmm: Function;
+    getManifest: () => Promise<any>;
+    attachOnRequest: (callback: Function) => void;
+    getClient: () => GeTrackerAxios;
+    dmm: (enabled: boolean) => void;
 }
 
-const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
+const createApi = (client: GeTrackerAxios): GeTrackerApi => {
     return {
-        ActiveItems: new Endpoint.ActiveItemsWrapper(client),
         APIUptime: new Endpoint.APIUptimeWrapper(client),
-        Auth: new Endpoint.AuthWrapper(client),
         BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client),
-        Billing: new Endpoint.BillingWrapper(client),
         CombinationItems: new Endpoint.CombinationItemsWrapper(client),
         CraftingSmithing: new Endpoint.CraftingSmithingWrapper(client),
         Dashboard: new Endpoint.DashboardWrapper(client),
         DecantPotions: new Endpoint.DecantPotionsWrapper(client),
-        Device: new Endpoint.DeviceWrapper(client),
         FavouriteItems: new Endpoint.FavouriteItemsWrapper(client),
         Fletching: new Endpoint.FletchingWrapper(client),
         GELimits: new Endpoint.GELimitsWrapper(client),
@@ -76,10 +66,8 @@ const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
         RSUpdates: new Endpoint.RSUpdatesWrapper(client),
         Stats: new Endpoint.StatsWrapper(client),
         StoreProfit: new Endpoint.StoreProfitWrapper(client),
-        Subscriptions: new Endpoint.SubscriptionsWrapper(client),
         SuggestedItems: new Endpoint.SuggestedItemsWrapper(client),
         Tags: new Endpoint.TagWrapper(client),
-        TradingPost: new Endpoint.TradingPostWrapper(client),
         Users: new Endpoint.UserWrapper(client),
 
         /**
@@ -120,7 +108,7 @@ const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
         /**
          * Get underlying Axios client instance
          */
-        getClient(): CustomAxiosInstance {
+        getClient(): GeTrackerAxios {
             return client;
         },
 

@@ -11,7 +11,7 @@ import {
 export default class GraphWrapper extends APIBaseWrapper {
     private _dmm = false;
 
-    _wrapGet(path: string) {
+    protected _wrapGet<T>(path: string): Promise<T> {
         return this.client.get(this._wrapUrl(path)).then(handleResponseBody);
     }
 

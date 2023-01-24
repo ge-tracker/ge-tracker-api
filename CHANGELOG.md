@@ -7,8 +7,10 @@ All notable changes to this project will be documented in this file.
 -   Added typing to various endpoints
 -   Added `Fletching`
 -   Removed `ItemArray` type
+-   Renamed `CustomAxiosInstance` to `GeTrackerAxios`
 -   Consolidated `BlastFurnace`, `CookingBrewing `, and `TanLeather` into `CraftingSmithing`
 -   Consolidated `HighAlchemy`, `Enchanting`, `MagicTablets`, `PlankMaking`, and `TreeSapling` into `Magic`
+-   Added visibility to `APIBaseWrapper` methods
 
 ## [v5.1.2] - 2022-12-16
 

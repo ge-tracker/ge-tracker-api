@@ -68,14 +68,20 @@ function applyDmmParameter(
     return path.includes('?') ? path + '&dmm=1' : path + '?dmm=1';
 }
 
-export interface CustomAxiosInstance extends AxiosInstance {
+export interface GeTrackerAxios extends AxiosInstance {
     dmm(enabled: boolean): void;
 }
 
+/**
+ * Create a new Axios instance
+ *
+ * @param apiKey
+ * @param opts
+ */
 function createClient(
     apiKey: ApiKey,
-    opts: AxiosRequestConfig | null = null
-): CustomAxiosInstance {
+    opts: CreateAxiosDefaults | null = null
+): GeTrackerAxios {
     const options = merge(DefaultOptions, opts || {});
     const instance = Axios.create(
         merge(options, { headers: createAuthHeader(apiKey) })
