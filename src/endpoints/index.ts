@@ -9,7 +9,6 @@ import FavouriteItemsWrapper from './FavouriteItemsWrapper';
 import FletchingWrapper from './FletchingWrapper';
 import GELimitsWrapper from './GELimitsWrapper';
 import GraphWrapper from './GraphWrapper';
-import HeartbeatWrapper from './HeartbeatWrapper';
 import HerbloreWrapper from './HerbloreWrapper';
 import HighVolumeWrapper from './HighVolumeWrapper';
 import HighestMarginsWrapper from './HighestMarginsWrapper';
@@ -41,7 +40,6 @@ export {
     FletchingWrapper,
     GELimitsWrapper,
     GraphWrapper,
-    HeartbeatWrapper,
     HerbloreWrapper,
     HighVolumeWrapper,
     HighestMarginsWrapper,

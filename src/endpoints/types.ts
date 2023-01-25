@@ -8,7 +8,6 @@ export * from './FavouriteItemsWrapper';
 export * from './FletchingWrapper';
 export * from './GELimitsWrapper';
 export * from './GraphWrapper';
-export * from './HeartbeatWrapper';
 export * from './HerbloreWrapper';
 export * from './HighVolumeWrapper';
 export * from './HighestMarginsWrapper';

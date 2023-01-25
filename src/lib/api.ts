@@ -13,7 +13,6 @@ export interface GeTrackerApi {
     Fletching: Endpoint.FletchingWrapper;
     GELimits: Endpoint.GELimitsWrapper;
     Graphs: Endpoint.GraphWrapper;
-    Heartbeat: Endpoint.HeartbeatWrapper;
     Herblore: Endpoint.HerbloreWrapper;
     HighVolume: Endpoint.HighVolumeWrapper;
     HighestMargins: Endpoint.HighestMarginsWrapper;
@@ -50,7 +49,6 @@ const createApi = (client: GeTrackerAxios): GeTrackerApi => {
         Fletching: new Endpoint.FletchingWrapper(client),
         GELimits: new Endpoint.GELimitsWrapper(client),
         Graphs: new Endpoint.GraphWrapper(client),
-        Heartbeat: new Endpoint.HeartbeatWrapper(client),
         Herblore: new Endpoint.HerbloreWrapper(client),
         HighVolume: new Endpoint.HighVolumeWrapper(client),
         HighestMargins: new Endpoint.HighestMarginsWrapper(client),
