@@ -3,10 +3,11 @@ import APIUptimeWrapper from './APIUptimeWrapper';
 import CraftingSmithingWrapper from './CraftingSmithingWrapper';
 import DashboardWrapper from './DashboardWrapper';
 import FavouriteItemsWrapper from './FavouriteItemsWrapper';
-import FlipFinderWrapper from './FlipFinderWrapper';
 import FletchingWrapper from './FletchingWrapper';
+import FlipFinderWrapper from './FlipFinderWrapper';
 import GraphWrapper from './GraphWrapper';
 import HerbloreWrapper from './HerbloreWrapper';
+import ItemConversionsWrapper from './ItemConversionsWrapper';
 import ItemsWrapper from './ItemsWrapper';
 import LeaderboardWrapper from './LeaderboardWrapper';
 import MagicWrapper from './MagicWrapper';
@@ -27,10 +28,11 @@ export {
     CraftingSmithingWrapper,
     DashboardWrapper,
     FavouriteItemsWrapper,
-    FlipFinderWrapper,
     FletchingWrapper,
+    FlipFinderWrapper,
     GraphWrapper,
     HerbloreWrapper,
+    ItemConversionsWrapper,
     ItemsWrapper,
     LeaderboardWrapper,
     MagicWrapper,

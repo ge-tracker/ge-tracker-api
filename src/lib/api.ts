@@ -11,6 +11,7 @@ export interface GeTrackerApi {
     Fletching: Endpoint.FletchingWrapper;
     Graphs: Endpoint.GraphWrapper;
     Herblore: Endpoint.HerbloreWrapper;
+    ItemConversions: Endpoint.ItemConversionsWrapper;
     Items: Endpoint.ItemsWrapper;
     Leaderboard: Endpoint.LeaderboardWrapper;
     Magic: Endpoint.MagicWrapper;
@@ -39,6 +40,7 @@ const createApi = (client: GeTrackerAxios): GeTrackerApi => {
         Fletching: new Endpoint.FletchingWrapper(client),
         Graphs: new Endpoint.GraphWrapper(client),
         Herblore: new Endpoint.HerbloreWrapper(client),
+        ItemConversions: new Endpoint.ItemConversionsWrapper(client),
         Items: new Endpoint.ItemsWrapper(client),
         Leaderboard: new Endpoint.LeaderboardWrapper(client),
         Magic: new Endpoint.MagicWrapper(client),
