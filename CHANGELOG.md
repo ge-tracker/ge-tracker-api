@@ -39,5 +39,5 @@ All notable changes to this project will be documented in this file.
 -   Add DMM toggle
 -   Add graph indicators endpoint
 -   All Graph "All" duration
--   Add params to active transaction endpoint
--   Add runelite as a GraphSource
+-   Add `params` to active transaction endpoint
+-   Add `runelite` as a GraphSource

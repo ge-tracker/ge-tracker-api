@@ -96,11 +96,7 @@ The endpoints listed below have been mapped into this library. We have published
 -   Dashboard
 -   Stats
 -   Notifications
--   Auth
--   Device
 -   Graph
--   Users
--   API Status (OSBuddy)
 -   RS Updates
 
 ## Jest

@@ -25,7 +25,9 @@ export interface GeTrackerApi {
     Tags: Endpoint.TagWrapper;
     Users: Endpoint.UserWrapper;
     getManifest: () => Promise<any>;
-    attachOnRequest: (callback: Function) => void;
+    attachOnRequest: (
+        callback: (method: string, path: string, params: object) => void
+    ) => void;
     getClient: () => GeTrackerAxios;
     dmm: (enabled: boolean) => void;
 }
@@ -85,7 +87,9 @@ const createApi = (client: GeTrackerAxios): GeTrackerApi => {
          *
          * @param {Function} callback
          */
-        attachOnRequest(callback: Function): void {
+        attachOnRequest(
+            callback: (method: string, path: string, params: object) => void
+        ): void {
             APIBaseWrapper.onRequestCb = callback;
         },
 
