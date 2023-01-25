@@ -7,9 +7,16 @@ All notable changes to this project will be documented in this file.
 -   Added typing to various endpoints
 -   Added `Fletching`
 -   Removed `ItemArray` type
+-   Removed retired `APIUptime` and `Heartbeat` APIs
 -   Renamed `CustomAxiosInstance` to `GeTrackerAxios`
+-   Consolidated `HighestMargins`, `HighVolume`, `NewItems`, `GELimits`, `FavouriteItems`, and `SuggestedItems` into `FlipFinder`
+
+    -   _`FavouriteItems` remains as a top-level API_
+
 -   Consolidated `BlastFurnace`, `CookingBrewing `, and `TanLeather` into `CraftingSmithing`
 -   Consolidated `HighAlchemy`, `Enchanting`, `MagicTablets`, `PlankMaking`, and `TreeSapling` into `Magic`
+-   Consolidated `BarrowsRepair`, `ItemSets`, and `CombinationItems` into `ItemConversions`
+-   Moved `DecantPotions` to `Herblore`
 -   Added visibility to `APIBaseWrapper` methods
 
 ## [v5.1.2] - 2022-12-16

@@ -4,31 +4,23 @@ import { GeTrackerAxios } from './client';
 
 export interface GeTrackerApi {
     APIUptime: Endpoint.APIUptimeWrapper;
-    BarrowsRepair: Endpoint.BarrowsRepairWrapper;
-    CombinationItems: Endpoint.CombinationItemsWrapper;
     CraftingSmithing: Endpoint.CraftingSmithingWrapper;
     Dashboard: Endpoint.DashboardWrapper;
-    DecantPotions: Endpoint.DecantPotionsWrapper;
     FavouriteItems: Endpoint.FavouriteItemsWrapper;
+    FlipFinder: Endpoint.FlipFinderWrapper;
     Fletching: Endpoint.FletchingWrapper;
-    GELimits: Endpoint.GELimitsWrapper;
     Graphs: Endpoint.GraphWrapper;
     Herblore: Endpoint.HerbloreWrapper;
-    HighVolume: Endpoint.HighVolumeWrapper;
-    HighestMargins: Endpoint.HighestMarginsWrapper;
-    ItemSets: Endpoint.ItemSetsWrapper;
     Items: Endpoint.ItemsWrapper;
     Leaderboard: Endpoint.LeaderboardWrapper;
     Magic: Endpoint.MagicWrapper;
     MarketWatch: Endpoint.MarketWatchWrapper;
-    NewItems: Endpoint.NewItemsWrapper;
     Notifications: Endpoint.NotificationsWrapper;
     PriceAlert: Endpoint.PriceAlertWrapper;
     ProfitTracker: Endpoint.ProfitTrackerWrapper;
     RSUpdates: Endpoint.RSUpdatesWrapper;
     Stats: Endpoint.StatsWrapper;
     StoreProfit: Endpoint.StoreProfitWrapper;
-    SuggestedItems: Endpoint.SuggestedItemsWrapper;
     Tags: Endpoint.TagWrapper;
     Users: Endpoint.UserWrapper;
     getManifest: () => Promise<any>;
@@ -40,31 +32,23 @@ export interface GeTrackerApi {
 const createApi = (client: GeTrackerAxios): GeTrackerApi => {
     return {
         APIUptime: new Endpoint.APIUptimeWrapper(client),
-        BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client),
-        CombinationItems: new Endpoint.CombinationItemsWrapper(client),
         CraftingSmithing: new Endpoint.CraftingSmithingWrapper(client),
         Dashboard: new Endpoint.DashboardWrapper(client),
-        DecantPotions: new Endpoint.DecantPotionsWrapper(client),
         FavouriteItems: new Endpoint.FavouriteItemsWrapper(client),
+        FlipFinder: new Endpoint.FlipFinderWrapper(client),
         Fletching: new Endpoint.FletchingWrapper(client),
-        GELimits: new Endpoint.GELimitsWrapper(client),
         Graphs: new Endpoint.GraphWrapper(client),
         Herblore: new Endpoint.HerbloreWrapper(client),
-        HighVolume: new Endpoint.HighVolumeWrapper(client),
-        HighestMargins: new Endpoint.HighestMarginsWrapper(client),
-        ItemSets: new Endpoint.ItemSetsWrapper(client),
         Items: new Endpoint.ItemsWrapper(client),
         Leaderboard: new Endpoint.LeaderboardWrapper(client),
         Magic: new Endpoint.MagicWrapper(client),
         MarketWatch: new Endpoint.MarketWatchWrapper(client),
-        NewItems: new Endpoint.NewItemsWrapper(client),
         Notifications: new Endpoint.NotificationsWrapper(client),
         PriceAlert: new Endpoint.PriceAlertWrapper(client),
         ProfitTracker: new Endpoint.ProfitTrackerWrapper(client),
         RSUpdates: new Endpoint.RSUpdatesWrapper(client),
         Stats: new Endpoint.StatsWrapper(client),
         StoreProfit: new Endpoint.StoreProfitWrapper(client),
-        SuggestedItems: new Endpoint.SuggestedItemsWrapper(client),
         Tags: new Endpoint.TagWrapper(client),
         Users: new Endpoint.UserWrapper(client),
 

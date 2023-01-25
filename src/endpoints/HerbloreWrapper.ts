@@ -1,4 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
+import { ItemListPromise } from '../types';
 
 export default class HerbloreWrapper extends APIBaseWrapper {
     getCleanHerbs() {
@@ -11,5 +12,9 @@ export default class HerbloreWrapper extends APIBaseWrapper {
 
     getUnfinishedPotions() {
         return this._wrapGet('herblore/unfinished-potions');
+    }
+
+    getDecantPotions(opts = { filters: false }): ItemListPromise {
+        return this._wrapGet(this.parseOptions('decant-potions', opts));
     }
 }
