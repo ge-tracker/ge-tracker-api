@@ -11,6 +11,7 @@ export type UserPermissions = {
     staff: string;
     admin: string;
     disabled: string;
+    temp?: boolean;
 };
 
 export type UserClass =
@@ -32,7 +33,8 @@ export type User = {
     name: string;
     email: string;
     totalProfit: number;
-    registeredOn: Date;
+    registeredOn: Date | string;
+    trialEndsOn: Date | string | null;
     emailVerified: boolean;
     profilePic: string;
     slug: string;
