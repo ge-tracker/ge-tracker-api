@@ -7,10 +7,10 @@ export type UserPremium = {
 };
 
 export type UserPermissions = {
-    moderator: string;
-    staff: string;
-    admin: string;
-    disabled: string;
+    moderator: boolean;
+    staff: boolean;
+    admin: boolean;
+    disabled: boolean;
     temp?: boolean;
 };
 
