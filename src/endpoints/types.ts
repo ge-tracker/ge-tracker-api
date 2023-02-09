@@ -5,6 +5,7 @@ export * from './FavouriteItemsWrapper';
 export * from './FletchingWrapper';
 export * from './GraphWrapper';
 export * from './HerbloreWrapper';
+export * from './ItemConversionsWrapper';
 export * from './ItemsWrapper';
 export * from './LeaderboardWrapper';
 export * from './MagicWrapper';
