@@ -8,7 +8,7 @@ import merge from 'deepmerge';
 import * as errors from './errors';
 
 const GE_TRACKER_API_URL = 'https://www.ge-tracker.com/api';
-const GE_TRACKER_API_VERSION = 'v2';
+const GE_TRACKER_API_VERSION = 'v2.1';
 
 export type ApiKey = string | null | undefined;
 
