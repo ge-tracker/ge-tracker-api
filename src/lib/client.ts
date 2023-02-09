@@ -28,8 +28,8 @@ const DefaultOptions: CreateAxiosDefaults = {
     // specify a custom user-agent header to identify the client used
     // and for a point of contact
     headers: {
-        'User-Agent': 'ge-tracker-api client v6.0.0-14',
-        'X-Api-Client': 'ge-tracker-api client v6.0.0-14',
+        'User-Agent': 'ge-tracker-api client v6.0.0-15',
+        'X-Api-Client': 'ge-tracker-api client v6.0.0-15',
         Accept: `application/x.getracker.${GE_TRACKER_API_VERSION}+json`,
     },
 };
