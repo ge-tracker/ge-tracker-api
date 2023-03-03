@@ -1,5 +1,6 @@
 import APIBaseWrapper from './APIBaseWrapper';
 import APIUptimeWrapper from './APIUptimeWrapper';
+import CalculatorWrapper from './CalculatorWrapper';
 import CraftingSmithingWrapper from './CraftingSmithingWrapper';
 import DashboardWrapper from './DashboardWrapper';
 import FavouriteItemsWrapper from './FavouriteItemsWrapper';
@@ -25,6 +26,7 @@ import UserWrapper from './UserWrapper';
 export {
     APIBaseWrapper,
     APIUptimeWrapper,
+    CalculatorWrapper,
     CraftingSmithingWrapper,
     DashboardWrapper,
     FavouriteItemsWrapper,

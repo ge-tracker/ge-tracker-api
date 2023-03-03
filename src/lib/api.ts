@@ -4,6 +4,7 @@ import { GeTrackerAxios } from './client';
 
 export interface GeTrackerApi {
     APIUptime: Endpoint.APIUptimeWrapper;
+    Calculator: Endpoint.CalculatorWrapper;
     CraftingSmithing: Endpoint.CraftingSmithingWrapper;
     Dashboard: Endpoint.DashboardWrapper;
     FavouriteItems: Endpoint.FavouriteItemsWrapper;
@@ -35,6 +36,7 @@ export interface GeTrackerApi {
 const createApi = (client: GeTrackerAxios): GeTrackerApi => {
     return {
         APIUptime: new Endpoint.APIUptimeWrapper(client),
+        Calculator: new Endpoint.CalculatorWrapper(client),
         CraftingSmithing: new Endpoint.CraftingSmithingWrapper(client),
         Dashboard: new Endpoint.DashboardWrapper(client),
         FavouriteItems: new Endpoint.FavouriteItemsWrapper(client),
