@@ -14,6 +14,7 @@ export default class APIBaseWrapper {
      */
     static onRequestCb: Function | null = null;
     protected client: AxiosInstance;
+    protected baseUrl: string = '';
 
     constructor(client: AxiosInstance) {
         this.client = client;
@@ -74,5 +75,10 @@ export default class APIBaseWrapper {
      */
     protected parseOptions(url: string, opts: ParamObject): string {
         return parseOptions(url, opts);
+    }
+
+    protected getBaseUrl(): string {
+        this.baseUrl = this.client.defaults.baseURL?.replace('/api', '') ?? '';
+        return this.baseUrl;
     }
 }
