@@ -58,6 +58,16 @@ export type ItemDataWrapped = DataWrapped<Item>;
 export type ItemArrayDataWrapped = DataWrapped<Item[]>;
 export type ItemArrayDataWrappedWithMeta = { data: Item[]; meta: MetaCount };
 
+export interface StatusResponse {
+    status_code: number;
+    message: string;
+}
+
+export type StatusResponseWithData<T> = DataWrapped<T> & StatusResponse;
+export type StatusResponseWithResourceUrl = {
+    resource_url: string;
+} & StatusResponse;
+
 export interface ItemListParams {
     filters?: boolean;
     perPage?: number;
