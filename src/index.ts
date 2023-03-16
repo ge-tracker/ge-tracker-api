@@ -24,6 +24,7 @@ const createClientFromEnv = (opts: CreateAxiosDefaults | null = null) =>
 export * from './types';
 export * from './endpoints/types';
 export { APIBaseWrapper } from './endpoints';
+export { handleResponseBody } from './lib/handlers';
 export type { GeTrackerApi };
 export {
     createClient,
