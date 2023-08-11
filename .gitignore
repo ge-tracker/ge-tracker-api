@@ -2,8 +2,6 @@ dist
 types
 typings
 node_modules
-package-lock.json
-yarn.lock
 logs
 *.log
 npm-debug.log*
