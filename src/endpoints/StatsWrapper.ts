@@ -1,6 +1,6 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { Item } from '../types';
-import { UserClass } from './UserWrapper';
+import type { Item } from '../types';
+import type { UserClass } from './UserWrapper';
 import { handleResponseBody } from '../lib/handlers';
 
 export interface PopularItem {

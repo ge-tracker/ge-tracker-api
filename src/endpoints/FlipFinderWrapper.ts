@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { ItemListParams, ItemListPromise } from '../types';
+import type { ItemListParams, ItemListPromise } from '../types';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
 import FavouriteItemsWrapper from './FavouriteItemsWrapper';
 

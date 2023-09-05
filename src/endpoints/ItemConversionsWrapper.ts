@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { DataWrapped, Item, ItemListPromise } from '../types';
+import type { DataWrapped, Item, ItemListPromise } from '../types';
 
 export interface ItemCombinationPiece {
     qty: number;

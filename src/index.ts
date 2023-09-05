@@ -1,11 +1,11 @@
-import { createApi, GeTrackerApi } from './lib/api';
+import { createApi, type GeTrackerApi } from './lib/api';
 import {
-    ApiKey,
+    type ApiKey,
     createClient as createAxios,
     DefaultOptions,
 } from './lib/client';
 import { getApiKeyFromEnv } from './lib/config';
-import { CreateAxiosDefaults } from 'axios';
+import type { CreateAxiosDefaults } from 'axios';
 
 const createInstance = (
     apiKey: ApiKey,
@@ -26,10 +26,6 @@ export * from './endpoints/types';
 export { APIBaseWrapper } from './endpoints';
 export { handleResponseBody } from './lib/handlers';
 export type { GeTrackerApi };
-export {
-    createClient,
-    createClientFromEnv,
-    createAxios,
-    DefaultOptions,
-    ApiKey,
-};
+export { createClient, createClientFromEnv, createAxios, DefaultOptions };
+
+export type { ApiKey };

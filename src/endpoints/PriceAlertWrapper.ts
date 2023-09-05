@@ -45,7 +45,7 @@ export default class PriceAlertWrapper extends APIBaseWrapper {
         });
     }
 
-    updateAlert(id: number, params = {}) {
+    updateAlert(id: number, status: string, params = {}) {
         return this._wrapPost(`/price-alerts/${id}`, {
             status,
             ...params,

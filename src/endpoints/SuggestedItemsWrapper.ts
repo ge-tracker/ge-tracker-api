@@ -1,6 +1,6 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { ParamObject } from '../lib/query-string';
-import { ItemListPromise } from '../types';
+import type { ParamObject } from '../lib/query-string';
+import type { ItemListPromise } from '../types';
 
 export default class SuggestedItemsWrapper extends APIBaseWrapper {
     refresh() {

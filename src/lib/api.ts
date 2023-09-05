@@ -1,6 +1,6 @@
 import * as Endpoint from '../endpoints';
 import APIBaseWrapper from '../endpoints/APIBaseWrapper';
-import { GeTrackerAxios } from './client';
+import type { GeTrackerAxios } from './client';
 
 export interface GeTrackerApi {
     APIUptime: Endpoint.APIUptimeWrapper;

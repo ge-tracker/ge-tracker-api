@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { ItemListPromise } from '../types';
+import type { ItemListPromise } from '../types';
 
 export default class CraftingSmithingWrapper extends APIBaseWrapper {
     getBlastFurnace(): ItemListPromise {

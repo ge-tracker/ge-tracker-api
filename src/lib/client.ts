@@ -1,8 +1,8 @@
 import Axios, {
     AxiosError,
-    AxiosInstance,
-    AxiosRequestConfig,
-    CreateAxiosDefaults,
+    type AxiosInstance,
+    type AxiosRequestConfig,
+    type CreateAxiosDefaults,
 } from 'axios';
 import merge from 'deepmerge';
 import * as errors from './errors';

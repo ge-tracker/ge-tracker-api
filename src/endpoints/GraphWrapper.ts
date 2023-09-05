@@ -1,7 +1,7 @@
 import APIBaseWrapper from './APIBaseWrapper';
 import { DateTime } from 'luxon';
 import { handleResponseBody } from '../lib/handlers';
-import {
+import type {
     GraphDuration,
     GraphRequestParams,
     GraphResponse,

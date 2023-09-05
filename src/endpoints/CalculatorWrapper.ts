@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { Item } from '../types';
+import type { Item } from '../types';
 
 export interface DeathsCofferItem extends Item {
     deathsCoffer: {
