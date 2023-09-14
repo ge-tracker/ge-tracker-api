@@ -14,7 +14,7 @@
     "build": "yarn clean && npx microbundle",
     "clean": "rm -rf dist types",
     "watch": "microbundle watch --format cjs",
-    "np": "np --branch v6 --no-publish --no-tests --no-cleanup --no-release-draft --message 'Bump version to v%s'",
+    "np": "np --no-publish --no-tests --no-cleanup --no-release-draft --message 'Bump version to v%s'",
     "prepublishOnly": "yarn run build",
     "prepare": "husky install",
     "postversion": "lifecycle/postversion"
