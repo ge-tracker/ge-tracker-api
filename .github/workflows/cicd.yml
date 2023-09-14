@@ -78,8 +78,18 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Publish to NPM (@latest)
+        # Stop v5 releases being published to @latest
+        if: ${{ !startsWith(github.ref_name, 'v5.') }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           mv .npmrc.ci .npmrc
           npm publish
+
+      - name: Publish to NPM (@v5)
+        if: startsWith(github.ref_name, 'v5.')
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          mv .npmrc.ci .npmrc
+          npm publish --tag v5
