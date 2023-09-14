@@ -7,24 +7,40 @@ export type UserPremium = {
 };
 
 export type UserPermissions = {
-    moderator: string;
-    staff: string;
-    admin: string;
-    disabled: string;
+    moderator: boolean;
+    staff: boolean;
+    admin: boolean;
+    disabled: boolean;
+    temp?: boolean;
 };
+
+export type UserClass =
+    | 'admin'
+    | 'staff'
+    | 'moderator'
+    | 'high-roller'
+    | 'youtube'
+    | 'twitch'
+    | 'affiliate'
+    | 'discord'
+    | 'premium'
+    | 'standard'
+    | 'trial'
+    | string;
 
 export type User = {
     userId: string;
     name: string;
     email: string;
     totalProfit: number;
-    registeredOn: Date;
+    registeredOn: Date | string;
+    trialEndsOn: Date | string | null;
     emailVerified: boolean;
     profilePic: string;
     slug: string;
     apiKey: string;
     url: string;
-    class: string;
+    class: UserClass;
     premium: UserPremium;
     permissions: UserPermissions;
     avatars: Array<string>;

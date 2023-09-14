@@ -1,26 +1,15 @@
 {
+  "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "noEmitOnError": true,
+    "module": "es2022",
+    "moduleResolution": "bundler",
 
-    "lib": ["DOM", "DOM.Iterable", "ES2020"],
-    "target": "ESNext",
-    "types": ["node"],
-
-    "declaration": true,
-    "declarationDir": "types",
-
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-
-    "noImplicitThis": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "preserveConstEnums": true,
-    "removeComments": true,
+    "verbatimModuleSyntax": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": false,
+    "sourceMap": true,
     "typeRoots": ["./node_modules/@types"],
-    "strict": true
+    "types": ["node", "jest"]
   }
 }

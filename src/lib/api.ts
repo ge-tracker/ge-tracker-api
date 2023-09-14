@@ -1,89 +1,61 @@
-import * as Endpoint from './endpoints';
-import APIBaseWrapper from './endpoints/APIBaseWrapper';
-import { CustomAxiosInstance } from './client';
+import * as Endpoint from '../endpoints';
+import APIBaseWrapper from '../endpoints/APIBaseWrapper';
+import type { GeTrackerAxios } from './client';
 
 export interface GeTrackerApi {
     APIUptime: Endpoint.APIUptimeWrapper;
-    Auth: Endpoint.AuthWrapper;
-    BarrowsRepair: Endpoint.BarrowsRepairWrapper;
-    Billing: Endpoint.BillingWrapper;
-    BlastFurnace: Endpoint.BlastFurnaceWrapper;
-    CombinationItems: Endpoint.CombinationItemsWrapper;
+    Calculator: Endpoint.CalculatorWrapper;
+    CraftingSmithing: Endpoint.CraftingSmithingWrapper;
     Dashboard: Endpoint.DashboardWrapper;
-    DecantPotions: Endpoint.DecantPotionsWrapper;
-    Device: Endpoint.DeviceWrapper;
     FavouriteItems: Endpoint.FavouriteItemsWrapper;
-    GELimits: Endpoint.GELimitsWrapper;
+    FlipFinder: Endpoint.FlipFinderWrapper;
+    Fletching: Endpoint.FletchingWrapper;
     Graphs: Endpoint.GraphWrapper;
-    Heartbeat: Endpoint.HeartbeatWrapper;
     Herblore: Endpoint.HerbloreWrapper;
-    HighAlchemy: Endpoint.HighAlchemyWrapper;
-    HighVolume: Endpoint.HighVolumeWrapper;
-    HighestMargins: Endpoint.HighestMarginsWrapper;
-    ItemSets: Endpoint.ItemSetsWrapper;
+    ItemConversions: Endpoint.ItemConversionsWrapper;
     Items: Endpoint.ItemsWrapper;
     Leaderboard: Endpoint.LeaderboardWrapper;
-    MagicTablets: Endpoint.MagicTabletsWrapper;
+    Magic: Endpoint.MagicWrapper;
     MarketWatch: Endpoint.MarketWatchWrapper;
-    NewItems: Endpoint.NewItemsWrapper;
     Notifications: Endpoint.NotificationsWrapper;
     PriceAlert: Endpoint.PriceAlertWrapper;
     ProfitTracker: Endpoint.ProfitTrackerWrapper;
-    PlankMaking: Endpoint.PlankMakingWrapper;
     RSUpdates: Endpoint.RSUpdatesWrapper;
     Stats: Endpoint.StatsWrapper;
     StoreProfit: Endpoint.StoreProfitWrapper;
-    Subscriptions: Endpoint.SubscriptionsWrapper;
-    SuggestedItems: Endpoint.SuggestedItemsWrapper;
     Tags: Endpoint.TagWrapper;
-    TanLeather: Endpoint.TanLeatherWrapper;
-    TradingPost: Endpoint.TradingPostWrapper;
-    TreeSapling: Endpoint.TreeSaplingWrapper;
     Users: Endpoint.UserWrapper;
-    getManifest: Function;
-    attachOnRequest: Function;
-    getClient: Function;
-    dmm: Function;
+    getManifest: () => Promise<any>;
+    attachOnRequest: (
+        callback: (method: string, path: string, params: object) => void
+    ) => void;
+    getClient: () => GeTrackerAxios;
+    dmm: (enabled: boolean) => void;
 }
 
-const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
+const createApi = (client: GeTrackerAxios): GeTrackerApi => {
     return {
         APIUptime: new Endpoint.APIUptimeWrapper(client),
-        Auth: new Endpoint.AuthWrapper(client),
-        BarrowsRepair: new Endpoint.BarrowsRepairWrapper(client),
-        Billing: new Endpoint.BillingWrapper(client),
-        BlastFurnace: new Endpoint.BlastFurnaceWrapper(client),
-        CombinationItems: new Endpoint.CombinationItemsWrapper(client),
+        Calculator: new Endpoint.CalculatorWrapper(client),
+        CraftingSmithing: new Endpoint.CraftingSmithingWrapper(client),
         Dashboard: new Endpoint.DashboardWrapper(client),
-        DecantPotions: new Endpoint.DecantPotionsWrapper(client),
-        Device: new Endpoint.DeviceWrapper(client),
         FavouriteItems: new Endpoint.FavouriteItemsWrapper(client),
-        GELimits: new Endpoint.GELimitsWrapper(client),
+        FlipFinder: new Endpoint.FlipFinderWrapper(client),
+        Fletching: new Endpoint.FletchingWrapper(client),
         Graphs: new Endpoint.GraphWrapper(client),
-        Heartbeat: new Endpoint.HeartbeatWrapper(client),
         Herblore: new Endpoint.HerbloreWrapper(client),
-        HighAlchemy: new Endpoint.HighAlchemyWrapper(client),
-        HighVolume: new Endpoint.HighVolumeWrapper(client),
-        HighestMargins: new Endpoint.HighestMarginsWrapper(client),
-        ItemSets: new Endpoint.ItemSetsWrapper(client),
+        ItemConversions: new Endpoint.ItemConversionsWrapper(client),
         Items: new Endpoint.ItemsWrapper(client),
         Leaderboard: new Endpoint.LeaderboardWrapper(client),
-        MagicTablets: new Endpoint.MagicTabletsWrapper(client),
+        Magic: new Endpoint.MagicWrapper(client),
         MarketWatch: new Endpoint.MarketWatchWrapper(client),
-        NewItems: new Endpoint.NewItemsWrapper(client),
         Notifications: new Endpoint.NotificationsWrapper(client),
         PriceAlert: new Endpoint.PriceAlertWrapper(client),
         ProfitTracker: new Endpoint.ProfitTrackerWrapper(client),
-        PlankMaking: new Endpoint.PlankMakingWrapper(client),
         RSUpdates: new Endpoint.RSUpdatesWrapper(client),
         Stats: new Endpoint.StatsWrapper(client),
         StoreProfit: new Endpoint.StoreProfitWrapper(client),
-        Subscriptions: new Endpoint.SubscriptionsWrapper(client),
-        SuggestedItems: new Endpoint.SuggestedItemsWrapper(client),
         Tags: new Endpoint.TagWrapper(client),
-        TanLeather: new Endpoint.TanLeatherWrapper(client),
-        TradingPost: new Endpoint.TradingPostWrapper(client),
-        TreeSapling: new Endpoint.TreeSaplingWrapper(client),
         Users: new Endpoint.UserWrapper(client),
 
         /**
@@ -117,14 +89,16 @@ const createApi = (client: CustomAxiosInstance): GeTrackerApi => {
          *
          * @param {Function} callback
          */
-        attachOnRequest(callback: Function): void {
+        attachOnRequest(
+            callback: (method: string, path: string, params: object) => void
+        ): void {
             APIBaseWrapper.onRequestCb = callback;
         },
 
         /**
          * Get underlying Axios client instance
          */
-        getClient(): CustomAxiosInstance {
+        getClient(): GeTrackerAxios {
             return client;
         },
 

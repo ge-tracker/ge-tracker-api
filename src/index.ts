@@ -1,26 +1,31 @@
-import { createApi, GeTrackerApi } from './lib/api';
+import { createApi, type GeTrackerApi } from './lib/api';
 import {
-    ApiKey,
+    type ApiKey,
     createClient as createAxios,
     DefaultOptions,
 } from './lib/client';
 import { getApiKeyFromEnv } from './lib/config';
-import { AxiosRequestConfig } from 'axios';
-
-export * from './types';
+import type { CreateAxiosDefaults } from 'axios';
 
 const createInstance = (
     apiKey: ApiKey,
-    opts: AxiosRequestConfig | null = null
+    opts: CreateAxiosDefaults | null = null
 ): GeTrackerApi => {
     return createApi(createAxios(apiKey, opts));
 };
 
-const createClient = (apiKey: ApiKey, opts: AxiosRequestConfig | null = null) =>
-    createInstance(apiKey, opts);
-const createClientFromEnv = (opts: AxiosRequestConfig | null = null) =>
+const createClient = (
+    apiKey: ApiKey,
+    opts: CreateAxiosDefaults | null = null
+) => createInstance(apiKey, opts);
+const createClientFromEnv = (opts: CreateAxiosDefaults | null = null) =>
     createInstance(getApiKeyFromEnv(), opts);
 
-export { createClient, createClientFromEnv, DefaultOptions };
-
+export * from './types';
+export * from './endpoints/types';
+export { APIBaseWrapper } from './endpoints';
+export { handleResponseBody } from './lib/handlers';
 export type { GeTrackerApi };
+export { createClient, createClientFromEnv, createAxios, DefaultOptions };
+
+export type { ApiKey };

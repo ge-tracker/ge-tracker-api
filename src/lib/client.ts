@@ -1,13 +1,18 @@
-import Axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
+import Axios, {
+    AxiosError,
+    type AxiosInstance,
+    type AxiosRequestConfig,
+    type CreateAxiosDefaults,
+} from 'axios';
 import merge from 'deepmerge';
 import * as errors from './errors';
 
 const GE_TRACKER_API_URL = 'https://www.ge-tracker.com/api';
-const GE_TRACKER_API_VERSION = 'v2';
+const GE_TRACKER_API_VERSION = 'v2.1';
 
 export type ApiKey = string | null | undefined;
 
-const DefaultOptions: AxiosRequestConfig = {
+const DefaultOptions: CreateAxiosDefaults = {
     // set the base URL for all API calls made on this Axios instance
     baseURL: GE_TRACKER_API_URL,
 
@@ -23,8 +28,8 @@ const DefaultOptions: AxiosRequestConfig = {
     // specify a custom user-agent header to identify the client used
     // and for a point of contact
     headers: {
-        'User-Agent': 'ge-tracker-api client v5.1.0',
-        'X-Api-Client': 'ge-tracker-api client v5.1.0',
+        'User-Agent': 'ge-tracker-api client v6.0.0-22',
+        'X-Api-Client': 'ge-tracker-api client v6.0.0-22',
         Accept: `application/x.getracker.${GE_TRACKER_API_VERSION}+json`,
     },
 };
@@ -63,14 +68,20 @@ function applyDmmParameter(
     return path.includes('?') ? path + '&dmm=1' : path + '?dmm=1';
 }
 
-export interface CustomAxiosInstance extends AxiosInstance {
+export interface GeTrackerAxios extends AxiosInstance {
     dmm(enabled: boolean): void;
 }
 
+/**
+ * Create a new Axios instance
+ *
+ * @param apiKey
+ * @param opts
+ */
 function createClient(
     apiKey: ApiKey,
-    opts: AxiosRequestConfig | null = null
-): CustomAxiosInstance {
+    opts: CreateAxiosDefaults | null = null
+): GeTrackerAxios {
     const options = merge(DefaultOptions, opts || {});
     const instance = Axios.create(
         merge(options, { headers: createAuthHeader(apiKey) })
