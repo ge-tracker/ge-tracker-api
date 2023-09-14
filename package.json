@@ -74,5 +74,8 @@
       "email": "kyle@kylestevenson.me",
       "url": "kylestevenson.me"
     }
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
 }
