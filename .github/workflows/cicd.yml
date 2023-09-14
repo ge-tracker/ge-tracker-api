@@ -37,9 +37,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Publish to NPM (@v5)
+      - name: Publish to NPM (@legacy)
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           mv .npmrc.ci .npmrc
-          npm publish --tag v5
+          npm publish --tag legacy
