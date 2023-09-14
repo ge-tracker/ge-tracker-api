@@ -15,7 +15,7 @@
     "build:umd": "microbundle --format umd --name GeTracker --external none",
     "clean": "rm -rf types && rm -rf dist",
     "watch": "microbundle watch --format cjs",
-    "np": "np --yolo --no-release-draft --message 'Bump version to v%s'",
+    "np": "np --branch v5 --no-publish --yolo --no-release-draft --message 'Bump version to v%s'",
     "prepublishOnly": "yarn run build",
     "prepare": "husky install"
   },
