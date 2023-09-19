@@ -92,7 +92,6 @@ export type GraphField =
     | 'ts';
 
 export type GraphResponseItem = {
-    // [index in GraphField]: number;
     buyingCompleted: number;
     buyingPrice: number;
     overallCompleted: number;
@@ -102,9 +101,13 @@ export type GraphResponseItem = {
     ts: number;
 };
 
-export type GraphResponse = {
+export type GraphResponse<T = GraphResponseItem> = {
     source: GraphSource;
-    data: GraphResponseItem[];
+    data: T[];
+};
+
+export type GraphResponseWithError<T = GraphResponseItem> = GraphResponse<T> & {
+    status?: string;
 };
 
 export type GraphRequestParams = {
@@ -113,3 +116,63 @@ export type GraphRequestParams = {
     start?: string;
     end?: string;
 };
+
+/**
+ * Used on the current (legacy) GE Tracker website
+ */
+type LegacyPaginationMeta = {
+    total: number;
+    count: number;
+    per_page: number;
+    current_page: number;
+    total_pages: number;
+    links: {
+        next: string;
+        previous: string;
+    };
+};
+
+/**
+ * Used in GE Tracker NG (API v2+)
+ */
+type PaginationMeta = {
+    current_page: number;
+    from: number;
+    last_page: number;
+    links: PaginationMetaLinks[];
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
+};
+
+type PaginationMetaLinks = {
+    url: string | null;
+    label: string;
+    active: boolean;
+};
+
+type PaginationLinks = {
+    first: string;
+    last: string;
+    prev: string | null;
+    next: string | null;
+};
+
+export type LegacyPaginated = {
+    meta: LegacyPaginationMeta;
+};
+
+export type Paginated = {
+    meta: PaginationMeta;
+    links: PaginationLinks;
+};
+
+/**
+ * The `data` property contains a list of items `T`.
+ *
+ * Pagination type defaults to v1 (legacy) pagination.
+ */
+export type PaginatedResponse<T, PaginationType = LegacyPaginated> = {
+    data: T[];
+} & PaginationType;

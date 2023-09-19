@@ -1,13 +1,23 @@
 import APIBaseWrapper from './APIBaseWrapper';
+import type { PaginatedResponse } from '../types';
 
-type DaysOption = number | 'all';
+export type DaysOption = number | 'all';
 
 type RsUpdateOptions = {
     days?: DaysOption;
 };
 
+export type RsUpdate = {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    link: string;
+    createdAt: string;
+};
+
 export default class RSUpdatesWrapper extends APIBaseWrapper {
-    get(opts: RsUpdateOptions = {}) {
+    get(opts: RsUpdateOptions = {}): Promise<PaginatedResponse<RsUpdate>> {
         return this.client
             .get(this.parseOptions('rs-updates', opts))
             .then(({ data }) => data);
