@@ -11,9 +11,9 @@
   },
   "scripts": {
     "test": "jest --passWithNoTests",
-    "build": "yarn clean && npx microbundle",
+    "build": "yarn clean && tsup",
     "clean": "rm -rf dist types",
-    "watch": "microbundle watch --format cjs",
+    "watch": "tsup src/index.ts --watch --dts",
     "np": "np --no-publish --no-tests --no-cleanup --no-release-draft --message 'Bump version to v%s'",
     "prepublishOnly": "yarn run build",
     "prepare": "husky install",
@@ -24,18 +24,19 @@
     "types",
     "jest"
   ],
+  "type": "commonjs",
   "source": "./src/index.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./types/index.d.ts",
-      "import": "./dist/index.modern.mjs",
+      "types": "./dist/index.d.ts",
+      "browser": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
+    "./types": "./types/index.d.ts",
     "./jest/jest-mock": "./jest/jest-mock.ts"
   },
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.module.js",
   "types": "./types/index.d.ts",
   "dependencies": {
     "axios": "^1.2.3",
@@ -53,10 +54,10 @@
     "husky": ">=6",
     "jest": "^29.3.1",
     "lint-staged": ">=10",
-    "microbundle": "^0.15.1",
     "np": "^7.6.2",
     "prettier": "^2.8.1",
     "tslib": "^2.4.1",
+    "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
   "lint-staged": {
