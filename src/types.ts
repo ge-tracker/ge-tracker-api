@@ -107,7 +107,7 @@ export type GraphResponse<T = GraphResponseItem> = {
 };
 
 export type GraphResponseWithError<T = GraphResponseItem> = GraphResponse<T> & {
-    status?: string;
+    status?: 'error';
 };
 
 export type GraphRequestParams = {
