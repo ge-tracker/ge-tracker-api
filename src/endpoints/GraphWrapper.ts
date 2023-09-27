@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import { DateTime } from 'luxon';
+import dayjs from 'dayjs';
 import { handleResponseBody } from '../lib/handlers';
 import type {
     GraphDuration,
@@ -18,7 +18,7 @@ export default class GraphWrapper extends APIBaseWrapper {
     getDuration(
         duration: GraphDuration,
         itemId: number,
-        source: GraphSource = null
+        source: GraphSource = null,
     ): Promise<GraphResponse> {
         let url = `graph/${itemId}/${duration}`;
 
@@ -32,7 +32,7 @@ export default class GraphWrapper extends APIBaseWrapper {
     getDay(
         itemId: number,
         tenMinute: boolean = false,
-        params: GraphRequestParams = {}
+        params: GraphRequestParams = {},
     ): Promise<GraphResponse> {
         if (!tenMinute) {
             const source =
@@ -42,13 +42,13 @@ export default class GraphWrapper extends APIBaseWrapper {
             return this.getDuration('day', itemId, source);
         }
 
-        const currentDate = DateTime.now().toSQLDate();
+        const currentDate = dayjs().format('YYYY-MM-DD');
 
         const startDate = params.start
-            ? DateTime.fromISO(params.start).toSQLDate()
+            ? dayjs(params.start).format('YYYY-MM-DD')
             : currentDate;
         const endDate = params.end
-            ? DateTime.fromISO(params.end).toSQLDate()
+            ? dayjs(params.end).format('YYYY-MM-DD')
             : currentDate;
 
         let url = `graph/${itemId}/day?day=10&duration[start]=${startDate}&duration[end]=${endDate}`;
@@ -82,7 +82,7 @@ export default class GraphWrapper extends APIBaseWrapper {
 
     getCandlestick(
         duration: GraphDuration,
-        itemId: number
+        itemId: number,
     ): Promise<GraphResponse> {
         return this._wrapGet(`graph/candlestick/${itemId}/${duration}`);
     }
