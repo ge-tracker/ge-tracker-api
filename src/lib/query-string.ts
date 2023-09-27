@@ -1,10 +1,10 @@
 export type ParamObject = {
-    [index: string]: any;
+  [index: string]: any;
 };
 
 type FlattenedObject = {
-    path: string | Array<string>;
-    val?: string;
+  path: string | Array<string>;
+  val?: string;
 };
 
 type FlattenedObjectArray = Array<FlattenedObject>;
@@ -16,7 +16,7 @@ type FlattenedObjectArray = Array<FlattenedObject>;
  * @return {boolean}
  */
 function isEmptyObject(obj: object) {
-    return Object.keys(obj).length === 0 && obj.constructor === Object;
+  return Object.keys(obj).length === 0 && obj.constructor === Object;
 }
 
 /**
@@ -27,14 +27,14 @@ function isEmptyObject(obj: object) {
  * @return {*}
  */
 function parseOptions(url: string, opts: ParamObject): string {
-    if (isEmptyObject(opts)) {
-        return url;
-    }
+  if (isEmptyObject(opts)) {
+    return url;
+  }
 
-    const params = toQueryString(opts);
-    const sep = url.indexOf('?') === -1 ? '?' : '&';
+  const params = toQueryString(opts);
+  const sep = url.indexOf('?') === -1 ? '?' : '&';
 
-    return `${url}${sep}${params}`;
+  return `${url}${sep}${params}`;
 }
 
 /**
@@ -47,70 +47,70 @@ function parseOptions(url: string, opts: ParamObject): string {
  * @returns {string}
  */
 function toQueryString(obj: ParamObject, urlEncode: boolean = false) {
-    //
-    // Helper function that flattens an object, retaining key structure as a path array:
-    //
-    // Input: { prop1: 'x', prop2: { y: 1, z: 2 } }
-    // Example output: [
-    //     { path: [ 'prop1' ],      val: 'x' },
-    //     { path: [ 'prop2', 'y' ], val: '1' },
-    //     { path: [ 'prop2', 'z' ], val: '2' }
-    // ]
-    //
-    function flattenObj(
-        x: ParamObject,
-        path: Array<string | number> = []
-    ): FlattenedObjectArray {
-        let result: Array<object> = [];
+  //
+  // Helper function that flattens an object, retaining key structure as a path array:
+  //
+  // Input: { prop1: 'x', prop2: { y: 1, z: 2 } }
+  // Example output: [
+  //     { path: [ 'prop1' ],      val: 'x' },
+  //     { path: [ 'prop2', 'y' ], val: '1' },
+  //     { path: [ 'prop2', 'z' ], val: '2' }
+  // ]
+  //
+  function flattenObj(
+    x: ParamObject,
+    path: Array<string | number> = [],
+  ): FlattenedObjectArray {
+    let result: Array<object> = [];
 
-        path = path || [];
-        Object.keys(x).forEach(function (key) {
-            if (!x.hasOwnProperty(key)) return;
+    path = path || [];
+    Object.keys(x).forEach(function (key) {
+      if (!x.hasOwnProperty(key)) return;
 
-            let newPath = path.slice();
-            newPath.push(key);
+      let newPath = path.slice();
+      newPath.push(key);
 
-            let vals = [];
-            if (typeof x[key] === 'object') {
-                // @ts-ignore
-                vals = flattenObj(x[key], newPath);
-            } else {
-                vals.push({ path: newPath, val: x[key] });
-            }
-            // @ts-ignore
-            vals.forEach(function (obj) {
-                return result.push(obj);
-            });
-        });
-
+      let vals = [];
+      if (typeof x[key] === 'object') {
         // @ts-ignore
-        return result;
+        vals = flattenObj(x[key], newPath);
+      } else {
+        vals.push({path: newPath, val: x[key]});
+      }
+      // @ts-ignore
+      vals.forEach(function (obj) {
+        return result.push(obj);
+      });
+    });
+
+    // @ts-ignore
+    return result;
+  }
+
+  // start with  flattening `obj`
+  let parts = flattenObj(obj); // [ { path: [ ...parts ], val: ... }, ... ]
+
+  // convert to array notation:
+  parts = parts.map(function (varInfo: FlattenedObject) {
+    if (varInfo.path.length === 1) {
+      varInfo.path = varInfo.path[0];
+    } else {
+      let first = varInfo.path[0];
+      let rest = varInfo.path.slice(1);
+      // @ts-ignore
+      varInfo.path = first + '[' + rest.join('][') + ']';
     }
+    return varInfo;
+  }); // parts.map
 
-    // start with  flattening `obj`
-    let parts = flattenObj(obj); // [ { path: [ ...parts ], val: ... }, ... ]
+  // join the parts to a query-string url-component
+  let queryString = parts
+    .map(function (varInfo) {
+      return varInfo.path + '=' + varInfo.val;
+    })
+    .join('&');
 
-    // convert to array notation:
-    parts = parts.map(function (varInfo: FlattenedObject) {
-        if (varInfo.path.length === 1) {
-            varInfo.path = varInfo.path[0];
-        } else {
-            let first = varInfo.path[0];
-            let rest = varInfo.path.slice(1);
-            // @ts-ignore
-            varInfo.path = first + '[' + rest.join('][') + ']';
-        }
-        return varInfo;
-    }); // parts.map
-
-    // join the parts to a query-string url-component
-    let queryString = parts
-        .map(function (varInfo) {
-            return varInfo.path + '=' + varInfo.val;
-        })
-        .join('&');
-
-    return urlEncode ? encodeURIComponent(queryString) : queryString;
+  return urlEncode ? encodeURIComponent(queryString) : queryString;
 }
 
-export { isEmptyObject, parseOptions };
+export {isEmptyObject, parseOptions};

@@ -6,10 +6,10 @@ Official JavaScript API client to access [ge-tracker.com](https://www.ge-tracker
 
 ## Contents
 
--   [Installation](#installation)
--   [Usage](#usage)
-    -   [Env Client Example](#env-client-example)
--   [Available Endpoints](#available-endpoints)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Env Client Example](#env-client-example)
+- [Available Endpoints](#available-endpoints)
 
 ## Installation
 
@@ -40,12 +40,12 @@ named `GE_TRACKER_API_KEY` and use that as the API key.
 
 ```javascript
 // example.js
-const { createClientFromEnv } = require('@getracker/api');
+const {createClientFromEnv} = require('@getracker/api');
 
 const client = createClientFromEnv();
 
-client.Items.getItem(1050).then((item) => {
-    console.log(`${item.name} has ${item.buyingQuantity} buy offers and is 
+client.Items.getItem(1050).then(item => {
+  console.log(`${item.name} has ${item.buyingQuantity} buy offers and is 
     buying for ~${item.buying}`);
 });
 ```
@@ -69,35 +69,35 @@ environment file used by that library is added to your `.gitignore` file 😉
 
 The endpoints listed below have been mapped into this library. We have published Postman API documentation that will go into more detail about each endpoint listed below: [https://www.ge-tracker.com/docs](https://www.ge-tracker.com/docs)
 
--   Items
--   Graphs
--   Flip Finder
-    -   Favourite Items
-    -   Suggested Items
-    -   Highest Margins
-    -   GE Limits
-    -   High Volume
-    -   New Items
--   Money Making
-    -   High Alchemy
-    -   Item Sets
-    -   Decant Potions
-    -   Herblore Profit
-    -   Barrows Repair
-    -   Plank Making
-    -   Magic Tablets
-    -   Tan Leather
-    -   Store Profit
-    -   Blast Furnace
-    -   Tree Sapling
--   Profit Tracker
--   Leaderboard
--   Market Watch
--   Dashboard
--   Stats
--   Notifications
--   Graph
--   RS Updates
+- Items
+- Graphs
+- Flip Finder
+  - Favourite Items
+  - Suggested Items
+  - Highest Margins
+  - GE Limits
+  - High Volume
+  - New Items
+- Money Making
+  - High Alchemy
+  - Item Sets
+  - Decant Potions
+  - Herblore Profit
+  - Barrows Repair
+  - Plank Making
+  - Magic Tablets
+  - Tan Leather
+  - Store Profit
+  - Blast Furnace
+  - Tree Sapling
+- Profit Tracker
+- Leaderboard
+- Market Watch
+- Dashboard
+- Stats
+- Notifications
+- Graph
+- RS Updates
 
 ## Jest
 

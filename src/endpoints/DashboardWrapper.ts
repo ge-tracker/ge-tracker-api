@@ -1,31 +1,31 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type { ItemArrayDataWrappedWithMeta, ItemDataWrapped } from '../types';
+import type {ItemArrayDataWrappedWithMeta, ItemDataWrapped} from '../types';
 
 export type DashboardTotal = {
-    invested: number;
-    profit: number;
-    revenue: number;
-    sales: number;
+  invested: number;
+  profit: number;
+  revenue: number;
+  sales: number;
 };
 
 export type DashboardTiles = {
-    activeTransactions: number;
-    mostFrequent: { item: ItemDataWrapped | null; qty: number };
-    mostProfit: { item: ItemDataWrapped | null; gp: number };
-    mostSold: { item: ItemDataWrapped | null; qty: number };
-    total: DashboardTotal;
+  activeTransactions: number;
+  mostFrequent: {item: ItemDataWrapped | null; qty: number};
+  mostProfit: {item: ItemDataWrapped | null; gp: number};
+  mostSold: {item: ItemDataWrapped | null; qty: number};
+  total: DashboardTotal;
 };
 
 export type Dashboard = {
-    favouriteItems: ItemArrayDataWrappedWithMeta;
-    suggestedItems: ItemArrayDataWrappedWithMeta;
-    tiles: {
-        data: DashboardTiles;
-    };
+  favouriteItems: ItemArrayDataWrappedWithMeta;
+  suggestedItems: ItemArrayDataWrappedWithMeta;
+  tiles: {
+    data: DashboardTiles;
+  };
 };
 
 export default class DashboardWrapper extends APIBaseWrapper {
-    getDashboard(): Promise<Dashboard> {
-        return this._wrapGet('/dashboard');
-    }
+  getDashboard(): Promise<Dashboard> {
+    return this._wrapGet('/dashboard');
+  }
 }

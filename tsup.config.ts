@@ -1,20 +1,20 @@
-import { defineConfig, type Options } from 'tsup';
+import {defineConfig, type Options} from 'tsup';
 
 const cfg: Options = {
-    splitting: false,
-    sourcemap: true,
-    clean: true,
-    treeshake: false,
-    dts: true,
-    format: ['esm', 'cjs'],
+  splitting: false,
+  sourcemap: true,
+  clean: true,
+  treeshake: false,
+  dts: true,
+  format: ['esm', 'cjs'],
 };
 
 export default defineConfig([
-    {
-        ...cfg,
-        entry: {
-            index: 'src/index.ts',
-        },
-        outDir: 'dist',
+  {
+    ...cfg,
+    entry: {
+      index: 'src/index.ts',
     },
+    outDir: 'dist',
+  },
 ]);

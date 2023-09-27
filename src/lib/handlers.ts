@@ -1,11 +1,11 @@
 export function handleResponseBody(body: any) {
-    if (!body) {
-        return null;
-    }
+  if (!body) {
+    return null;
+  }
 
-    if (!('data' in body)) {
-        return body;
-    }
+  if (!('data' in body)) {
+    return body;
+  }
 
-    return body.data;
+  return body.data;
 }
