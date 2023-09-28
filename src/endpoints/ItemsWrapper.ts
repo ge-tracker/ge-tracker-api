@@ -1,6 +1,23 @@
 import APIBaseWrapper from './APIBaseWrapper';
 import type {ItemListPromise, ItemPromise} from '../types';
 
+export type ItemPeriod = {
+  price: {
+    day: number;
+    month: number;
+    month3: number;
+    month6: number;
+    year: number;
+  };
+  volume: {
+    day: number;
+    month: number;
+    month3: number;
+    month6: number;
+    year: number;
+  };
+};
+
 export default class ItemsWrapper extends APIBaseWrapper {
   getAllItems() {
     return this._wrapGet('items');
@@ -17,5 +34,9 @@ export default class ItemsWrapper extends APIBaseWrapper {
 
   search(query: string): ItemListPromise {
     return this._wrapGet(`items/search/${query}`);
+  }
+
+  getItemPeriod(itemId: number): Promise<ItemPeriod> {
+    return this._wrapGet(`items/${itemId}/period`);
   }
 }
