@@ -45,8 +45,10 @@ export interface Item {
   selling: number;
   sellingQuantity: number;
   slug: string;
+  tax: number;
   updatedAt: string;
   url: string;
+  wikiUrl: string;
 }
 
 export type MetaCount = {count: number};
