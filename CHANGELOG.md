@@ -1,8 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-## [6.0.0] - Prerelease
+## v6.0.0 - 2023-09-14
 
 - Added typing to various endpoints
 - Added `Fletching`
@@ -19,19 +17,27 @@ All notable changes to this project will be documented in this file.
 - Moved `DecantPotions` to `Herblore`
 - Added visibility to `APIBaseWrapper` methods
 
-## [v5.1.2] - 2022-12-16
+## v5.1.2 - 2022-12-16
+
+### What's Changed
 
 - Improve billing typing
 
-## [v5.1.1] - 2022-12-16
+## v5.1.1 - 2022-12-16
+
+### What's Changed
 
 - Add mobile billing providers and dashboard types
 
-## [v5.1.0] - 2022-08-29
+## v5.1.0 - 2022-08-29
+
+### What's Changed
 
 - Add Tag API
 
-## [v5.0.0] - 2022-06-08
+## v5.0.0 - 2022-06-08
+
+### What's Changed
 
 - Convert package to TypeScript
 - Add `X-Api-Client` header to match custom `User-Agent` header
