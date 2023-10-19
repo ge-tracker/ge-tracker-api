@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {ItemArrayDataWrappedWithMeta, ItemDataWrapped} from '../types';
+import type {DataWrappedWithMeta, ItemDataWrapped} from '../types';
 
 export type DashboardTotal = {
   invested: number;
@@ -17,8 +17,8 @@ export type DashboardTiles = {
 };
 
 export type Dashboard = {
-  favouriteItems: ItemArrayDataWrappedWithMeta;
-  suggestedItems: ItemArrayDataWrappedWithMeta;
+  favouriteItems: DataWrappedWithMeta;
+  suggestedItems: DataWrappedWithMeta;
   tiles: {
     data: DashboardTiles;
   };
