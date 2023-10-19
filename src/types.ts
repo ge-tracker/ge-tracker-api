@@ -53,12 +53,12 @@ export interface Item {
 
 export type MetaCount = {count: number};
 
-export type ItemListPromise = Promise<Item[]>;
-export type ItemPromise = Promise<Item>;
+export type ItemListPromise<T = Item> = Promise<T[]>;
+export type ItemPromise<T = Item> = Promise<T>;
 export type DataWrapped<T> = {data: T};
+export type DataWrappedWithMeta<T = Item> = {data: T[]; meta: MetaCount};
 export type ItemDataWrapped = DataWrapped<Item>;
 export type ItemArrayDataWrapped = DataWrapped<Item[]>;
-export type ItemArrayDataWrappedWithMeta = {data: Item[]; meta: MetaCount};
 
 export interface StatusResponse {
   status_code: number;
@@ -178,3 +178,5 @@ export type Paginated = {
 export type PaginatedResponse<T, PaginationType = LegacyPaginated> = {
   data: T[];
 } & PaginationType;
+
+export type MaybePromise<T> = T | Promise<T>;
