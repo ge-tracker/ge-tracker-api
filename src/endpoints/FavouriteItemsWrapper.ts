@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {DataWrappedWithMeta, Item, ItemListPromise} from '../types';
+import type {Item, ItemListPromise} from '../types';
 
 export type FavouriteItemReorder = {
   item_id: number;
@@ -11,7 +11,7 @@ export type FavouriteItemReorderRequest = Array<FavouriteItemReorder>;
 export type FavouriteItem = Item & {favouriteItemsId: number};
 
 export default class FavouriteItemsWrapper extends APIBaseWrapper {
-  getItems(): Promise<DataWrappedWithMeta<FavouriteItem>> {
+  getItems(): ItemListPromise<FavouriteItem> {
     return this._wrapGet('favourite-items');
   }
 

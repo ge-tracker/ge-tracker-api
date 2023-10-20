@@ -24,7 +24,7 @@ export type ItemPeriod = {
 };
 
 export default class ItemsWrapper extends APIBaseWrapper {
-  getAllItems(): Promise<DataWrappedWithMeta> {
+  getAllItems(): ItemListPromise {
     return this._wrapGet('items');
   }
 
