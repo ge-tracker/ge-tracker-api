@@ -1,5 +1,10 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {ItemListPromise, ItemPromise} from '../types';
+import type {
+  DataWrappedWithMeta,
+  Item,
+  ItemListPromise,
+  ItemPromise,
+} from '../types';
 
 export type ItemPeriod = {
   price: {
@@ -19,7 +24,7 @@ export type ItemPeriod = {
 };
 
 export default class ItemsWrapper extends APIBaseWrapper {
-  getAllItems() {
+  getAllItems(): Promise<DataWrappedWithMeta> {
     return this._wrapGet('items');
   }
 

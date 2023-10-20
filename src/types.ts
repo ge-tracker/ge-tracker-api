@@ -56,7 +56,7 @@ export type MetaCount = {count: number};
 export type ItemListPromise<T = Item> = Promise<T[]>;
 export type ItemPromise<T = Item> = Promise<T>;
 export type DataWrapped<T> = {data: T};
-export type DataWrappedWithMeta<T = Item> = {data: T[]; meta: MetaCount};
+export type DataWrappedWithMeta<T = Item, M = MetaCount> = {data: T[]; meta: M};
 export type ItemDataWrapped = DataWrapped<Item>;
 export type ItemArrayDataWrapped = DataWrapped<Item[]>;
 
