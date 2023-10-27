@@ -1,0 +1,67 @@
+name: CI/CD (@next)
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+        default: ''
+
+jobs:
+  publish:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      # We may have to hoist dependencies to fix TS2742
+      # https://github.com/microsoft/TypeScript/issues/47663#issuecomment-1519138189
+      # https://github.com/microsoft/TypeScript/issues/47663
+      - name: Install dependencies
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          mv .npmrc.ci .npmrc
+          echo 'node-linker=hoisted' >> .npmrc
+          pnpm install --frozen-lockfile
+
+      - name: Publish to NPM (@${{ inputs.tag }})
+        if: inputs.tag == 'latest'
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --no-git-checks
+
+      - name: Publish tagged to NPM (@${{ inputs.tag }})
+        if: inputs.tag != 'latest'
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish --tag ${{ inputs.tag }} --no-git-checks
+#      - name: Publish to NPM (@latest)
+#        # Stop v5 releases being published to @latest
+#        if: ${{ !startsWith(github.ref_name, 'v5.') }}
+#        env:
+#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#        run: |
+#          mv .npmrc.ci .npmrc
+#          npm publish
+#
+#      - name: Publish to NPM (@v5)
+#        if: startsWith(github.ref_name, 'v5.')
+#        env:
+#          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#        run: |
+#          mv .npmrc.ci .npmrc
+#          npm publish --tag v5

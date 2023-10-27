@@ -11,12 +11,11 @@
   },
   "scripts": {
     "test": "jest --passWithNoTests",
-    "build": "yarn clean && tsup",
+    "build": "pnpm run clean && tsup",
     "clean": "rm -rf dist types",
     "watch": "tsup src/index.ts --watch --dts",
     "prettier": "prettier --write .",
-    "np": "np --no-publish --no-tests --no-cleanup --no-release-draft --message 'Bump version to v%s'",
-    "prepublishOnly": "yarn run build",
+    "prepublishOnly": "pnpm run build",
     "prepare": "husky install",
     "postversion": "lifecycle/postversion"
   },
@@ -57,7 +56,6 @@
     "husky": ">=6",
     "jest": "^29.3.1",
     "lint-staged": ">=10",
-    "np": "^7.6.2",
     "prettier": "^3.0.3",
     "tslib": "^2.4.1",
     "tsup": "^7.2.0",
