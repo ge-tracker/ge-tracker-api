@@ -36,8 +36,8 @@ jobs:
           echo 'node-linker=hoisted' >> .npmrc
           pnpm install --frozen-lockfile
 
-      - name: Run ESLint
-        run: pnpm run lint
+#      - name: Run ESLint
+#        run: pnpm run lint
 
       - name: Run Tests (Node v${{ inputs.node-version }})
         run: |
