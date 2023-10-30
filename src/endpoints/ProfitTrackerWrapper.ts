@@ -122,4 +122,18 @@ export type TransactionsResponse<P = LegacyPaginated> = PaginatedResponse<
   P
 >;
 
-export type ImportTransaction = ProfitTransaction;
+export type ImportTransaction = {
+  id: string;
+  itemId: number;
+  qty: number | string;
+  buyPrice: number | string;
+  sellPrice?: number | string;
+  status?: string;
+  buyDate?: string;
+  boughtDate?: string;
+  sellDate?: string;
+  soldDate?: string;
+  intendedSellPrice?: number | string;
+  changePivot?: number;
+  threshold?: number;
+};

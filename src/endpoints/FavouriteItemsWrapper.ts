@@ -15,7 +15,11 @@ export default class FavouriteItemsWrapper extends APIBaseWrapper {
     return this._wrapGet('favourite-items');
   }
 
-  addItem(itemId: number) {
+  /**
+   * Add one or multiple items to favourites
+   * @param itemId
+   */
+  addItem(itemId: number | number[]) {
     return this._wrapPost(`favourite-items`, {
       item_id: itemId,
     });
