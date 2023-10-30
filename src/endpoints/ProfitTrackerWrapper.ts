@@ -85,6 +85,10 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
   clear() {
     return this._wrapPost('/profit-tracker/clear');
   }
+
+  import(transactions: ImportTransaction[]) {
+    return this._wrapPost('/profit-tracker/import', {transactions});
+  }
 }
 
 export type ProfitTransaction = {
@@ -117,3 +121,5 @@ export type TransactionsResponse<P = LegacyPaginated> = PaginatedResponse<
   ProfitTransaction,
   P
 >;
+
+export type ImportTransaction = ProfitTransaction;
