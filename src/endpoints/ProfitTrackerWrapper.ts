@@ -5,7 +5,9 @@ export type UpdateStatus = 'bought' | 'selling' | 'sold';
 export type TransactionStatus = 'buying' & UpdateStatus;
 
 export default class ProfitTrackerWrapper extends APIBaseWrapper {
-  getTransactions(opts = {}): Promise<TransactionsResponse> {
+  getTransactions<P = LegacyPaginated>(
+    opts = {},
+  ): Promise<TransactionsResponse<P>> {
     return this.client
       .get(this.parseOptions('/profit-tracker', opts))
       .then(({data}) => data);
@@ -127,13 +129,13 @@ export type ImportTransaction = {
   itemId: number;
   qty: number | string;
   buyPrice: number | string;
-  sellPrice?: number | string;
-  status?: string;
-  buyDate?: string;
-  boughtDate?: string;
-  sellDate?: string;
-  soldDate?: string;
-  intendedSellPrice?: number | string;
-  changePivot?: number;
-  threshold?: number;
+  sellPrice?: number | string | null;
+  status?: string | null;
+  buyDate?: string | null;
+  boughtDate?: string | null;
+  sellDate?: string | null;
+  soldDate?: string | null;
+  intendedSellPrice?: number | string | null;
+  changePivot?: number | null;
+  threshold?: number | null;
 };
