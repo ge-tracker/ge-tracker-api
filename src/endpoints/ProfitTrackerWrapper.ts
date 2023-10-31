@@ -1,9 +1,13 @@
 import APIBaseWrapper from './APIBaseWrapper';
+import type {Item, LegacyPaginated, PaginatedResponse} from '../types';
 
-export type ProfitTransactionStatus = 'bought' | 'selling' | 'sold';
+export type UpdateStatus = 'bought' | 'selling' | 'sold';
+export type TransactionStatus = 'buying' & UpdateStatus;
 
 export default class ProfitTrackerWrapper extends APIBaseWrapper {
-  getTransactions(opts = {}) {
+  getTransactions<P = LegacyPaginated>(
+    opts = {},
+  ): Promise<TransactionsResponse<P>> {
     return this.client
       .get(this.parseOptions('/profit-tracker', opts))
       .then(({data}) => data);
@@ -27,7 +31,7 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
     });
   }
 
-  updateTransaction(id: string, status: ProfitTransactionStatus, params = {}) {
+  updateTransaction(id: string, status: UpdateStatus, params = {}) {
     return this._wrapPost(`/profit-tracker/${id}`, {
       status,
       ...params,
@@ -83,4 +87,55 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
   clear() {
     return this._wrapPost('/profit-tracker/clear');
   }
+
+  import(transactions: ImportTransaction[]) {
+    return this._wrapPost('/profit-tracker/import', {transactions});
+  }
 }
+
+export type ProfitTransaction = {
+  id: string;
+  status: TransactionStatus;
+  order: {
+    itemId: number;
+    qty: number;
+    buyPrice: number;
+    sellPrice: number | null;
+    intendedSellPrice: number | null;
+  };
+  dates: {
+    buy: string | null;
+    bought: string | null;
+    sell: string | null;
+    sold: string | null;
+  };
+  merchLog: {
+    public: boolean | null;
+    verified: boolean | null;
+    rejected: boolean | null;
+  };
+  item: {
+    data: Item;
+  };
+};
+
+export type TransactionsResponse<P = LegacyPaginated> = PaginatedResponse<
+  ProfitTransaction,
+  P
+>;
+
+export type ImportTransaction = {
+  id: string;
+  itemId: number;
+  qty: number | string;
+  buyPrice: number | string;
+  sellPrice?: number | string | null;
+  status?: string | null;
+  buyDate?: string | null;
+  boughtDate?: string | null;
+  sellDate?: string | null;
+  soldDate?: string | null;
+  intendedSellPrice?: number | string | null;
+  changePivot?: number | null;
+  threshold?: number | null;
+};

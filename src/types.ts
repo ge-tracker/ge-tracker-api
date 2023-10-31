@@ -162,7 +162,9 @@ type PaginationLinks = {
 };
 
 export type LegacyPaginated = {
-  meta: LegacyPaginationMeta;
+  meta: {
+    pagination: LegacyPaginationMeta;
+  };
 };
 
 export type Paginated = {
