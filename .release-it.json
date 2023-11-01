@@ -5,7 +5,10 @@
   },
   "hooks": {
     "before:init": "echo 'before:init'",
+    "before:bump": "echo 'before:bump'",
     "after:bump": "echo 'after:bump'",
+    "before:version": "echo 'before:version'",
+    "after:version": "echo 'after:version'",
     "after:git:release": "echo 'after:git:release'"
   }
 }
