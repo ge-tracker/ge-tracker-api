@@ -16,8 +16,7 @@
     "watch": "tsup src/index.ts --watch --dts",
     "prettier": "prettier --write .",
     "prepublishOnly": "pnpm run build",
-    "prepare": "husky install",
-    "postversion": "lifecycle/postversion"
+    "prepare": "husky install"
   },
   "files": [
     "dist",
