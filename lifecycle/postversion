@@ -8,5 +8,5 @@ sed -i "s/ge-tracker-api client v[^']*/ge-tracker-api client v$VERSION/g" src/li
 
 # Add the version change into the previous version commit
 git add src/lib/client.ts
-echo git commit --amend --no-edit
-echo git tag -fa "v$VERSION" -m "v$VERSION"
+git commit --amend --no-edit
+#git tag -fa "v$VERSION" -m "v$VERSION"
