@@ -6,7 +6,7 @@
   "hooks": {
     "before:init": "echo 'before:init'",
     "before:bump": "echo 'before:bump'",
-    "before:release": "echo 'before:release'",
+    "before:release": "lifecycle/postversion",
     "after:bump": "echo 'after:bump 2'",
     "before:version": "echo 'before:version'",
     "after:version": "echo 'after:version'",
