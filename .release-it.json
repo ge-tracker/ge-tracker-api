@@ -9,6 +9,9 @@
     "after:bump": "echo 'after:bump 2'",
     "before:version": "echo 'before:version'",
     "after:version": "echo 'after:version'",
+    "before:git:init": "echo 'before:git:init'",
+    "before:git:bump": "echo 'before:git:bump'",
+    "before:git:release": "echo 'before:git:release'",
     "after:git:release": "echo 'after:git:release'"
   }
 }
