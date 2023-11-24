@@ -1,16 +1,30 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {ItemListPromise} from '../types';
+import type {CalculatorListPromise, Item, ItemListPromise} from '../types';
 
 export default class CraftingSmithingWrapper extends APIBaseWrapper {
-  getBlastFurnace(): ItemListPromise {
+  getBlastFurnace(): CalculatorListPromise {
     return this._wrapGet('blast-furnace');
   }
 
-  getCookingBrewing(): ItemListPromise {
+  getCookingBrewing(): CalculatorListPromise {
     return this._wrapGet('crafting/cooking-brewing');
   }
 
-  getTanLeather(): ItemListPromise {
+  getTanLeather(): Promise<TanLeather[]> {
     return this._wrapGet('tan-leather');
   }
 }
+
+export type TanLeather = {
+  leather: {
+    data: Item;
+  };
+  tanned: {
+    data: Item;
+  };
+  cost: {
+    xp: number;
+    cost: number;
+    profit: number;
+  };
+};

@@ -13,7 +13,7 @@
     "test": "jest --passWithNoTests",
     "build": "pnpm run clean && tsup",
     "clean": "rm -rf dist types",
-    "watch": "tsup src/index.ts --watch --dts",
+    "dev": "tsup src/index.ts --watch --dts",
     "prettier": "prettier --write .",
     "prepublishOnly": "pnpm run build",
     "prepare": "husky install"

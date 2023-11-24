@@ -1,16 +1,25 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {ItemListPromise} from '../types';
+import type {CalculatorItem, CalculatorListPromise, Item} from '../types';
 
 export default class FletchingWrapper extends APIBaseWrapper {
-  getAmmo(): ItemListPromise {
+  getAmmo(): CalculatorListPromise {
     return this._wrapGet('fletching/ammo');
   }
 
-  getBows(): ItemListPromise {
+  getBows(): CalculatorListPromise<CalculatorItem<Item, FletchingBowsMethods>> {
     return this._wrapGet('fletching/bows');
   }
 
-  getShields(): ItemListPromise {
+  getShields(): CalculatorListPromise {
     return this._wrapGet('fletching/shields');
   }
 }
+
+export type FletchingBowsMethods = {
+  all: {
+    negate: string[];
+  };
+  string_only: {
+    negate: string[];
+  };
+};

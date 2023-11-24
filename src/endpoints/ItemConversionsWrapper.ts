@@ -1,12 +1,17 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {DataWrapped, Item, ItemListPromise} from '../types';
+import type {
+  CalculatorListPromise,
+  DataWrapped,
+  Item,
+  ItemListPromise,
+} from '../types';
 
-export interface ItemCombinationPiece {
+export type ItemCombinationPiece = {
   qty: number;
   item: DataWrapped<Item>;
-}
+};
 
-export interface ItemCombination {
+export type ItemCombination = {
   qty: number;
   label: string | null;
   conversionCost: number;
@@ -20,12 +25,12 @@ export interface ItemCombination {
   };
   item: DataWrapped<Item>;
   pieces: ItemCombinationPiece[];
-}
+};
 
 export type ItemCombinationResponse = ItemCombination[];
 
 export default class ItemConversionsWrapper extends APIBaseWrapper {
-  getBarrowsRepair(): ItemListPromise {
+  getBarrowsRepair(): CalculatorListPromise {
     return this._wrapGet('barrows-repair');
   }
 
