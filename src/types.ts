@@ -1,29 +1,4 @@
-export type ItemField =
-  | 'approxProfit'
-  | 'buyLimit'
-  | 'buyPriceCurrent'
-  | 'buySellRatio'
-  | 'buying'
-  | 'buyingQuantity'
-  | 'cachedUntil'
-  | 'highAlch'
-  | 'icon'
-  | 'id'
-  | 'itemId'
-  | 'lastKnownBuyTime'
-  | 'lastKnownSellTime'
-  | 'lowAlch'
-  | 'members'
-  | 'name'
-  | 'overall'
-  | 'sellPriceCurrent'
-  | 'selling'
-  | 'sellingQuantity'
-  | 'slug'
-  | 'updatedAt'
-  | 'url';
-
-export interface Item {
+export type Item = {
   approxProfit: number;
   buyLimit: number;
   buyPriceCurrent: boolean;
@@ -49,11 +24,33 @@ export interface Item {
   updatedAt: string;
   url: string;
   wikiUrl: string;
-}
+};
+
+export type ItemField = keyof Item;
+
+export type CalculatorItem<TItem = Item, TMethods extends object = null> = {
+  target: {
+    materials: Record<string, number>;
+    methods: TMethods;
+    baseCost: number;
+    perHr: number;
+    item: {
+      data: TItem;
+    };
+  };
+  cost: {
+    xp: number;
+    cost: number;
+    baseCost: number;
+    profit: number;
+    profitHr: number;
+  };
+};
 
 export type MetaCount = {count: number};
 
 export type ItemListPromise<T = Item> = Promise<T[]>;
+export type CalculatorListPromise<T = CalculatorItem> = Promise<T[]>;
 export type ItemPromise<T = Item> = Promise<T>;
 export type DataWrapped<T> = {data: T};
 export type DataWrappedWithMeta<T = Item, M = MetaCount> = {data: T[]; meta: M};
