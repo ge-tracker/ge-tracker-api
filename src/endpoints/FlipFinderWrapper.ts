@@ -20,7 +20,7 @@ export default class FlipFinderWrapper extends APIBaseWrapper {
     return this._wrapGet(this.parseOptions('highest-margins', opts));
   }
 
-  getHighVolume(opts = {filters: false}) {
+  getHighVolume(opts = {filters: false}): ItemListPromise {
     return this._wrapGet(this.parseOptions('high-volume', opts));
   }
 
