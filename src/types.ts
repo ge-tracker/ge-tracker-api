@@ -28,6 +28,11 @@ export type Item = {
 
 export type ItemField = keyof Item;
 
+// Get all keys of `Item` where the value is a number
+export type ItemNumericValue = {
+  [K in keyof Item]: Item[K] extends number ? K : never;
+}[keyof Item];
+
 export type CalculatorItem<TItem = Item, TMethods extends object = null> = {
   target: {
     materials: Record<string, number>;
