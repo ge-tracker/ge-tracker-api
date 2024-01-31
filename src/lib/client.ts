@@ -27,7 +27,7 @@ const DefaultOptions: CreateAxiosDefaults = {
 
   // set api client headers
   headers: {
-    'X-Api-Client': 'ge-tracker-api client v6.3.6',
+    'X-Api-Client': 'ge-tracker-api client v6.4.0',
     Accept: `application/x.getracker.${GE_TRACKER_API_VERSION}+json`,
   },
 };
