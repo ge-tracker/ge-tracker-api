@@ -39,7 +39,7 @@ export default class APIBaseWrapper {
     this.onRequest('GET', path);
 
     return this.client
-      .get(path)
+      .get<T>(path)
       .then(({data}) => data)
       .then(handleResponseBody);
   }
@@ -47,19 +47,19 @@ export default class APIBaseWrapper {
   protected _wrapPost<T>(path: string, params = {}): Promise<T> {
     this.onRequest('POST', path, params);
 
-    return this.client.post(path, params).then(({data}) => data);
+    return this.client.post<T>(path, params).then(({data}) => data);
   }
 
   protected _wrapPatch<T>(path: string, params = {}): Promise<T> {
     this.onRequest('PATCH', path, params);
 
-    return this.client.patch(path, params).then(({data}) => data);
+    return this.client.patch<T>(path, params).then(({data}) => data);
   }
 
   protected _wrapDelete<T>(path: string): Promise<T> {
     this.onRequest('DELETE', path);
 
-    return this.client.delete(path).then(({data}) => data);
+    return this.client.delete<T>(path).then(({data}) => data);
   }
 
   /**

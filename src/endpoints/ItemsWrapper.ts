@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {ItemListPromise, ItemPromise} from '../types';
+import type {Item, ItemListPromise, ItemPromise} from '../types';
 
 export default class ItemsWrapper extends APIBaseWrapper {
   getAllItems(): ItemListPromise {
@@ -8,10 +8,10 @@ export default class ItemsWrapper extends APIBaseWrapper {
 
   getItem(itemId: number, detail: boolean = false): ItemPromise {
     const url = !detail ? `items/${itemId}` : `items/${itemId}?detail=true`;
-    return this._wrapGet(url);
+    return this._wrapGet<Item>(url);
   }
 
-  getItems(...itemIds: Array<number>): ItemListPromise {
+  getItems(itemIds: number[]): ItemListPromise {
     return this._wrapGet(`items/multi/${itemIds.join(',')}`);
   }
 
