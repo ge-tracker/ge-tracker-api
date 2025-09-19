@@ -62,9 +62,11 @@ export type DataWrappedWithMeta<T = Item, M = MetaCount> = {data: T[]; meta: M};
 export type ItemDataWrapped = DataWrapped<Item>;
 export type ItemArrayDataWrapped = DataWrapped<Item[]>;
 
+export type StatusMessage = 'success' | 'Bad Request' | 'error';
+export type StatusCode = 200 | 201 | 400 | 401 | 403 | 404 | 500;
 export interface StatusResponse {
-  status_code: number;
-  message: string;
+  status_code: StatusCode;
+  message: StatusMessage;
 }
 
 export type StatusResponseWithData<T> = DataWrapped<T> & StatusResponse;
