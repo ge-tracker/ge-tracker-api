@@ -10,3 +10,4 @@ yarn-error.log*
 .env
 .npm
 test-export.ts
+.npmrc

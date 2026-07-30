@@ -7,7 +7,10 @@ on:
         required: false
         type: number
         description: 'Node.js version to use for the test run'
-        default: 20
+        default: 24
+
+permissions:
+  contents: read
 
 jobs:
   tests:
@@ -18,27 +21,24 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
+      # Version comes from the "packageManager" field in package.json
+      - uses: pnpm/action-setup@v6
 
       - name: Setup Node.js ${{ inputs.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ inputs.node-version }}
           cache: 'pnpm'
 
       - name: Install dependencies
         run: |
-          mv .npmrc.ci .npmrc
-          echo 'node-linker=hoisted' >> .npmrc
+          echo 'node-linker=hoisted' > .npmrc
           pnpm install --frozen-lockfile
 
-#      - name: Run ESLint
-#        run: pnpm run lint
+      - name: Typecheck
+        run: pnpm run typecheck
 
       - name: Run Tests (Node v${{ inputs.node-version }})
-        run: |
-          pnpm run test --ci
+        run: pnpm run test --ci

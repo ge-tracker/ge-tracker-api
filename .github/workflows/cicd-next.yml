@@ -10,7 +10,7 @@ jobs:
   tests:
     strategy:
       matrix:
-        node: [20]
+        node: [22, 24]
     uses: ./.github/workflows/service_tests.yml
     with:
       node-version: ${{ matrix.node }}
