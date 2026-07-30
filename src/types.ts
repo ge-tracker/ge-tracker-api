@@ -22,6 +22,7 @@ export type Item = {
   slug: string;
   tax: number;
   updatedAt: string;
+  createdAt: string;
   url: string;
   wikiUrl: string;
 };
@@ -80,12 +81,7 @@ export interface ItemListParams {
 }
 
 export type GraphDuration =
-  | 'day'
-  | 'week'
-  | 'month'
-  | 'quarter'
-  | 'year'
-  | 'all';
+  'day' | 'week' | 'month' | 'quarter' | 'year' | 'all';
 export type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
 export type GraphDayDuration = '10' | '30';
 export type GraphField =
