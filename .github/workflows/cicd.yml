@@ -1,10 +1,20 @@
 name: CI/CD
 
+# npm trusted publishing validates the OIDC token against the *calling* workflow,
+# not the workflow containing `pnpm publish`. Both release flows therefore live in
+# this one file, and the publish steps are inline rather than in a reusable
+# workflow, so the name npm sees always matches the Trusted Publisher config
+# (ge-tracker/ge-tracker-api -> cicd.yml).
+# https://docs.npmjs.com/trusted-publishers
+
 on:
   workflow_dispatch:
   push:
     tags:
+      # v1.2.3 -> @latest
       - 'v[0-9]+.[0-9]+.[0-9]+'
+      # v1.2.3-4 -> @next
+      - 'v[0-9]+.[0-9]+.[0-9]+-[0-9]+'
 
 jobs:
   tests:
@@ -17,12 +27,48 @@ jobs:
 
   publish:
     needs: [tests]
-    name: Publish @latest
-    # Reusable workflows can only maintain or reduce the caller's permissions,
-    # never elevate them - so id-token must be granted here for OIDC to work.
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+
     permissions:
+      # Mints the OIDC token npm exchanges for short-lived publish credentials.
+      # No NPM_TOKEN is involved.
       id-token: write
       contents: read
-    uses: ./.github/workflows/service_publish.yml
-    with:
-      tag: latest
+
+    steps:
+      - name: Resolve dist-tag
+        id: dist
+        # Passed via env, not interpolated into the script, to avoid injection
+        env:
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [[ "$REF_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-[0-9]+$ ]]; then
+            echo 'tag=next' >> "$GITHUB_OUTPUT"
+          else
+            echo 'tag=latest' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Version comes from the "packageManager" field in package.json.
+      # Trusted publishing requires pnpm >= 11.
+      - uses: pnpm/action-setup@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      # We may have to hoist dependencies to fix TS2742
+      # https://github.com/microsoft/TypeScript/issues/47663#issuecomment-1519138189
+      # https://github.com/microsoft/TypeScript/issues/47663
+      - name: Install dependencies
+        run: |
+          echo 'node-linker=hoisted' > .npmrc
+          pnpm install --frozen-lockfile
+
+      - name: Publish to NPM (@${{ steps.dist.outputs.tag }})
+        run: pnpm publish --tag ${{ steps.dist.outputs.tag }} --no-git-checks
