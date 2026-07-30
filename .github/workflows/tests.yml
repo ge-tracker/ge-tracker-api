@@ -12,19 +12,28 @@ on:
       - '**.ts'
       - '**.tsx'
       - '**.json'
+      # Changes to CI or install config must validate themselves
+      - '.github/workflows/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
   pull_request:
     paths:
       - '**.js'
       - '**.ts'
       - '**.tsx'
       - '**.json'
+      - '.github/workflows/**'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+
+permissions:
+  contents: read
 
 jobs:
   tests:
     strategy:
       matrix:
-        node: [20]
+        node: [22, 24]
     uses: ./.github/workflows/service_tests.yml
     with:
       node-version: ${{ matrix.node }}
-    secrets: inherit

@@ -1,5 +1,0 @@
-registry=https://registry.yarnpkg.com/
-@getracker:registry=https://registry.yarnpkg.com/
-//registry.npmjs.org/:_authToken=${NPM_TOKEN}
-//registry.yarnpkg.com/:_authToken=${NPM_TOKEN}
-always-auth=true
