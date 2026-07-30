@@ -1,6 +1,6 @@
 {
   "name": "@getracker/api",
-  "version": "6.4.2",
+  "version": "6.4.3",
   "description": "Official GE-Tracker.com API client",
   "repository": "https://github.com/ge-tracker/ge-tracker-api",
   "license": "MIT",
