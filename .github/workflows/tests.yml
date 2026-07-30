@@ -30,4 +30,3 @@ jobs:
     uses: ./.github/workflows/service_tests.yml
     with:
       node-version: ${{ matrix.node }}
-    secrets: inherit
