@@ -20,11 +20,20 @@ export default class FlipFinderWrapper extends APIBaseWrapper {
     return this._wrapGet(this.parseOptions('highest-margins', opts));
   }
 
+  getHighValueItems(): ItemListPromise {
+    return this._wrapGet('high-value-items');
+  }
+
   getHighVolume(opts = {filters: false}): ItemListPromise {
     return this._wrapGet(this.parseOptions('high-volume', opts));
   }
 
   getNewItems(opts = {filters: false}): ItemListPromise {
     return this._wrapGet(this.parseOptions('new-items', opts));
+  }
+
+  /** The Fractured Archive (TFA) Special Update items */
+  getTfaItems(): ItemListPromise {
+    return this._wrapGet('tfa-items');
   }
 }
