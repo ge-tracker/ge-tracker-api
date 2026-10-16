@@ -80,6 +80,11 @@ export interface ItemListParams {
   perPage?: number;
 }
 
+export interface TfaItemsParams {
+  /** Drop Hand Picked Items */
+  newOnly?: boolean;
+}
+
 export type GraphDuration =
   'day' | 'week' | 'month' | 'quarter' | 'year' | 'all';
 export type GraphSource = 'getracker' | 'osbuddy' | 'runelite' | null;
