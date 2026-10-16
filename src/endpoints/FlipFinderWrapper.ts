@@ -1,5 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {ItemListParams, ItemListPromise} from '../types';
+import type {ItemListParams, ItemListPromise, TfaItemsParams} from '../types';
 import SuggestedItemsWrapper from './SuggestedItemsWrapper';
 import FavouriteItemsWrapper from './FavouriteItemsWrapper';
 
@@ -33,7 +33,8 @@ export default class FlipFinderWrapper extends APIBaseWrapper {
   }
 
   /** The Fractured Archive (TFA) Special Update items */
-  getTfaItems(): ItemListPromise {
-    return this._wrapGet('tfa-items');
+  getTfaItems(opts: TfaItemsParams = {}): ItemListPromise {
+    const params = opts.newOnly ? {new_only: 1} : {};
+    return this._wrapGet(this.parseOptions('tfa-items', params));
   }
 }
