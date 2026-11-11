@@ -1,3 +1,6 @@
+/** `main` is the Main Game, `event` the running Event, `hcw` Hardcore Worlds */
+export type GameMode = 'main' | 'hcw' | 'event';
+
 export type Item = {
   approxProfit: number;
   buyLimit: number;

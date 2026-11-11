@@ -1,7 +1,9 @@
 import APIBaseWrapper from './APIBaseWrapper';
 import dayjs from 'dayjs';
+import {withGameMode} from '../lib/game-mode';
 import {handleResponseBody} from '../lib/handlers';
 import type {
+  GameMode,
   GraphDuration,
   GraphRequestParams,
   GraphResponse,
@@ -9,7 +11,7 @@ import type {
 } from '../types';
 
 export default class GraphWrapper extends APIBaseWrapper {
-  private _dmm = false;
+  private _mode: GameMode = 'main';
 
   protected _wrapGet<T>(path: string): Promise<T> {
     return this.client.get(this._wrapUrl(path)).then(handleResponseBody);
@@ -92,27 +94,24 @@ export default class GraphWrapper extends APIBaseWrapper {
   }
 
   forceReload(duration: GraphDuration, itemId: number) {
-    return this._wrapPost(`graph/force-reload`, {
+    return this._wrapPost(this._wrapUrl(`graph/force-reload`), {
       itemId,
       duration,
     });
   }
 
-  dmm(enabled: boolean = true) {
-    this._dmm = enabled;
+  /** Game Mode for graph requests only; `main` uses the client's mode */
+  gameMode(mode: GameMode) {
+    this._mode = mode;
     return this;
   }
 
-  /**
-   * Wrap URLs to support DMM endpoints
-   *
-   * @param path
-   */
-  _wrapUrl(path: string) {
-    if (!this._dmm || path.includes('dmm=1')) {
-      return path;
-    }
+  /** Shortcut for `gameMode(enabled ? 'event' : 'main')` */
+  dmm(enabled: boolean = true) {
+    return this.gameMode(enabled ? 'event' : 'main');
+  }
 
-    return path.includes('?') ? path + '&dmm=1' : path + '?dmm=1';
+  _wrapUrl(path: string) {
+    return withGameMode(path, this._mode);
   }
 }

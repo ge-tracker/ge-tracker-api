@@ -1,5 +1,6 @@
 import * as Endpoint from '../endpoints';
 import APIBaseWrapper from '../endpoints/APIBaseWrapper';
+import type {GameMode} from '../types';
 import type {GeTrackerAxios} from './client';
 
 export interface GeTrackerApi {
@@ -30,7 +31,8 @@ export interface GeTrackerApi {
     callback: (method: string, path: string, params: object) => void,
   ) => void;
   getClient: () => GeTrackerAxios;
-  dmm: (enabled: boolean) => void;
+  gameMode: (mode: GameMode) => void;
+  dmm: (enabled?: boolean) => void;
 }
 
 const createApi = (client: GeTrackerAxios): GeTrackerApi => {
@@ -102,6 +104,12 @@ const createApi = (client: GeTrackerAxios): GeTrackerApi => {
       return client;
     },
 
+    /** Set the Game Mode for every later request on this client */
+    gameMode(mode: GameMode): void {
+      client.gameMode(mode);
+    },
+
+    /** Shortcut for `gameMode(enabled ? 'event' : 'main')` */
     dmm(enabled: boolean = true): void {
       client.dmm(enabled);
     },

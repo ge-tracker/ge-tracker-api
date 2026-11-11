@@ -1,21 +1,4 @@
-import type {AxiosAdapter, InternalAxiosRequestConfig} from 'axios';
-import {createClient} from '../index';
-
-function recordingClient() {
-  const requests: InternalAxiosRequestConfig[] = [];
-  const adapter: AxiosAdapter = async config => {
-    requests.push(config);
-    return {
-      data: {data: []},
-      status: 200,
-      statusText: 'OK',
-      headers: {},
-      config,
-    };
-  };
-
-  return {api: createClient('key', {adapter}), requests};
-}
+import {recordingClient} from '../testing/recording-adapter';
 
 describe('FlipFinder.getTfaItems', () => {
   it('drops Hand Picked Items when newOnly is true', async () => {

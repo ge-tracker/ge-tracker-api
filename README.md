@@ -65,6 +65,29 @@ A better approach is to use something like
 [dotenv](https://www.npmjs.com/package/dotenv). Take care to ensure that your
 environment file used by that library is added to your `.gitignore` file 😉
 
+### Game Modes
+
+Each client views one Game Mode at a time: the Main Game (`main`, the default),
+Hardcore Worlds (`hcw`) or the running Event (`event`). Call `gameMode()` to
+switch; every request sent afterwards uses the new mode.
+
+```javascript
+const client = createClientFromEnv();
+
+client.gameMode('hcw'); // Hardcore Worlds prices from here on
+client.gameMode('main'); // back to the Main Game
+
+client.dmm(); // shortcut for gameMode('event')
+client.dmm(false); // shortcut for gameMode('main')
+```
+
+Graphs can use their own mode, which overrides the client's. Setting Graphs back
+to `main` makes them follow the client again.
+
+```javascript
+client.Graphs.gameMode('event').getWeek(1050);
+```
+
 ## Available Endpoints
 
 The endpoints listed below have been mapped into this library. We have published Postman API documentation that will go into more detail about each endpoint listed below: [https://www.ge-tracker.com/docs](https://www.ge-tracker.com/docs)
