@@ -86,13 +86,17 @@ function createClient(
     },
   );
 
-  // read at send time so a mode switch applies to wrappers already built
-  instance.interceptors.request.use(request => {
-    if (request.url !== undefined) {
-      request.url = withGameMode(request.url, mode);
-    }
-    return request;
-  });
+  // synchronous: reads the mode when get()/post() is called, not a microtask later
+  instance.interceptors.request.use(
+    request => {
+      if (request.url !== undefined) {
+        request.url = withGameMode(request.url, mode);
+      }
+      return request;
+    },
+    null,
+    {synchronous: true},
+  );
 
   return Object.assign(instance, {
     gameMode(next: GameMode): void {

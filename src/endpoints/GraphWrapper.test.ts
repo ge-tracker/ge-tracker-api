@@ -1,7 +1,7 @@
 import {recordingClient} from '../testing/recording-adapter';
 
 describe('Graphs Game Mode', () => {
-  it('overrides the client mode with a non-Main mode', async () => {
+  it('overrides the client mode with a mode other than the Main Game', async () => {
     const {api, urls} = recordingClient();
 
     api.gameMode('hcw');

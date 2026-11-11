@@ -27,6 +27,17 @@ describe('Game Mode', () => {
     ]);
   });
 
+  it('reads the mode when a request is sent, not when it resolves', async () => {
+    const {api, urls} = recordingClient();
+
+    const before = api.Items.getItem(1050);
+    api.gameMode('hcw');
+    const after = api.Items.getItem(1050);
+    await Promise.all([before, after]);
+
+    expect(urls()).toEqual(['items/1050', 'items/1050?mode=hcw']);
+  });
+
   it('stops sending the mode after switching back to the Main Game', async () => {
     const {api, urls} = recordingClient();
 
