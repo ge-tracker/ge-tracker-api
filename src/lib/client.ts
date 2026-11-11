@@ -1,11 +1,12 @@
 import Axios, {
   AxiosError,
   type AxiosInstance,
-  type AxiosRequestConfig,
   type CreateAxiosDefaults,
 } from 'axios';
 import merge from 'deepmerge';
+import type {GameMode} from '../types';
 import * as errors from './errors';
+import {withGameMode} from './game-mode';
 
 const GE_TRACKER_API_URL = 'https://www.ge-tracker.com/api';
 const GE_TRACKER_API_VERSION = 'v2.1';
@@ -47,27 +48,10 @@ function createAuthHeader(apiKey: ApiKey): object {
   };
 }
 
-/**
- * Wrap URLs to support DMM endpoints
- *
- * @param dmmMode
- * @param request
- */
-function applyDmmParameter(
-  dmmMode: boolean,
-  request: AxiosRequestConfig,
-): string | undefined {
-  const path = request.url;
-
-  if (!dmmMode || path === undefined || path.includes('dmm=1')) {
-    return path;
-  }
-
-  return path.includes('?') ? path + '&dmm=1' : path + '?dmm=1';
-}
-
 export interface GeTrackerAxios extends AxiosInstance {
-  dmm(enabled: boolean): void;
+  gameMode(mode: GameMode): void;
+  /** @deprecated Use `gameMode('event')`, or `gameMode('main')` to switch back */
+  dmm(enabled?: boolean): void;
 }
 
 /**
@@ -85,7 +69,7 @@ function createClient(
     merge(options, {headers: createAuthHeader(apiKey)}),
   );
 
-  let dmmMode: boolean = false;
+  let mode: GameMode = 'main';
 
   // add custom response interceptors
   instance.interceptors.response.use(
@@ -103,18 +87,26 @@ function createClient(
     },
   );
 
-  instance.interceptors.request.use(request => {
-    request.url = applyDmmParameter(dmmMode, request);
-    return request;
+  // synchronous: reads the mode when get()/post() is called, not a microtask later
+  instance.interceptors.request.use(
+    request => {
+      if (request.url !== undefined) {
+        request.url = withGameMode(request.url, mode);
+      }
+      return request;
+    },
+    null,
+    {synchronous: true},
+  );
+
+  return Object.assign(instance, {
+    gameMode(next: GameMode): void {
+      mode = next;
+    },
+    dmm(enabled: boolean = true): void {
+      mode = enabled ? 'event' : 'main';
+    },
   });
-
-  // @ts-ignore
-  function dmm(enabled: boolean = true): void {
-    dmmMode = enabled;
-  }
-
-  // @ts-ignore
-  return instance;
 }
 
 export {DefaultOptions, createClient, GE_TRACKER_API_URL};

@@ -25,7 +25,7 @@ _Avoid_: expensive item, rare item
 
 **Game Mode**:
 A separate Grand Exchange economy whose prices GE Tracker tracks. A client
-views one Game Mode at a time.
+views one Game Mode at a time; Graphs can override it with their own.
 _Avoid_: DMM (as the general term), event mode, world type
 
 **Main Game**:
