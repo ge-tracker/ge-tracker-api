@@ -50,6 +50,7 @@ function createAuthHeader(apiKey: ApiKey): object {
 
 export interface GeTrackerAxios extends AxiosInstance {
   gameMode(mode: GameMode): void;
+  /** @deprecated Use `gameMode('event')`, or `gameMode('main')` to switch back */
   dmm(enabled?: boolean): void;
 }
 

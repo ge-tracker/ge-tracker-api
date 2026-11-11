@@ -76,10 +76,10 @@ const client = createClientFromEnv();
 
 client.gameMode('hcw'); // Hardcore Worlds prices from here on
 client.gameMode('main'); // back to the Main Game
-
-client.dmm(); // shortcut for gameMode('event')
-client.dmm(false); // shortcut for gameMode('main')
 ```
+
+`dmm()` is deprecated but still works: `dmm()` is `gameMode('event')` and
+`dmm(false)` is `gameMode('main')`.
 
 Graphs can use their own mode, which overrides the client's. Setting Graphs back
 to `main` makes them follow the client again.

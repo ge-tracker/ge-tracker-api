@@ -106,7 +106,7 @@ export default class GraphWrapper extends APIBaseWrapper {
     return this;
   }
 
-  /** Shortcut for `gameMode(enabled ? 'event' : 'main')` */
+  /** @deprecated Use `gameMode('event')`, or `gameMode('main')` to switch back */
   dmm(enabled: boolean = true) {
     return this.gameMode(enabled ? 'event' : 'main');
   }

@@ -32,6 +32,7 @@ export interface GeTrackerApi {
   ) => void;
   getClient: () => GeTrackerAxios;
   gameMode: (mode: GameMode) => void;
+  /** @deprecated Use `gameMode('event')`, or `gameMode('main')` to switch back */
   dmm: (enabled?: boolean) => void;
 }
 
@@ -109,7 +110,7 @@ const createApi = (client: GeTrackerAxios): GeTrackerApi => {
       client.gameMode(mode);
     },
 
-    /** Shortcut for `gameMode(enabled ? 'event' : 'main')` */
+    /** @deprecated Use `gameMode('event')`, or `gameMode('main')` to switch back */
     dmm(enabled: boolean = true): void {
       client.dmm(enabled);
     },
