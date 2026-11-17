@@ -1,13 +1,13 @@
 import type {AxiosAdapter, InternalAxiosRequestConfig} from 'axios';
 import {createClient} from '../index';
 
-/** Axios adapter that records each request and answers `{data: []}` */
-export function recordingAdapter() {
+/** Axios adapter that records each request and answers with `body` */
+export function recordingAdapter(body: unknown = {data: []}) {
   const requests: InternalAxiosRequestConfig[] = [];
   const adapter: AxiosAdapter = async config => {
     requests.push(config);
     return {
-      data: {data: []},
+      data: body,
       status: 200,
       statusText: 'OK',
       headers: {},
@@ -18,7 +18,7 @@ export function recordingAdapter() {
   return {adapter, requests, urls: () => requests.map(r => r.url)};
 }
 
-export function recordingClient() {
-  const {adapter, requests, urls} = recordingAdapter();
+export function recordingClient(body?: unknown) {
+  const {adapter, requests, urls} = recordingAdapter(body);
   return {api: createClient('key', {adapter}), requests, urls};
 }

@@ -1,5 +1,12 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {DataWrapped, Item, StatusResponse} from '../types';
+import {ALL_MODES_PARAMS} from '../lib/game-mode';
+import type {
+  DataWrapped,
+  DataWrappedWithMeta,
+  GameMode,
+  Item,
+  StatusResponse,
+} from '../types';
 
 export type PriceAlertField = 'current' | 'selling' | 'buying' | 'profit';
 export type PriceAlertType = 'above' | 'below';
@@ -12,6 +19,7 @@ export type PriceAlertState = 'active' | 'pending' | 'completed';
 
 export type PriceAlert = {
   id: number;
+  mode: GameMode;
   methods: Required<PriceAlertMethod>;
   alert: {
     type: PriceAlertType;
@@ -30,18 +38,39 @@ export type PriceAlert = {
   item: DataWrapped<Item>;
 };
 
+/** A `meta.modes` entry; `available: false` means its alerts aren't checked */
+export type ListedGameMode = {
+  mode: GameMode;
+  title: string;
+  available: boolean;
+};
+
+export type AllModesPriceAlerts = DataWrappedWithMeta<
+  PriceAlert,
+  {modes: ListedGameMode[]}
+>;
+
 export default class PriceAlertWrapper extends APIBaseWrapper {
   /**
-   * Get Price Alerts
-   *
-   * `itemId` can be specified to load price alerts for a single item
-   *
-   * @param {Number} itemId
-   * @return {*}
+   * Get Price Alerts in the client's Game Mode, optionally for a single item
    */
-  getAlerts(itemId = null): Promise<PriceAlert[]> {
-    const url = itemId ? `/price-alerts/${itemId}` : '/price-alerts';
-    return this._wrapGet(url);
+  getAlerts(itemId?: number | null): Promise<PriceAlert[]>;
+  /**
+   * Get every Game Mode's Price Alerts, whatever `gameMode()` holds, with
+   * `meta.modes` listing each Game Mode
+   */
+  getAlerts(opts: {allModes: true}): Promise<AllModesPriceAlerts>;
+  getAlerts(
+    arg: number | null | {allModes: true} = null,
+  ): Promise<PriceAlert[] | AllModesPriceAlerts> {
+    if (typeof arg === 'object' && arg?.allModes) {
+      const url = this.parseOptions('/price-alerts', ALL_MODES_PARAMS);
+      this.onRequest('GET', url);
+      return this.client.get(url).then(({data}) => data);
+    }
+
+    const itemId = typeof arg === 'object' ? null : arg;
+    return this._wrapGet(itemId ? `/price-alerts/${itemId}` : '/price-alerts');
   }
 
   /**

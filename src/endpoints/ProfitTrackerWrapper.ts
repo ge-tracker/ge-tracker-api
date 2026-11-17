@@ -1,15 +1,27 @@
 import APIBaseWrapper from './APIBaseWrapper';
-import type {Item, LegacyPaginated, PaginatedResponse} from '../types';
+import {ALL_MODES_PARAMS} from '../lib/game-mode';
+import type {ParamObject} from '../lib/query-string';
+import type {
+  GameMode,
+  Item,
+  LegacyPaginated,
+  PaginatedResponse,
+} from '../types';
 
 export type UpdateStatus = 'bought' | 'selling' | 'sold';
 export type TransactionStatus = 'buying' & UpdateStatus;
 
+export type ProfitTrackerListParams = ParamObject & {
+  /** List every Game Mode's Transactions, whatever `gameMode()` holds */
+  allModes?: boolean;
+};
+
 export default class ProfitTrackerWrapper extends APIBaseWrapper {
   getTransactions<P = LegacyPaginated>(
-    opts = {},
+    opts: ProfitTrackerListParams = {},
   ): Promise<TransactionsResponse<P>> {
     return this.client
-      .get(this.parseOptions('/profit-tracker', opts))
+      .get(this.listUrl('/profit-tracker', opts))
       .then(({data}) => data);
   }
 
@@ -42,33 +54,33 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
     return this._wrapDelete(`/profit-tracker/${id}`);
   }
 
-  getBuyingTransactions(opts = {}) {
+  getBuyingTransactions(opts: ProfitTrackerListParams = {}) {
     return this.client
-      .get(this.parseOptions('/profit-tracker/buying', opts))
+      .get(this.listUrl('/profit-tracker/buying', opts))
       .then(({data}) => data);
   }
 
-  getBoughtTransactions(opts = {}) {
+  getBoughtTransactions(opts: ProfitTrackerListParams = {}) {
     return this.client
-      .get(this.parseOptions('/profit-tracker/bought', opts))
+      .get(this.listUrl('/profit-tracker/bought', opts))
       .then(({data}) => data);
   }
 
-  getSellingTransactions(opts = {}) {
+  getSellingTransactions(opts: ProfitTrackerListParams = {}) {
     return this.client
-      .get(this.parseOptions('/profit-tracker/selling', opts))
+      .get(this.listUrl('/profit-tracker/selling', opts))
       .then(({data}) => data);
   }
 
-  getSoldTransactions(opts = {}) {
+  getSoldTransactions(opts: ProfitTrackerListParams = {}) {
     return this.client
-      .get(this.parseOptions('/profit-tracker/sold', opts))
+      .get(this.listUrl('/profit-tracker/sold', opts))
       .then(({data}) => data);
   }
 
-  getActiveTransactions(opts = {}) {
+  getActiveTransactions(opts: ProfitTrackerListParams = {}) {
     return this.client
-      .get(this.parseOptions('/profit-tracker/active-transactions', opts))
+      .get(this.listUrl('/profit-tracker/active-transactions', opts))
       .then(({data}) => data);
   }
 
@@ -84,6 +96,10 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
     return this._wrapGet('/profit-tracker/most-profitable');
   }
 
+  /**
+   * Clear the client's current Game Mode only; RuneLite import data and
+   * leaderboard entries go only when it clears the Main Game
+   */
   clear() {
     return this._wrapPost('/profit-tracker/clear');
   }
@@ -91,10 +107,21 @@ export default class ProfitTrackerWrapper extends APIBaseWrapper {
   import(transactions: ImportTransaction[]) {
     return this._wrapPost('/profit-tracker/import', {transactions});
   }
+
+  private listUrl(
+    url: string,
+    {allModes, ...opts}: ProfitTrackerListParams,
+  ): string {
+    return this.parseOptions(
+      url,
+      allModes ? {...opts, ...ALL_MODES_PARAMS} : opts,
+    );
+  }
 }
 
 export type ProfitTransaction = {
   id: string;
+  mode: GameMode;
   status: TransactionStatus;
   order: {
     itemId: number;
