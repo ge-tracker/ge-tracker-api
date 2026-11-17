@@ -23,3 +23,6 @@ export function withGameMode(url: string, mode: GameMode): string {
 
   return `${url}${url.includes('?') ? '&' : '?'}mode=${mode}`;
 }
+
+/** Asks a list for every Game Mode's rows; `all` is never a GameMode (#30) */
+export const ALL_MODES_PARAMS = {mode: 'all'} as const;
