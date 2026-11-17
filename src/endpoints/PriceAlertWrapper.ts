@@ -54,22 +54,22 @@ export default class PriceAlertWrapper extends APIBaseWrapper {
   /**
    * Get Price Alerts in the client's Game Mode, optionally for a single item
    */
-  getAlerts(itemId?: number | null): Promise<PriceAlert[]>;
+  getAlerts(itemId?: number | string | null): Promise<PriceAlert[]>;
   /**
    * Get every Game Mode's Price Alerts, whatever `gameMode()` holds, with
    * `meta.modes` listing each Game Mode
    */
   getAlerts(opts: {allModes: true}): Promise<AllModesPriceAlerts>;
   getAlerts(
-    arg: number | null | {allModes: true} = null,
+    itemIdOrOpts: number | string | null | {allModes: true} = null,
   ): Promise<PriceAlert[] | AllModesPriceAlerts> {
-    if (typeof arg === 'object' && arg?.allModes) {
+    if (typeof itemIdOrOpts === 'object' && itemIdOrOpts?.allModes) {
       const url = this.parseOptions('/price-alerts', ALL_MODES_PARAMS);
       this.onRequest('GET', url);
       return this.client.get(url).then(({data}) => data);
     }
 
-    const itemId = typeof arg === 'object' ? null : arg;
+    const itemId = typeof itemIdOrOpts === 'object' ? null : itemIdOrOpts;
     return this._wrapGet(itemId ? `/price-alerts/${itemId}` : '/price-alerts');
   }
 

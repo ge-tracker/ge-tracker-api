@@ -30,7 +30,7 @@ describe('ProfitTracker lists in every Game Mode', () => {
   });
 
   it.each([undefined, {}, {allModes: false}])(
-    'leaves URLs unchanged without allModes (%p)',
+    'appends the client’s Game Mode without allModes (%p)',
     async opts => {
       const bare = LISTS.map(([, url]) => url);
 

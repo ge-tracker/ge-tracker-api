@@ -40,11 +40,12 @@ describe('PriceAlert.getAlerts in every Game Mode', () => {
 });
 
 describe('PriceAlert.getAlerts in one Game Mode', () => {
-  it('unwraps the alerts and leaves URLs unchanged', async () => {
+  it('unwraps the alerts and appends the client’s Game Mode', async () => {
     const {api, urls} = recordingClient(BODY);
 
     const all = await api.PriceAlert.getAlerts();
     const item = await api.PriceAlert.getAlerts(1050);
+    await api.PriceAlert.getAlerts('1050');
     api.gameMode('hcw');
     await api.PriceAlert.getAlerts();
     await api.PriceAlert.getAlerts(1050);
@@ -53,6 +54,7 @@ describe('PriceAlert.getAlerts in one Game Mode', () => {
     expect(item).toEqual(BODY.data);
     expect(urls()).toEqual([
       '/price-alerts',
+      '/price-alerts/1050',
       '/price-alerts/1050',
       '/price-alerts?mode=hcw',
       '/price-alerts/1050?mode=hcw',
