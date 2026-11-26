@@ -4,6 +4,7 @@ import type {GameMode} from '../types';
 import type {GeTrackerAxios} from './client';
 
 export interface GeTrackerApi {
+  ApiKey: Endpoint.ApiKeyWrapper;
   APIUptime: Endpoint.APIUptimeWrapper;
   Calculator: Endpoint.CalculatorWrapper;
   CraftingSmithing: Endpoint.CraftingSmithingWrapper;
@@ -38,6 +39,7 @@ export interface GeTrackerApi {
 
 const createApi = (client: GeTrackerAxios): GeTrackerApi => {
   return {
+    ApiKey: new Endpoint.ApiKeyWrapper(client),
     APIUptime: new Endpoint.APIUptimeWrapper(client),
     Calculator: new Endpoint.CalculatorWrapper(client),
     CraftingSmithing: new Endpoint.CraftingSmithingWrapper(client),

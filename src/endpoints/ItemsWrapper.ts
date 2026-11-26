@@ -19,10 +19,38 @@ export default class ItemsWrapper extends APIBaseWrapper {
     return this._wrapGet(`items/search/${query}`);
   }
 
+  /**
+   * Get every item name and tag for the search box in the client's Game Mode;
+   * keep a cached copy until `meta.sum` changes
+   */
+  searchPrefetch(): Promise<SearchPrefetch> {
+    const url = 'search/prefetch';
+    this.onRequest('GET', url);
+    // not _wrapGet: it drops meta
+    return this.client.get<SearchPrefetch>(url).then(({data}) => data);
+  }
+
   getItemPeriod(itemId: number): Promise<ItemPeriod> {
     return this._wrapGet(`items/${itemId}/period`);
   }
 }
+
+export type SearchPrefetchItem = {
+  name: string;
+  item_id: number;
+  slug: string;
+};
+
+export type SearchPrefetchTag = {
+  name: string;
+  slug: string;
+};
+
+/** `meta.sum` is an md5 of `data`; it changes only when `data` does */
+export type SearchPrefetch = {
+  data: {items: SearchPrefetchItem[]; tags: SearchPrefetchTag[]};
+  meta: {sum: string};
+};
 
 export type ItemPeriod = {
   price: {
