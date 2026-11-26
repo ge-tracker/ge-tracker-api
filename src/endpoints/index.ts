@@ -1,4 +1,5 @@
 import APIBaseWrapper from './APIBaseWrapper';
+import ApiKeyWrapper from './ApiKeyWrapper';
 import APIUptimeWrapper from './APIUptimeWrapper';
 import CalculatorWrapper from './CalculatorWrapper';
 import CraftingSmithingWrapper from './CraftingSmithingWrapper';
@@ -25,6 +26,7 @@ import UserWrapper from './UserWrapper';
 
 export {
   APIBaseWrapper,
+  ApiKeyWrapper,
   APIUptimeWrapper,
   CalculatorWrapper,
   CraftingSmithingWrapper,

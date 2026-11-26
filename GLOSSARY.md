@@ -41,3 +41,25 @@ _Avoid_: DMM (except for Deadman Mode itself), season, tournament
 A permanent, members-only OSRS Game Mode on its own servers. HCW for short.
 Can run alongside an Event.
 _Avoid_: hardcore, HC (Hardcore Ironman is an account type, not a Game Mode)
+
+### API Keys
+
+**API Key**:
+The credential that authenticates a request to the API. One of three kinds:
+Internal (the website's, for a signed-in user), External (one a premium user
+creates for their own integrations) or App (the mobile app's, one per device).
+_Avoid_: token, legacy key
+
+**API Key Ability**:
+A named area of the API that an API Key may call, split into read and write,
+eg `flipping:read`. A `:write` ability also grants its `:read`.
+_Avoid_: scope, permission
+
+**Full Access API Key**:
+An API Key holding every API Key Ability, including ones added later, shown as
+the ability `*`. Every Internal and App API Key is one.
+_Avoid_: unscoped key, star key, admin key
+
+**Scoped API Key**:
+An External API Key limited to the API Key Abilities it lists.
+_Avoid_: restricted key, limited key
