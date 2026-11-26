@@ -27,7 +27,7 @@ describe('Items.searchPrefetch', () => {
   });
 
   it('rejects a 403 with the backend’s message', async () => {
-    const message = 'This API key lacks Full Access.';
+    const message = 'This API key lacks the flipping:write ability.';
     const {api} = recordingClient({message, status_code: 403}, 403);
 
     await expect(api.Items.searchPrefetch()).rejects.toMatchObject({
